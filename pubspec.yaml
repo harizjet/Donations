@@ -32,6 +32,8 @@ dependencies:
   credit_card_input_form: ^2.0.3
   credit_card_number_validator: ^1.0.4
   instant: ^0.3.2
+  charts_common: ^0.8.1
+  charts_flutter: ^0.8.1
 
 
 
@@ -46,6 +48,7 @@ dev_dependencies:
     sdk: flutter
   firebase_auth: ^0.14.0+5
   google_sign_in: ^4.4.4
+  firebase_database: 3.1.6
   font_awesome_flutter: 8.7.0
   list_wheel_scroll_view_x: ^0.0.1
   flutter_launcher_icons: any 

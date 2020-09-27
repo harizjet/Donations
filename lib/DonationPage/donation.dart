@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'payment-services.dart';
-import 'donationHistory.dart';
+import 'DonationHistory/donationHistory.dart';
 import 'donationMethod.dart';
 import 'zooOption.dart';
 import 'AlertDialog_widget.dart';

@@ -1,7 +1,6 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
-import 'existingcard.dart';
-import 'package:flushbar/flushbar.dart';
+import 'CreditMethod/existingcard.dart';
 
 class BlurryDialog2nd extends StatelessWidget {
   String title;
@@ -36,6 +35,7 @@ class BlurryDialog2nd extends StatelessWidget {
               onPressed: () {
                 Navigator.of(context).pop();
                 ExistingCardsPage.confirmation = false;
+                Existinglist.confirmdelete = false;
               },
             ),
           ],

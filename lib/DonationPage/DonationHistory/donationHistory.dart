@@ -1,18 +1,77 @@
 import 'package:flutter/material.dart';
+import 'package:firebase_database/firebase_database.dart';
+import 'databasedonation.dart';
+import 'package:progress_dialog/progress_dialog.dart';
 
 class DonationHistory extends StatefulWidget {
+  DonationHistory();
+
   @override
   _DonationHistoryState createState() => _DonationHistoryState();
 }
 
 class _DonationHistoryState extends State<DonationHistory> {
   static List<Donation> donations = [];
-  // void newpost(String text) { functionthat add the new instance
-  //   this.setState(() {
-  //     donations.add(new Donation(text, widget.name));
-  //   });
-  // }
+  Widget _body = donationLOADING();
 
+  void updateDonations() async {
+    await getAllDonations().then(
+      (donations) {
+        if (mounted)
+          setState(
+            () {
+              _DonationHistoryState.donations = donations;
+            },
+          );
+      },
+    );
+    setState(
+      () {
+        _body = donationSIAP();
+      },
+    );
+    // print(_DonationHistoryState.donations.toString());
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    updateDonations();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return _body;
+  }
+}
+
+class donationLOADING extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Align(
+        alignment: Alignment.center,
+        child: Container(
+          width: (MediaQuery.of(context).size.width),
+          height: (MediaQuery.of(context).size.height) * 0.5,
+          child: Column(
+            children: <Widget>[
+              Text(
+                'Please Wait......',
+                style: TextStyle(
+                  fontSize: 30,
+                ),
+              ),
+              CircularProgressIndicator(),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class donationSIAP extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -37,10 +96,12 @@ class NewDonation {
     String date,
     String amount,
     bool result,
-  ) {
-    _DonationHistoryState.donations.add(
-      new Donation(zoo, date, amount, result),
-    );
+    String datefully,
+  ) async {
+    var donation = Donation(zoo, date, amount, result, datefully);
+    totalDonation(donation);
+    donation.setId(await saveDonation(donation));
+    _DonationHistoryState.donations.add(donation);
   }
 }
 
@@ -131,13 +192,64 @@ class Donation {
   String Date;
   String Amount;
   bool Result;
+  String Datefully;
   String Message;
+  DatabaseReference _id;
 
-  Donation([this.Zoo, this.Date, this.Amount, this.Result]) {
+  Donation([this.Zoo, this.Date, this.Amount, this.Result, this.Datefully]) {
     if (Result == true) {
       this.Message = 'Success';
     } else {
       this.Message = 'Failed';
     }
   }
+
+  //write
+  void setId(DatabaseReference id) {
+    this._id = id;
+  }
+
+  //write
+  Map<String, dynamic> toJson() {
+    return {
+      'Zoo': this.Zoo,
+      'Date': this.Date,
+      'Amount': this.Amount,
+      'Result': this.Result,
+    };
+  }
+
+  //write
+  Map<String, dynamic> toJsonSpecial() {
+    return {
+      'Zoo': this.Zoo,
+      'Date': this.Datefully,
+      'Amount': this.Amount,
+      'Result': this.Result,
+    };
+  }
+}
+
+//read
+Donation createDonation(record) {
+  Map<String, dynamic> attributes = {
+    'Zoo': '',
+    'Date': '',
+    'Amount': '',
+    'Result': '',
+  };
+
+  record.forEach(
+    (key, value) => {
+      attributes[key] = value,
+    },
+  );
+
+  Donation donation = new Donation(
+    attributes['Zoo'],
+    attributes['Date'],
+    attributes['Amount'],
+    attributes['Result'],
+  );
+  return donation;
 }

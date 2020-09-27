@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../DictionaryPage/animaldict.dart';
 import '../DonationPage/donation.dart';
 import '../Test/test.dart';
+import '../Graph/graph.dart';
 
 class NavDrawer extends StatelessWidget {
   @override
@@ -47,6 +48,14 @@ class NavDrawer extends StatelessWidget {
             onTap: () => {
               Navigator.push(context,
                   MaterialPageRoute(builder: (context) => DonationPage()))
+            },
+          ),
+          ListTile(
+            leading: Icon(Icons.linear_scale),
+            title: Text('Donation Graph'),
+            onTap: () => {
+              Navigator.push(
+                  context, MaterialPageRoute(builder: (context) => GraphPage()))
             },
           ),
           ListTile(

@@ -1,15 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:ztour/DonationPage/existingcard.dart';
-import 'payment-services.dart';
+import 'CreditMethod/existingcard.dart';
+import 'CreditMethod/payment-services.dart';
 import 'package:carousel_pro/carousel_pro.dart';
-import 'package:flutter_credit_card/flutter_credit_card.dart';
-import 'package:ztour/DonationPage/payment-services.dart';
 import 'AlertDialog2nd_widget.dart';
 import 'package:intl/intl.dart';
-import 'existingcard.dart';
-import 'donationHistory.dart';
-import 'CardForm.dart';
-import 'package:flushbar/flushbar.dart';
+import 'DonationHistory/donationHistory.dart';
+import 'CreditMethod/cardForm.dart';
 import 'AlertDialog_widget.dart';
 
 class DonationMethod extends StatefulWidget {
@@ -100,6 +96,30 @@ class _DonationMethodState extends State<DonationMethod> {
   void initState() {
     super.initState();
     StripeService.init();
+  }
+
+  Future findresult() async {
+    var result;
+    do {
+      result = await Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => ExistingCardsPage(
+            widget.amountValueTransaction,
+            widget.zooName,
+          ),
+        ),
+      );
+      if (result == '') {
+        setState(() {
+          this.creditSelected = false;
+        });
+      }
+      if (result != null) {
+        break;
+      }
+    } while (result != null || result != '');
+    return result;
   }
 
   @override
@@ -193,23 +213,16 @@ class _DonationMethodState extends State<DonationMethod> {
                                     bankSelected = false;
                                     creditSelected = false;
                                     this.cardNumber = '';
-
-                                    final result = await Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                        builder: (context) => ExistingCardsPage(
-                                          widget.amountValueTransaction,
-                                          widget.zooName,
-                                        ),
-                                      ),
-                                    );
+                                    String result = await findresult();
 
                                     setState(
                                       () {
                                         this.cardNumber = result;
                                       },
                                     );
-                                    if (this.cardNumber != null)
+
+                                    if (this.cardNumber != null &&
+                                        this.cardNumber != '')
                                       this.creditSelected = true;
                                   },
                                 ),
@@ -646,10 +659,12 @@ class _DonationMethodState extends State<DonationMethod> {
                     time.millisecond,
                     time.microsecond);
                 NewDonation.newdonation(
-                    '${widget.zooName}',
-                    '${DateFormat('yyyy-MM-dd').format(now)}  ${DateFormat.jm().format(now)}',
-                    'RM ${(int.parse(widget.amountValueTransaction) / 100).toStringAsFixed(2)}',
-                    ExistingCardsPage.confirmation);
+                  '${widget.zooName}',
+                  '${DateFormat('yyyy-MM-dd').format(now)}  ${DateFormat.jm().format(now)}',
+                  'RM ${(int.parse(widget.amountValueTransaction) / 100).toStringAsFixed(2)}',
+                  ExistingCardsPage.confirmation,
+                  '${DateFormat('yyyy-MM-dd hh:mm').format(new DateTime.fromMillisecondsSinceEpoch(1558432747 * 1000))}',
+                );
               }
             },
             child: Text(

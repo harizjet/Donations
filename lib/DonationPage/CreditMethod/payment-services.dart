@@ -1,12 +1,7 @@
-import 'package:flutter/material.dart';
 import 'package:stripe_payment/stripe_payment.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'package:flutter/services.dart';
-import 'AlertDialog2nd_widget.dart';
-import 'existingcard.dart';
-import 'package:progress_dialog/progress_dialog.dart';
-import 'cardForm.dart';
 
 class StripeTransactionResponse {
   String message;
@@ -31,11 +26,8 @@ class StripeService {
   static init() {
     StripePayment.setOptions(
       StripeOptions(
-        publishableKey:
-            'pk_test_51HT9DKBkpcFYD0ee48ENvkDhYMBwDbVCR9GZmF85QScBob4EpD9bSpF9SiWZHmijXjJMdbI8ixoNffFWUc7BE9dv002m8XAsWk',
-        merchantId: 'Test',
-        androidPayMode: 'Test',
-      ),
+          publishableKey:
+              'pk_test_51HT9DKBkpcFYD0ee48ENvkDhYMBwDbVCR9GZmF85QScBob4EpD9bSpF9SiWZHmijXjJMdbI8ixoNffFWUc7BE9dv002m8XAsWk'),
     );
   }
 

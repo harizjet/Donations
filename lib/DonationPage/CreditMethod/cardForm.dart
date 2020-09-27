@@ -1,13 +1,8 @@
-import 'dart:io';
-import 'package:credit_card_input_form/model/card_info.dart';
-import 'package:flutter_credit_card/flutter_credit_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flushbar/flushbar.dart';
 import 'package:credit_card_input_form/credit_card_input_form.dart';
-import 'AlertDialog3rd.dart';
+import '../AlertDialog3rd.dart';
 import 'existingcard.dart';
-
-import 'package:credit_card_number_validator/credit_card_number_validator.dart';
 
 class CardForm extends StatefulWidget {
   @override
@@ -64,7 +59,7 @@ class _CardFormState extends State<CardForm> {
         )..show(context);
 
         NewCard.newcard(_CardFormState.cardNUMBER, _CardFormState.valiDATE,
-            _CardFormState.nAME, _CardFormState.cVV, false, false);
+            _CardFormState.nAME, _CardFormState.cVV);
       } else {
         Flushbar(
           icon: Icon(
@@ -202,53 +197,56 @@ class _CardFormState extends State<CardForm> {
   @override
   Widget build(BuildContext context) {
     _CardFormState.validornot = true;
-    return MaterialApp(
-      home: Scaffold(
-        body: SafeArea(
-          child: AnimatedContainer(
-            duration: Duration(milliseconds: 300),
-            child: Container(
-              color: Colors.yellow[200],
-              alignment: Alignment.topCenter,
-              padding: EdgeInsets.fromLTRB(0, 40, 0, 0),
-              child: CreditCardInputForm(
-                showResetButton: false,
-                onStateChange: (currentState, cardInfo) async {
-                  try {
-                    if (currentState.toString() ==
-                        'InputState.DONE') if (creditCardValidator(
-                            cardInfo.cardNumber) ==
-                        false) {
-                      _CardFormState.validornot = false;
-                    }
-                    if (currentState.toString() ==
-                        'InputState.DONE') if (_CardFormState.validateDate(
-                            cardInfo.validate) ==
-                        false) {
-                      _CardFormState.validornot = false;
-                    }
-                    if (currentState.toString() ==
-                        'InputState.DONE') if (_CardFormState.validateCVV(
-                            cardInfo.cvv) ==
-                        false) {
-                      _CardFormState.validornot = false;
-                    }
-                  } catch (err) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Card Form'),
+        centerTitle: true,
+        backgroundColor: Colors.orangeAccent,
+      ),
+      body: SafeArea(
+        child: AnimatedContainer(
+          duration: Duration(milliseconds: 300),
+          child: Container(
+            color: Colors.yellow[200],
+            alignment: Alignment.topCenter,
+            padding: EdgeInsets.fromLTRB(0, 40, 0, 0),
+            child: CreditCardInputForm(
+              showResetButton: false,
+              onStateChange: (currentState, cardInfo) async {
+                try {
+                  if (currentState.toString() ==
+                      'InputState.DONE') if (creditCardValidator(
+                          cardInfo.cardNumber) ==
+                      false) {
                     _CardFormState.validornot = false;
                   }
-
-                  if (currentState.toString() == 'InputState.DONE') {
-                    cardconfirmation(context);
-                    _CardFormState.cardNUMBER = cardInfo.cardNumber;
-                    _CardFormState.valiDATE = cardInfo.validate;
-                    _CardFormState.nAME = cardInfo.cvv;
-                    _CardFormState.cVV = cardInfo.cvv;
+                  if (currentState.toString() ==
+                      'InputState.DONE') if (_CardFormState.validateDate(
+                          cardInfo.validate) ==
+                      false) {
+                    _CardFormState.validornot = false;
                   }
-                },
-                customCaptions: customCaptions,
-                frontCardDecoration: cardDecoration,
-                backCardDecoration: cardDecoration,
-              ),
+                  if (currentState.toString() ==
+                      'InputState.DONE') if (_CardFormState.validateCVV(
+                          cardInfo.cvv) ==
+                      false) {
+                    _CardFormState.validornot = false;
+                  }
+                } catch (err) {
+                  _CardFormState.validornot = false;
+                }
+
+                if (currentState.toString() == 'InputState.DONE') {
+                  cardconfirmation(context);
+                  _CardFormState.cardNUMBER = cardInfo.cardNumber;
+                  _CardFormState.valiDATE = cardInfo.validate;
+                  _CardFormState.nAME = cardInfo.cvv;
+                  _CardFormState.cVV = cardInfo.cvv;
+                }
+              },
+              customCaptions: customCaptions,
+              frontCardDecoration: cardDecoration,
+              backCardDecoration: cardDecoration,
             ),
           ),
         ),
