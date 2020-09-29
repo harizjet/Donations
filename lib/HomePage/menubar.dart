@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:ztour/Registrationform/numberregistration.dart';
+import 'package:ztour/main.dart';
 import '../DictionaryPage/animaldict.dart';
 import '../DonationPage/donation.dart';
 import '../Test/test.dart';
 import '../Graph/graph.dart';
+import '../DictionaryPage/Animal_Dictionary_Page/home.dart';
+import '../Registrationform/formregistration.dart';
+import '../Registrationform/numberregistration.dart';
 
 class NavDrawer extends StatelessWidget {
   @override
@@ -35,11 +40,27 @@ class NavDrawer extends StatelessWidget {
             onTap: () => {Navigator.of(context).pop()},
           ),
           ListTile(
+            leading: Icon(Icons.pages),
+            title: Text('Registration form'),
+            onTap: () => {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => RegistrationForm()))
+            },
+          ),
+          ListTile(
+            leading: Icon(Icons.live_tv),
+            title: Text('Registration Number'),
+            onTap: () => {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => RegistrationNumber()))
+            },
+          ),
+          ListTile(
             leading: Icon(Icons.book),
             title: Text('Animal Dictionary'),
             onTap: () => {
               Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => Animaldict()))
+                  MaterialPageRoute(builder: (context) => AnimalHomePage()))
             },
           ),
           ListTile(

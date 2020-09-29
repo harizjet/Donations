@@ -6,6 +6,7 @@ final databaseReference = FirebaseDatabase.instance.reference();
 
 final FirebaseAuth auth = FirebaseAuth.instance;
 
+//get user uid
 inputData() async {
   final FirebaseUser user = await auth.currentUser();
   return user.uid;
