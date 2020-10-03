@@ -1,0 +1,88 @@
+[
+    {
+        "1": "Orangutan live on only two islands in the wild - which are they?",
+        "2": "The Malayan Tiger has been designated as having which status by the IUCN in 2015?",
+        "3": "What is the normal habitat of the Malayan pangolin?",
+        "4": "Which is NOT a characteristic of birds?",
+        "5": "'Darwin Finches' refers to a group of _________.",
+        "6": "Which of these land animals moves most slowly?",
+        "7": "Which animal is the only flying mammal?",
+        "8": "Which bird lays the largest eggs?",
+        "9": "What do baby mammals drink until they can find their own food?",
+        "10": "Adult amphibians breathe with their _________."
+    },
+    {
+        "1": {
+            "a": "pp",
+            "b": "ppp",
+            "c": "3p",
+            "d": "p3"
+        },
+        "2": {
+            "a": "Threatened",
+            "b": "Vulnerable",
+            "c": "Critically endangered",
+            "d": "Near threatened"
+        },
+        "3": {
+            "a": "Water",
+            "b": "Trees",
+            "c": "Underground",
+            "d": "Beaches"
+        },
+        "4": {
+            "a": "Feathers",
+            "b": "Wings",
+            "c": "Beak",
+            "d": "Gills"
+        },
+        "5": {
+            "a": "Fishes",
+            "b": "Lizards",
+            "c": "Birds",
+            "d": "Amphibians"
+        },
+        "6": {
+            "a": "Snail",
+            "b": "Turtle",
+            "c": "Three-toed sloth",
+            "d": "Manatee"
+        },
+        "7": {
+            "a": "Bat",
+            "b": "Flying squirrel",
+            "c": "Albatross",
+            "d": "Hummingbird"
+        },
+        "8": {
+            "a": "Penguin",
+            "b": "Ostrich",
+            "c": "Parrot",
+            "d": "Bird-of-paradise"
+        },
+        "9": {
+            "a": "Water",
+            "b": "Hot chocolate",
+            "c": "Orange juice",
+            "d": "Milk from their mothers"
+        },
+        "10": {
+            "a": "Gills",
+            "b": "Feet",
+            "c": "Lungs and skin",
+            "d": "Mouth"
+        }
+    },
+    {
+        "1": "ppp",
+        "2": "Critically endangered",
+        "3": "Trees",
+        "4": "Gills",
+        "5": "Birds",
+        "6": "Three-toed sloth",
+        "7": "Bat",
+        "8": "Ostrich",
+        "9": "Milk from their mothers",
+        "10": "Lungs and skin"
+    }
+]

@@ -1,0 +1,88 @@
+[
+    {
+        "1": "What is the largest land animal in the world?",
+        "2": "Which of this animals are mammals? ",
+        "3": "Which of these food items is a favourite of the sun bear?",
+        "4": "Which of the following are warm-blooded?",
+        "5": "What kind of animal lives mainly on bamboo shoots?",
+        "6": "What name is given to buffalo's son? ",
+        "7": "Which bird can fly backwards? ",
+        "8": "Which amongs the following is the largest mammal?",
+        "9": "Which of the following animal has four legs, horn and tail on its body?",
+        "10": "What is the similarity between cow and goat?"
+    },
+    {
+        "1": {
+            "a": "Elephant",
+            "b": "Dinasour",
+            "c": "Giraffe",
+            "d": "Buffalo"
+        },
+        "2": {
+            "a": "Squids",
+            "b": "Snake",
+            "c": "Dolphin",
+            "d": "Bird"
+        },
+        "3": {
+            "a": "Coffee beans",
+            "b": "Honey",
+            "c": "Sugar Cane",
+            "d": "Tea leaves"
+        },
+        "4": {
+            "a": "Whale",
+            "b": "Whale sharks",
+            "c": "Alytes",
+            "d": "Frog"
+        },
+        "5": {
+            "a": "Rhinoceros",
+            "b": "Kangaroo",
+            "c": "Deer",
+            "d": "Panda bear"
+        },
+        "6": {
+            "a": "cub",
+            "b": "chick",
+            "c": "kitten",
+            "d": "calf"
+        },
+        "7": {
+            "a": "hummingbird",
+            "b": "albatross",
+            "c": "owl",
+            "d": "kingfisher"
+        },
+        "8": {
+            "a": "Dinasour",
+            "b": "Tiger",
+            "c": "Rhinoceros",
+            "d": "Whale"
+        },
+        "9": {
+            "a": "Tiger",
+            "b": "Cow",
+            "c": "Butterfly",
+            "d": "Bird"
+        },
+        "10": {
+            "a": "have beak",
+            "b": "have wings",
+            "c": "have horn",
+            "d": "have scales"
+        }
+    },
+    {
+        "1": "Elephant",
+        "2": "Dolphin",
+        "3": "Honey",
+        "4": "Whale",
+        "5": "Panda bear",
+        "6": "calf",
+        "7": "hummingbird",
+        "8": "Whale",
+        "9": "Cow",
+        "10": "have horn"
+    }
+]

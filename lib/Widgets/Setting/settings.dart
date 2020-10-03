@@ -1,0 +1,280 @@
+import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+//import 'package:cached_network_image/cached_network_image.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:ztour_mobile/Resources/assets.dart';
+import 'package:ztour_mobile/Widgets/Setting/language.dart';
+import 'package:ztour_mobile/Pages/Login_Signup_Page/user_profile.dart';
+
+class SettingsOnePage extends StatefulWidget {
+  static final String path = "lib/Setting/settings.dart";
+
+  @override
+  _SettingsOnePageState createState() => _SettingsOnePageState();
+}
+
+class _SettingsOnePageState extends State<SettingsOnePage> {
+  bool _dark;
+
+  @override
+  void initState() {
+    initUser();
+    super.initState();
+    _dark = false;
+  }
+
+  Brightness _getBrightness() {
+    return _dark ? Brightness.dark : Brightness.light;
+  }
+
+  final FirebaseAuth _auth = FirebaseAuth.instance;
+  FirebaseUser user;
+
+  initUser() async {
+    user = await _auth.currentUser();
+    setState(() {});
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Theme(
+      isMaterialAppTheme: true,
+      data: ThemeData(
+        brightness: _getBrightness(),
+      ),
+      child: Scaffold(
+        backgroundColor: _dark ? null : Colors.white,
+        appBar: AppBar(
+          elevation: 0,
+          brightness: _getBrightness(),
+          iconTheme: IconThemeData(color: _dark ? Colors.white : Colors.black),
+          backgroundColor: Colors.transparent,
+          //backgroundColor: Colors.blueGrey,
+          title: Text(
+            'Settings',
+            style: TextStyle(color: _dark ? Colors.white : Colors.black),
+          ),
+          actions: <Widget>[
+            IconButton(
+              icon: Icon(FontAwesomeIcons.moon),
+              onPressed: () {
+                setState(() {
+                  _dark = !_dark;
+                });
+              },
+            )
+          ],
+        ),
+        body: Stack(
+          fit: StackFit.expand,
+          children: <Widget>[
+            SingleChildScrollView(
+              padding: const EdgeInsets.all(5.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Card(
+                    elevation: 8.0,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10.0)),
+                    color: Colors.purple,
+                    child: ListTile(
+                      onTap: () {
+                        //open edit profile
+                      },
+                      title: Text(
+                        user.email,
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                      leading: CircleAvatar(
+                        backgroundImage: NetworkImage(
+                            'https://i.pinimg.com/originals/6d/cd/94/6dcd94c7c4bf4800648ef7cbe0113c33.gif'),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 20.0),
+                  Card(
+                    elevation: 4.0,
+                    margin: const EdgeInsets.fromLTRB(32.0, 8.0, 32.0, 16.0),
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10.0)),
+                    child: Column(
+                      children: <Widget>[
+                        ListTile(
+                          leading: Icon(
+                            Icons.people_outline,
+                            color: Colors.purple,
+                          ),
+                          title: Text("Account"),
+                          trailing: Icon(Icons.keyboard_arrow_right),
+                          onTap: () => Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (_) => Profile(),
+                              )),
+                          //open account
+                        ),
+                        _buildDivider(),
+                        ListTile(
+                          leading: Icon(
+                            FontAwesomeIcons.language,
+                            color: Colors.purple,
+                          ),
+                          title: Text("Language"),
+                          subtitle: Text("English US"),
+                          trailing: Icon(Icons.keyboard_arrow_right),
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => LanguagePage()));
+                          },
+                        ),
+                        _buildDivider(),
+                        ListTile(
+                          leading: Icon(
+                            Icons.notifications,
+                            color: Colors.purple,
+                          ),
+                          title: Text("Notifications"),
+                          trailing: Icon(Icons.keyboard_arrow_right),
+                          onTap: () {
+                            //open notification setting
+                          },
+                        ),
+                        _buildDivider(),
+                        ListTile(
+                          leading: Icon(
+                            Icons.lock_outline,
+                            color: Colors.purple,
+                          ),
+                          title: Text("Privacy and Security"),
+                          trailing: Icon(Icons.keyboard_arrow_right),
+                          onTap: () {
+                            //open privacy and security
+                          },
+                        ),
+                        _buildDivider(),
+                        ListTile(
+                          leading: Icon(
+                            Icons.help_outline,
+                            color: Colors.purple,
+                          ),
+                          title: Text("Help & Support"),
+                          trailing: Icon(Icons.keyboard_arrow_right),
+                          onTap: () {
+                            //open change location
+                          },
+                        ),
+                      ],
+                    ),
+                  ),
+                  Card(
+                    elevation: 4.0,
+                    margin: const EdgeInsets.fromLTRB(32.0, 8.0, 32.0, 16.0),
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10.0)),
+                    child: Column(
+                      children: <Widget>[
+                        ListTile(
+                          leading: Icon(
+                            Icons.exit_to_app,
+                            color: Colors.purple,
+                          ),
+                          title: Text("Logout",
+                              style: TextStyle(
+                                color: Colors.red,
+                              )),
+                          trailing: Icon(Icons.keyboard_arrow_right),
+                          onTap: () {},
+                        ),
+                      ],
+                    ),
+                  ),
+                  const SizedBox(height: 100.0),
+                  /*Text(
+                    "Notification Settings",
+                    style: TextStyle(
+                      fontSize: 20.0,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.indigo,
+                    ),
+                  ),
+                  SwitchListTile(
+                    activeColor: Colors.purple,
+                    contentPadding: const EdgeInsets.all(0),
+                    value: true,
+                    title: Text("Received notification"),
+                    onChanged: (val) {},
+                  ),
+                  SwitchListTile(
+                    activeColor: Colors.purple,
+                    contentPadding: const EdgeInsets.all(0),
+                    value: false,
+                    title: Text("Received newsletter"),
+                    onChanged: null,
+                  ),
+                  SwitchListTile(
+                    activeColor: Colors.purple,
+                    contentPadding: const EdgeInsets.all(0),
+                    value: true,
+                    title: Text("Received Offer Notification"),
+                    onChanged: (val) {},
+                  ),
+                  SwitchListTile(
+                    activeColor: Colors.purple,
+                    contentPadding: const EdgeInsets.all(0),
+                    value: true,
+                    title: Text("Received App Updates"),
+                    onChanged: null,
+                  ),*/
+                  const SizedBox(height: 100.0),
+                ],
+              ),
+            ),
+            /*Positioned(
+              bottom: -20,
+              left: -20,
+              child: Container(
+                width: 80,
+                height: 80,
+                alignment: Alignment.center,
+                decoration: BoxDecoration(
+                  color: Colors.purple,
+                  shape: BoxShape.circle,
+                ),
+              ),
+            ),
+            Positioned(
+              bottom: 00,
+              left: 00,
+              child: IconButton(
+                icon: Icon(
+                  FontAwesomeIcons.powerOff,
+                  color: Colors.white,
+                ),
+                onPressed: () {
+                  //log out
+                },
+              ),
+            )*/
+          ],
+        ),
+      ),
+    );
+  }
+
+  Container _buildDivider() {
+    return Container(
+      margin: const EdgeInsets.symmetric(
+        horizontal: 10.0,
+      ),
+      width: double.infinity,
+      height: 1.0,
+      color: Colors.grey.shade400,
+    );
+  }
+}

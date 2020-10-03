@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'LoginPage/loginPage.dart';
+
+import 'Pages/Login_Signup_Page/login_page.dart';
 
 void main() {
   runApp(MyApp());
@@ -15,7 +16,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.orange,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: LoginPage(),
+      home: AuthPage(),
     );
   }
 }

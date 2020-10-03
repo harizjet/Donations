@@ -1,42 +1,42 @@
 {
   "project_info": {
-    "project_number": "843751537509",
-    "firebase_url": "https://messageapp-7b112.firebaseio.com",
-    "project_id": "messageapp-7b112",
-    "storage_bucket": "messageapp-7b112.appspot.com"
+    "project_number": "433012681281",
+    "firebase_url": "https://ztour-mobile-201c1.firebaseio.com",
+    "project_id": "ztour-mobile-201c1",
+    "storage_bucket": "ztour-mobile-201c1.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:843751537509:android:417aa8efd40b2ab677ff8c",
+        "mobilesdk_app_id": "1:433012681281:android:feb78f1096e001e95f34c0",
         "android_client_info": {
-          "package_name": "com.example.ztour"
+          "package_name": "com.example.ztour_mobile"
         }
       },
       "oauth_client": [
         {
-          "client_id": "843751537509-uelq07lffn53o0ivorcbsf98mhbmp3jo.apps.googleusercontent.com",
+          "client_id": "433012681281-8qmg58k223nh9btfqqt0khaqkfsk6473.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.example.ztour",
-            "certificate_hash": "a6d51d45128b38c353ddd14c0a89f7555499240e"
+            "package_name": "com.example.ztour_mobile",
+            "certificate_hash": "da39a3ee5e6b4b0d3255bfef95601890afd80709"
           }
         },
         {
-          "client_id": "843751537509-oa4sboeb0jg3k1b6icsj8l4o8jk1eg4f.apps.googleusercontent.com",
+          "client_id": "433012681281-t10bu3vcu82j6j8n6hrgnhh3dmmuni0j.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCRbEN-9BbqPdZxxpM7di7BwZbn3ay2By4"
+          "current_key": "AIzaSyAHx5wTi2O-VedZPfX6bxrP12LoPp3dzvY"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "843751537509-oa4sboeb0jg3k1b6icsj8l4o8jk1eg4f.apps.googleusercontent.com",
+              "client_id": "433012681281-t10bu3vcu82j6j8n6hrgnhh3dmmuni0j.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
@@ -46,3 +46,4 @@
   ],
   "configuration_version": "1"
 }
+

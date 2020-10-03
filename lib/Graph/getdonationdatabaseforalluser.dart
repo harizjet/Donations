@@ -8,7 +8,7 @@ Future<List<TimeSeriesDonation>> getAllDonationforallUsers() async {
   List<TimeSeriesDonation> donations = [];
 
   DataSnapshot dataSnapshot =
-      await databaseReference.child('donation/totalDonation').once();
+      await databaseReference.child('Donations/totalDonation').once();
 
   if (dataSnapshot.value != null) {
     dataSnapshot.value.forEach(

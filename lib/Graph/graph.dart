@@ -1,7 +1,7 @@
 import 'package:charts_flutter/flutter.dart' as charts;
 import 'package:flutter/material.dart';
-import '../DonationPage/DonationHistory/donationHistory.dart';
 import 'getdonationdatabaseforalluser.dart';
+import 'package:intl/intl.dart';
 
 class GraphPage extends StatefulWidget {
   @override
@@ -48,13 +48,30 @@ class _GraphPageState extends State<GraphPage> {
         },
       );
     }
+    cumulative();
+    seriesList = createchartdata();
+    // print(listdonationsdata.toString());
   }
 
   void cumulative() async {
     for (int x = _GraphPageState.listdonationsdata.length - 2; x >= 0; x--) {
+      print(_GraphPageState.listdonationsdata[x].time);
       _GraphPageState.listdonationsdata[x].donation =
           (_GraphPageState.listdonationsdata[x].donation +
               _GraphPageState.listdonationsdata[x + 1].donation);
+    }
+    for (int x = _GraphPageState.listdonationsdata.length - 2; x >= 0; x--) {
+      if (DateFormat('yyyy-MM-dd')
+              .format(_GraphPageState.listdonationsdata[x].time) ==
+          DateFormat('yyyy-MM-dd')
+              .format(_GraphPageState.listdonationsdata[x + 1].time)) {
+        _GraphPageState.listdonationsdata.removeAt(x + 1);
+      }
+    }
+    for (int x = 0; x < _GraphPageState.listdonationsdata.length; x++) {
+      _GraphPageState.listdonationsdata[x].time = DateTime.parse(
+          DateFormat('yyyy-MM-dd')
+              .format(_GraphPageState.listdonationsdata[x].time));
     }
   }
 
@@ -62,8 +79,6 @@ class _GraphPageState extends State<GraphPage> {
   void initState() {
     super.initState();
     updateData();
-    cumulative();
-    seriesList = createchartdata();
   }
 
   //create data
