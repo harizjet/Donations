@@ -17,6 +17,7 @@ class NavDrawer extends StatefulWidget {
 class _NavDrawerState extends State<NavDrawer> {
   final FirebaseAuth _auth = FirebaseAuth.instance;
   FirebaseUser user;
+  String email = '';
 
   @override
   void initState() {
@@ -87,7 +88,7 @@ class _NavDrawerState extends State<NavDrawer> {
                           fontWeight: FontWeight.w600),
                     ),
                     Text(
-                      user.email,
+                      this.email,
                       style: TextStyle(color: active, fontSize: 16.0),
                     ),
                     SizedBox(height: 30.0),
