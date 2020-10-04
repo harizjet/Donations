@@ -126,9 +126,10 @@ class _DonationMethodState extends State<DonationMethod> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Donation Method'),
+        backgroundColor: Colors.orange,
+        elevation: 0,
+        title: Text("Donation Method"),
         centerTitle: true,
-        backgroundColor: Colors.green,
       ),
       body: new Builder(
         builder: (BuildContext context) {
@@ -662,10 +663,10 @@ class _DonationMethodState extends State<DonationMethod> {
 
                 NewDonation.newdonation(
                   '${widget.zooName}',
-                  '${DateFormat('yyyy-MM-dd hh:mm').format(new DateTime.fromMillisecondsSinceEpoch(time.millisecondsSinceEpoch))}',
+                  '${DateFormat('yyyy-MM-dd hh:mm').format(new DateTime.fromMillisecondsSinceEpoch(time.millisecondsSinceEpoch + 28800000))}',
                   'RM ${(int.parse(widget.amountValueTransaction) / 100).toStringAsFixed(2)}',
                   ExistingCardsPage.confirmation,
-                  '${DateFormat('yyyy-MM-dd hh:mm').format(new DateTime.fromMillisecondsSinceEpoch(time.millisecondsSinceEpoch))}',
+                  '${DateFormat('yyyy-MM-dd hh:mm').format(new DateTime.fromMillisecondsSinceEpoch(time.millisecondsSinceEpoch + 28800000))}',
                 );
               }
             },

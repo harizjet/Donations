@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:ztour_mobile/Pages/Quiz_Game_Page//homepage.dart';
+import 'package:ztour_mobile/Pages/Quiz_Game_Page/quizhomepage.dart';
 
 class resultpage extends StatefulWidget {
   int marks;
@@ -22,7 +22,7 @@ class _resultpageState extends State<resultpage> {
   void initState() {
     if (marks < 20) {
       image = images[2];
-      message = "You Should Try Hard..\n" + "You Scored: $marks";
+      message = "You Should Try Harder..\n" + "You Scored: $marks";
     } else if (marks < 35) {
       image = images[1];
       message = "You Can Do Better..\n" + "You Scored: $marks";
@@ -39,79 +39,78 @@ class _resultpageState extends State<resultpage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         backgroundColor: Color(0xFFF7C229),
-        title: Text(
-          "Result",
+        title: Center(
+          child: Text(
+            "Result",
+          ),
         ),
       ),
-      body: Column(
+      body: Stack(
         children: <Widget>[
-          Expanded(
-            flex: 8,
-            child: Material(
-              elevation: 10.0,
-              child: Container(
-                child: Column(
-                  children: <Widget>[
-                    Material(
-                      child: Container(
-                        width: 300.0,
-                        height: 300.0,
-                        child: ClipRect(
-                          child: Image(
-                            image: AssetImage(
-                              image,
-                            ),
+          Material(
+            elevation: 10.0,
+            child: Container(
+              child: Column(
+                children: <Widget>[
+                  Material(
+                    child: Container(
+                      width: 300.0,
+                      height: 300.0,
+                      child: ClipRect(
+                        child: Image(
+                          image: AssetImage(
+                            image,
                           ),
                         ),
                       ),
                     ),
-                    Padding(
-                        padding: EdgeInsets.symmetric(
-                          vertical: 5.0,
-                          horizontal: 15.0,
-                        ),
-                        child: Center(
-                          child: Text(
-                            message,
-                            style: TextStyle(
-                              fontSize: 18.0,
-                              fontFamily: "Quando",
-                            ),
+                  ),
+                  Padding(
+                      padding: EdgeInsets.symmetric(
+                        vertical: 5.0,
+                        horizontal: 15.0,
+                      ),
+                      child: Center(
+                        child: Text(
+                          message,
+                          style: TextStyle(
+                            fontSize: 18.0,
+                            fontFamily: "Quando",
                           ),
-                        )),
-                  ],
-                ),
+                        ),
+                      )),
+                ],
               ),
             ),
           ),
-          Expanded(
-            flex: 4,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                OutlineButton(
-                  onPressed: () {
-                    Navigator.of(context).pushReplacement(MaterialPageRoute(
-                      builder: (context) => homepage(),
-                    ));
-                  },
-                  child: Text(
-                    "Continue",
-                    style: TextStyle(
-                      fontSize: 18.0,
-                    ),
+          Align(
+            alignment: Alignment.bottomCenter,
+            child: Padding(
+              padding: EdgeInsets.fromLTRB(0, 0, 0, 70),
+              child: OutlineButton(
+                onPressed: () {
+                  // Navigator.of(context).pushReplacement(MaterialPageRoute(
+                  //   builder: (context) => quizhomepage(),
+                  // ));
+                  Navigator.of(context).pop();
+                },
+                child: Text(
+                  "Continue",
+                  style: TextStyle(
+                    fontSize: 18.0,
                   ),
-                  padding: EdgeInsets.symmetric(
-                    vertical: 10.0,
-                    horizontal: 25.0,
-                  ),
-                  borderSide: BorderSide(width: 3.0, color: Colors.indigo),
-                  splashColor: Colors.indigoAccent,
-                )
-              ],
+                ),
+                padding: EdgeInsets.symmetric(
+                  vertical: 10.0,
+                  horizontal: 25.0,
+                ),
+                borderSide: BorderSide(width: 3.0, color: Colors.indigo),
+                splashColor: Colors.indigoAccent,
+              ),
             ),
-          )
+          ),
         ],
       ),
     );

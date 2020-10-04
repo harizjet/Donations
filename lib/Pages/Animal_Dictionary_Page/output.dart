@@ -4,40 +4,41 @@ import 'package:flutter_custom_clippers/flutter_custom_clippers.dart';
 class Output extends StatefulWidget {
   Map animalnames = {};
 
-  
-
   Output(this.animalnames);
 
   @override
   _OutputState createState() => _OutputState();
 }
 
-
-
 class _OutputState extends State<Output> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        leading: new IconButton(
+            icon: new Icon(Icons.arrow_back),
+            onPressed: () {
+              Navigator.pop(context, true);
+            }),
         title: Text('Animal Dictionary'),
         centerTitle: true,
         backgroundColor: Colors.orange,
       ),
       body:
-      //Stack(
-      //    children: <Widget>[
-      //       ClipPath(
-      //         clipper: WaveClipperTwo(),
-      //         child: Container(
-      //           decoration: BoxDecoration(color: Colors.orange),
-      //           height: 200,
-      //         ),
-      //       ),
-       ListView.builder(
+          //Stack(
+          //    children: <Widget>[
+          //       ClipPath(
+          //         clipper: WaveClipperTwo(),
+          //         child: Container(
+          //           decoration: BoxDecoration(color: Colors.orange),
+          //           height: 200,
+          //         ),
+          //       ),
+          ListView.builder(
         itemCount: widget.animalnames.length,
         itemBuilder: (context, index) {
           var column = widget.animalnames.keys.elementAt(index);
-        
+
           return Container(
             padding: EdgeInsets.all(15),
             color: Colors.yellow[50],
@@ -45,7 +46,7 @@ class _OutputState extends State<Output> {
               children: <Widget>[
                 if (index == 0)
                   Align(
-                    alignment: Alignment(0.0,0.0),
+                    alignment: Alignment(0.0, 0.0),
                     child: RichText(
                       text: TextSpan(
                         text: widget.animalnames[column].toUpperCase(),
@@ -66,33 +67,31 @@ class _OutputState extends State<Output> {
                       borderRadius: BorderRadius.circular(20),
                       border: Border.all(width: 4, color: Colors.orange),
                       image: DecorationImage(
-                      image: NetworkImage(
-                         '${widget.animalnames[column].trim()}'),
-                      fit: BoxFit.fill),
-                ),
+                          image: NetworkImage(
+                              '${widget.animalnames[column].trim()}'),
+                          fit: BoxFit.fill),
+                    ),
                     // child: FittedBox(
                     //   child:
                     //       Image.network('${widget.animalnames[column].trim()}'),
                     // ),
                   ),
-                  
                 if (index != 1 && index != 0)
-         
                   Container(
                     decoration: myBoxDecoration(),
                     padding: EdgeInsets.fromLTRB(10, 5, 10, 5),
                     child: Row(
                       children: <Widget>[
-                       SizedBox(height: 50),
-                      //  Expanded(
-                      //     child: ListTile(
-                      //     title: Text("$column"),
-                      //     trailing: Text(
-                      //      "${widget.animalnames[column]}",
-                      //       //style: bold,
-                      //     ),
-                      //   ),
-                      //  )
+                        SizedBox(height: 50),
+                        //  Expanded(
+                        //     child: ListTile(
+                        //     title: Text("$column"),
+                        //     trailing: Text(
+                        //      "${widget.animalnames[column]}",
+                        //       //style: bold,
+                        //     ),
+                        //   ),
+                        //  )
                         Expanded(
                           child: Text(
                             "$column",
@@ -118,8 +117,7 @@ class _OutputState extends State<Output> {
             ),
           );
         },
-      ),    
-      
+      ),
     );
   }
 }
@@ -138,13 +136,18 @@ class noOutput extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        leading: new IconButton(
+            icon: new Icon(Icons.arrow_back),
+            onPressed: () {
+              Navigator.pop(context, true);
+            }),
         title: Text('Animal Dictionary'),
         centerTitle: true,
-        backgroundColor: Colors.brown,
+        backgroundColor: Colors.orange,
       ),
       body: Container(
         padding: EdgeInsets.all(15),
-        color: Colors.green[100],
+        color: Colors.yellow[50],
         child: Align(
           alignment: Alignment.topCenter,
           child: ListTile(
@@ -160,7 +163,8 @@ class noOutput extends StatelessWidget {
             ),
             subtitle: RichText(
               text: TextSpan(
-                text: 'Perhaps you means ${this.suggestion} ?',
+                // text: 'Perhaps you means ${this.suggestion} ?',
+                text: this.suggestion,
                 style: TextStyle(
                   color: Colors.black,
                   fontWeight: FontWeight.bold,
@@ -178,19 +182,10 @@ class noOutput extends StatelessWidget {
 BoxDecoration myBoxDecoration() {
   return BoxDecoration(
     color: Colors.white,
-    border:Border.all(
-    width: 1,
-    color: Colors.brown
-    ),
-    borderRadius: BorderRadius.all(
-      Radius.circular(10)
-    ),
-    boxShadow: [BoxShadow(blurRadius: 5,color: Colors.white,offset: Offset(1,1))],
+    border: Border.all(width: 1, color: Colors.brown),
+    borderRadius: BorderRadius.all(Radius.circular(10)),
+    boxShadow: [
+      BoxShadow(blurRadius: 5, color: Colors.white, offset: Offset(1, 1))
+    ],
   );
 }
-
-
-
-
-  
-

@@ -226,17 +226,23 @@ class _Signup extends State<SignUp> {
   }
 
   void _register() async {
-    final FirebaseUser user = (await _auth.createUserWithEmailAndPassword(
-      email: _emailController.text,
-      password: _passwordController.text,
-    ))
-        .user;
-    if (user != null) {
-      setState(() {
-        _success = true;
-        _userEmail = user.email;
-      });
-    } else {
+    try {
+      final FirebaseUser user = (await _auth.createUserWithEmailAndPassword(
+        email: _emailController.text,
+        password: _passwordController.text,
+      ))
+          .user;
+      if (user != null) {
+        setState(() {
+          _success = true;
+          _userEmail = user.email;
+        });
+      } else {
+        setState(() {
+          _success = false;
+        });
+      }
+    } catch (err) {
       setState(() {
         _success = false;
       });
@@ -255,7 +261,7 @@ class _SignIn extends State<SignIn> {
 
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
-  bool _success;
+  bool _success = false;
   String _userEmail;
 
   @override
@@ -311,31 +317,17 @@ class _SignIn extends State<SignIn> {
                   onPressed: () async {
                     if (_formKey.currentState.validate()) {
                       _signInWithEmailAndPassword();
+                      if (_success == true) {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (_) => AnimatedBottomBar(),
+                            ));
+                      }
                     }
                   },
                   child: Text("Sign In"),
                 ),
-              ),
-              FlatButton(
-                child: Container(
-                  alignment: Alignment.center,
-                  padding: const EdgeInsets.symmetric(horizontal: 16),
-                  child: Text(
-                    _success == null
-                        ? ''
-                        : (_success
-                            ? '\t\t\t\t\t\t\tSuccessfully signed in\nas ' +
-                                _userEmail +
-                                '\n\n\t\t\t\t\t\t\tClick here to continue.'
-                            : 'Sign in failed'),
-                    style: TextStyle(color: Colors.red),
-                  ),
-                ),
-                onPressed: () => Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (_) => AnimatedBottomBar(),
-                    )),
               ),
               const SizedBox(height: 10.0),
             ],
@@ -351,18 +343,25 @@ class _SignIn extends State<SignIn> {
   }
 
   void _signInWithEmailAndPassword() async {
-    final FirebaseUser user = (await _auth.signInWithEmailAndPassword(
-      email: _emailController.text,
-      password: _passwordController.text,
-    ))
-        .user;
+    try {
+      final FirebaseUser user = (await _auth.signInWithEmailAndPassword(
+        email: _emailController.text,
+        password: _passwordController.text,
+      ))
+          .user;
 
-    if (user != null) {
-      setState(() {
-        _success = true;
-        _userEmail = user.email;
-      });
-    } else {
+      if (user != null) {
+        setState(() {
+          _success = true;
+          _userEmail = user.email;
+        });
+      } else {
+        setState(() {
+          _success = false;
+        });
+      }
+    } catch (err) {
+      print(2342);
       setState(() {
         _success = false;
       });

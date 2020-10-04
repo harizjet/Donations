@@ -105,7 +105,9 @@ class graphSIAP extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Donation Graph'),
+        backgroundColor: Colors.orange,
+        elevation: 0,
+        title: Text("Donation Graph"),
         centerTitle: true,
       ),
       body: Align(
@@ -129,7 +131,9 @@ class graphXDAK extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Donation Graph'),
+        backgroundColor: Colors.orange,
+        elevation: 0,
+        title: Text("Donation Graph"),
         centerTitle: true,
       ),
       body: Align(
@@ -157,6 +161,12 @@ class graphLOADING extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.orange,
+        elevation: 0,
+        title: Text("Donation Graph"),
+        centerTitle: true,
+      ),
       body: Align(
         alignment: Alignment.center,
         child: Container(

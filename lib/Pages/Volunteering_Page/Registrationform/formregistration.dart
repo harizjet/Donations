@@ -34,6 +34,13 @@ class RegistrationFormState extends State<RegistrationForm> {
     'Others'
   ];
 
+  var fieldOptions = [
+    'Promotions',
+    'Photography',
+    'Research/ Education',
+    'Horticulture'
+  ];
+
   final _ageController = TextEditingController();
   bool _ageHasError = false;
 
@@ -269,6 +276,25 @@ class RegistrationFormState extends State<RegistrationForm> {
                     // allowClear: true,
                   ),
                   SizedBox(height: 15),
+                  FormBuilderDropdown(
+                    attribute: 'Field',
+                    decoration: const InputDecoration(
+                      prefixIcon: Icon(Icons.work),
+                      labelText: 'Field',
+                    ),
+                    // initialValue: 'Male',
+                    hint: Text('Choose Field'),
+                    validators: [FormBuilderValidators.required()],
+                    items: fieldOptions
+                        .map((choose_field) => DropdownMenuItem(
+                              value: choose_field,
+                              child: Text('$choose_field'),
+                            ))
+                        .toList(),
+                    // isExpanded: false,
+                    // allowClear: true,
+                  ),
+                  SizedBox(height: 15),
                   Container(
                     child: new ListTile(
                       leading: Icon(Icons.home),
@@ -346,6 +372,7 @@ class RegistrationFormState extends State<RegistrationForm> {
                             _fbKey.currentState.value['Occupation'],
                             _fbKey.currentState.value['Available_time']
                                 .toString(),
+                            _fbKey.currentState.value['Field'],
                             this.zooName);
                         Flushbar(
                           icon: Icon(

@@ -12,15 +12,9 @@ class DetailsPageM extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        titleSpacing: 0.0,
-        elevation: 0.5,
-        backgroundColor: Colors.white,
-        title: Text(
-          "Zoo Melaka",
-          style: TextStyle(
-              color: Colors.black, fontWeight: FontWeight.bold, fontSize: 20.0),
-          textAlign: TextAlign.center,
-        ),
+        backgroundColor: Colors.orange,
+        elevation: 0,
+        title: Text("Zoo Melaka"),
       ),
       body: Stack(
         children: <Widget>[

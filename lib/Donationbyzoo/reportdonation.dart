@@ -52,9 +52,9 @@ class _ReportDonationState extends State<ReportDonation> {
   @override
   Widget buildReport(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Colors.yellow[50],
       appBar: AppBar(
-        backgroundColor: Colors.transparent,
+        backgroundColor: Colors.orange,
         elevation: 0,
         title: Text("Fund Donation"),
         centerTitle: true,
@@ -68,6 +68,7 @@ class _ReportDonationState extends State<ReportDonation> {
       padding: const EdgeInsets.all(16.0),
       child: Column(
         children: <Widget>[
+          const SizedBox(height: 50.0),
           _buildHeader(),
           const SizedBox(height: 50.0),
           Row(
@@ -98,7 +99,7 @@ class _ReportDonationState extends State<ReportDonation> {
                           Padding(
                             padding: const EdgeInsets.only(left: 16.0),
                             child: Text(
-                              '\nZOO NEGARA',
+                              '\nZoo Negara',
                               style: whiteText,
                             ),
                           )
@@ -131,6 +132,17 @@ class _ReportDonationState extends State<ReportDonation> {
                             child: Text(
                               "TOTAL",
                               style: whiteText,
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(left: 16.0),
+                            child: Text(
+                              "RM ${(double.parse(donationnumber['Zoo Negara']) + double.parse(donationnumber['Zoo Melaka']) + double.parse(donationnumber['Zoo Taiping'])).toStringAsFixed(2)}",
+                              style:
+                                  Theme.of(context).textTheme.display1.copyWith(
+                                        color: Colors.white,
+                                        fontSize: 24.0,
+                                      ),
                             ),
                           )
                         ],
@@ -166,7 +178,7 @@ class _ReportDonationState extends State<ReportDonation> {
                           Padding(
                             padding: const EdgeInsets.only(left: 16.0),
                             child: Text(
-                              '\nZOO TAIPING ',
+                              '\Zoo Taiping ',
                               style: whiteText,
                             ),
                           )
@@ -197,7 +209,7 @@ class _ReportDonationState extends State<ReportDonation> {
                           Padding(
                             padding: const EdgeInsets.only(left: 16.0),
                             child: Text(
-                              '\nZOO MELAKA',
+                              '\nZoo Melaka',
                             ),
                           )
                         ],
@@ -238,8 +250,8 @@ class _ReportDonationState extends State<ReportDonation> {
               ),
               const SizedBox(height: 20.0),
               Text(
-                "GOOD",
-                style: TextStyle(color: Colors.green, fontSize: 16.0),
+                "RM ${(double.parse(donationnumber['Zoo Negara']) + double.parse(donationnumber['Zoo Melaka']) + double.parse(donationnumber['Zoo Taiping'])).toStringAsFixed(2)}",
+                style: TextStyle(color: Colors.green, fontSize: 30),
               ),
             ],
           ),

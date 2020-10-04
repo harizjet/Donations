@@ -4,16 +4,18 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:charts_flutter/flutter.dart' as charts;
 import 'package:ztour_mobile/AnimalGraphMampu/animalgraph.dart';
 import 'package:ztour_mobile/Donationbyzoo/showdonationbyzoo.dart';
-import 'package:ztour_mobile/Pages/AnimalNews/views/homepage.dart';
-import 'package:ztour_mobile/Pages/Animal_Dictionary_Page/home.dart';
+import 'package:ztour_mobile/Pages/AnimalNews/views/newshomepage.dart';
+import 'package:ztour_mobile/Pages/Animal_Dictionary_Page/dictionaryhome.dart';
 import 'package:ztour_mobile/Pages/Announcement_page/announcement.dart';
-import 'package:ztour_mobile/Pages/Covid19/homepage.dart';
+import 'package:ztour_mobile/Pages/Covid19/covidhomepage.dart';
 import 'package:ztour_mobile/Pages/DonationPage/donation.dart';
 import 'package:ztour_mobile/Pages/DonationPage/donation_view.dart';
 import 'package:ztour_mobile/Pages/Login_Signup_page/user_profile.dart';
+import '../../Pages/Volunteering_Page/home_volunteer.dart';
 import 'package:ztour_mobile/Pages/Volunteering_Page/Registrationform/formregistration.dart';
-import 'package:ztour_mobile/Pages/Volunteering_Page/Registrationform/numberregistration.dart';
+import 'package:ztour_mobile/Pages/Volunteering_Page/home_volunteer.dart';
 import 'package:ztour_mobile/Pages/Volunteering_Page/Registrationform/reportvolunteer.dart';
+import '../../Donationbyzoo/reportdonation.dart';
 import 'package:ztour_mobile/Widgets/MenuBar/menubar1.dart';
 
 class Dashboard2 extends StatefulWidget {
@@ -28,7 +30,7 @@ class _Dashboard2State extends State<Dashboard2> {
       backgroundColor: Colors.white,
       appBar: _buildAppBar(context),
       body: _buildBody(context),
-      drawer: NavDrawer(),
+      // drawer: NavDrawer(),
     );
   }
 
@@ -37,15 +39,7 @@ class _Dashboard2State extends State<Dashboard2> {
     double boxWidth = MediaQuery.of(context).size.width;
     return CustomScrollView(
       slivers: <Widget>[
-        _buildStats(),
         SliverToBoxAdapter(
-          //child: GraphPage(),
-          // child: Padding(
-          // padding: const EdgeInsets.all(16.0),
-          // child: _buildTitledContainer("Visitor",
-          //     child: Container(
-          //        height: 200, child: DonutPieChart.withSampleData())),
-          //  )
           child: Card(
             child: Column(
               children: <Widget>[
@@ -65,6 +59,26 @@ class _Dashboard2State extends State<Dashboard2> {
             ),
           ),
         ),
+        SliverToBoxAdapter(
+          child: Container(
+            padding: EdgeInsets.fromLTRB(33, 16, 16, 16),
+            width: double.infinity,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(20.0),
+              color: Colors.white,
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Text(
+                  'Dash Boards',
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 28.0),
+                ),
+              ],
+            ),
+          ),
+        ),
+        _buildStats(),
         _buildActivities(context),
       ],
     );
@@ -82,13 +96,14 @@ class _Dashboard2State extends State<Dashboard2> {
         crossAxisCount: 3,
         children: <Widget>[
           Container(
+              padding: EdgeInsets.all(5),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10.0),
               ),
               child: RaisedButton(
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10.0)),
-                color: Colors.deepOrange,
+                color: Colors.red,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
@@ -96,20 +111,27 @@ class _Dashboard2State extends State<Dashboard2> {
                       Icons.attach_money,
                     ),
                     const SizedBox(height: 5.0),
-                    Text("Sponsor".toUpperCase()),
+                    Text(
+                      "Sponsor",
+                      style: TextStyle(
+                          color: Colors.black,
+                          fontWeight: FontWeight.w500,
+                          fontSize: 18.0),
+                    ),
                   ],
                 ),
                 onPressed: () => Navigator.push(
                     context, MaterialPageRoute(builder: (_) => ToDoPage())),
               )),
           Container(
+            padding: EdgeInsets.all(5),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(20.0),
             ),
             child: RaisedButton(
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10.0)),
-                color: Colors.pink,
+                color: Colors.orange,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
@@ -117,20 +139,27 @@ class _Dashboard2State extends State<Dashboard2> {
                       Icons.help,
                     ),
                     const SizedBox(height: 1.0),
-                    Text("Volunteer".toUpperCase()),
+                    Text(
+                      "Volunteer",
+                      style: TextStyle(
+                          color: Colors.black,
+                          fontWeight: FontWeight.w500,
+                          fontSize: 18.0),
+                    ),
                   ],
                 ),
                 onPressed: () => Navigator.push(
                     context, MaterialPageRoute(builder: (_) => ReportV()))),
           ),
           Container(
+              padding: EdgeInsets.all(5),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10.0),
               ),
               child: RaisedButton(
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10.0)),
-                color: Colors.green,
+                color: Colors.yellow,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
@@ -138,11 +167,17 @@ class _Dashboard2State extends State<Dashboard2> {
                       Icons.people,
                     ),
                     const SizedBox(height: 5.0),
-                    Text("Visitor".toUpperCase()),
+                    Text(
+                      "Donation",
+                      style: TextStyle(
+                          color: Colors.black,
+                          fontWeight: FontWeight.w500,
+                          fontSize: 18.0),
+                    ),
                   ],
                 ),
                 onPressed: () => Navigator.push(context,
-                    MaterialPageRoute(builder: (_) => DonationNumber())),
+                    MaterialPageRoute(builder: (_) => ReportDonation())),
               )),
         ],
       ),
@@ -155,15 +190,16 @@ class _Dashboard2State extends State<Dashboard2> {
       sliver: SliverToBoxAdapter(
         child: _buildTitledContainer(
           "Activities",
-          height: 300,
+          height: 500,
           child: Expanded(
             child: GridView.count(
               physics: NeverScrollableScrollPhysics(),
-              crossAxisCount: 3,
+              crossAxisCount: 2,
               children: activities
                   .map(
                     (activity) => Column(
                       children: <Widget>[
+                        SizedBox(height: 20),
                         CircleAvatar(
                           radius: 30,
                           backgroundColor: Theme.of(context).buttonColor,
@@ -186,7 +222,9 @@ class _Dashboard2State extends State<Dashboard2> {
                           activity.title,
                           textAlign: TextAlign.center,
                           style: TextStyle(
-                              fontWeight: FontWeight.bold, fontSize: 14.0),
+                              color: Colors.black,
+                              fontWeight: FontWeight.w500,
+                              fontSize: 15.0),
                         ),
                       ],
                     ),
@@ -201,17 +239,21 @@ class _Dashboard2State extends State<Dashboard2> {
 
   AppBar _buildAppBar(BuildContext context) {
     return AppBar(
-      iconTheme: IconThemeData(color: Theme.of(context).primaryColor),
+      automaticallyImplyLeading: false,
       titleSpacing: 0.0,
       elevation: 0.5,
-      backgroundColor: Colors.white,
-      title: Text(
-        "Dashboard",
-        style: TextStyle(
-            color: Colors.black, fontWeight: FontWeight.bold, fontSize: 20.0),
-        textAlign: TextAlign.center,
+      backgroundColor: Colors.orange,
+      title: Center(
+        child: Text(
+          "Home",
+          style: TextStyle(
+            color: Colors.black,
+            fontFamily: "Quando",
+            fontSize: 25.0,
+          ),
+          textAlign: TextAlign.center,
+        ),
       ),
-      actions: <Widget>[_buildAvatar(context)],
     );
   }
 
@@ -267,16 +309,17 @@ class Activity {
 
 final List<Activity> activities = [
   Activity(
-      title: "Announcement",
-      icon: FontAwesomeIcons.speakerDeck,
-      action: News()),
-  Activity(
-    title: "CSR",
+    title: "Social Works",
     icon: FontAwesomeIcons.calendarDay,
-    action: RegistrationForm(),
+    action: VolunteerHomePage(),
   ),
   Activity(
-    title: "Covid19 World",
+    title: "Donation",
+    icon: FontAwesomeIcons.dollarSign,
+    action: ToDoPage(),
+  ),
+  Activity(
+    title: "Covid19",
     icon: FontAwesomeIcons.info,
     action: HomePageCovid(),
   ),
@@ -285,11 +328,11 @@ final List<Activity> activities = [
       icon: FontAwesomeIcons.newspaper,
       action: AnimalNewsPage()),
   Activity(
-      title: "Data MAMPU",
+      title: "Zoos Article",
+      icon: FontAwesomeIcons.speakerDeck,
+      action: News()),
+  Activity(
+      title: "Statistics",
       icon: FontAwesomeIcons.fileAlt,
       action: animalhomepage()),
-  Activity(
-      title: "Donate",
-      icon: FontAwesomeIcons.dollarSign,
-      action: DonationPage()),
 ];

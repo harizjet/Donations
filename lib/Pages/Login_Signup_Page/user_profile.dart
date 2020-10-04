@@ -2,6 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:ztour_mobile/Resources/assets.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
+import 'package:ztour_mobile/Graph/graph.dart';
+
+import 'package:ztour_mobile/Pages/Volunteering_Page/Registrationform/reportvolunteer.dart';
+
+import 'package:ztour_mobile/Widgets/Setting/settings.dart';
+
 class Profile extends StatefulWidget {
   @override
   _ProfileState createState() => _ProfileState();
@@ -11,6 +17,9 @@ final FirebaseAuth _auth = FirebaseAuth.instance;
 FirebaseUser user;
 
 class _ProfileState extends State<Profile> {
+  static String email = "";
+  static String uid = '';
+
   @override
   void initState() {
     super.initState();
@@ -19,7 +28,10 @@ class _ProfileState extends State<Profile> {
 
   initUser() async {
     user = await _auth.currentUser();
-    setState(() {});
+    setState(() {
+      _ProfileState.email = user.email;
+      _ProfileState.uid = user.uid;
+    });
   }
 
   @override
@@ -28,17 +40,23 @@ class _ProfileState extends State<Profile> {
         backgroundColor: Colors.grey.shade100,
         extendBodyBehindAppBar: true,
         extendBody: true,
-         appBar: AppBar(
-        titleSpacing: 0.0,
-        elevation: 0.5,
-        backgroundColor: Colors.white,
-        title: Text(
-          "Profile",
-          style: TextStyle(
-              color: Colors.black, fontWeight: FontWeight.bold, fontSize: 20.0),
-          textAlign: TextAlign.center,
+        appBar: AppBar(
+          automaticallyImplyLeading: false,
+          titleSpacing: 0.0,
+          elevation: 0.5,
+          backgroundColor: Colors.orange,
+          title: Center(
+            child: Text(
+              "Profile",
+              style: TextStyle(
+                color: Colors.black,
+                fontFamily: "Quando",
+                fontSize: 25.0,
+              ),
+              textAlign: TextAlign.center,
+            ),
+          ),
         ),
-      ),
         body: SingleChildScrollView(
           child: Column(
             children: <Widget>[
@@ -46,7 +64,7 @@ class _ProfileState extends State<Profile> {
                 avatar: NetworkImage(ledge),
                 coverImage: NetworkImage(
                     'https://images.fineartamerica.com/images/artworkimages/mediumlarge/2/1-white-rhinoceros-isolated-on-white-background-susan-schmitz.jpg'),
-                title: user.email,
+                title: _ProfileState.email,
               ),
               const SizedBox(height: 10.0),
               UserInfo(),
@@ -92,12 +110,86 @@ class UserInfo extends StatelessWidget {
                                 horizontal: 12, vertical: 4),
                             leading: Icon(Icons.supervisor_account),
                             title: Text("User id"),
-                            subtitle: Text(user.uid),
+                            subtitle: Text(_ProfileState.uid),
                           ),
                           ListTile(
                             leading: Icon(Icons.email),
                             title: Text("Email"),
-                            subtitle: Text(user.email),
+                            subtitle: Text(_ProfileState.email),
+                          ),
+                        ],
+                      ),
+                    ],
+                  )
+                ],
+              ),
+            ),
+          ),
+          SizedBox(height: 15),
+          Container(
+            padding: const EdgeInsets.only(left: 8.0, bottom: 4.0),
+            alignment: Alignment.topLeft,
+            child: Text(
+              "User Configure",
+              style: TextStyle(
+                color: Colors.black87,
+                fontWeight: FontWeight.w500,
+                fontSize: 16,
+              ),
+              textAlign: TextAlign.left,
+            ),
+          ),
+          Card(
+            child: Container(
+              alignment: Alignment.topLeft,
+              padding: EdgeInsets.fromLTRB(15, 10, 15, 10),
+              child: Column(
+                children: <Widget>[
+                  Column(
+                    children: <Widget>[
+                      ...ListTile.divideTiles(
+                        color: Colors.grey,
+                        tiles: [
+                          ListTile(
+                            leading: Icon(
+                              Icons.history,
+                            ),
+                            title: Text("Report Volunteer"),
+                            onTap: () => Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (_) => ReportV(),
+                                )),
+                          ),
+                          SizedBox(height: 10),
+                          ListTile(
+                            leading: Icon(Icons.graphic_eq),
+                            title: Text("Graph Donation"),
+                            onTap: () => Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (_) => GraphPage(),
+                                )),
+                          ),
+                          SizedBox(height: 10),
+                          ListTile(
+                            leading: Icon(
+                              Icons.feedback,
+                            ),
+                            title: Text("Feedback"),
+                            onTap: () {
+                              //open change location
+                            },
+                          ),
+                          SizedBox(height: 10),
+                          ListTile(
+                            leading: Icon(Icons.settings),
+                            title: Text("Setting"),
+                            onTap: () => Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (_) => SettingsOnePage(),
+                                )),
                           ),
                         ],
                       ),

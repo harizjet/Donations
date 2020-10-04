@@ -97,29 +97,50 @@ class _GraphPageState extends State<GraphPage> {
   Widget animalmalaysiagraphSIAP(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.orange,
+        elevation: 0,
         title: Text(widget.chosenanimal),
         centerTitle: true,
       ),
       body: Container(
+        color: Colors.yellow[50],
         alignment: Alignment.center,
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
             Align(
-                alignment: Alignment.topCenter,
-                child: Text(
-                    "Statistik Serahan ${widget.chosenanimal} Kepada Jabatan PERHILITAN ")),
-            Align(
-                alignment: Alignment.topCenter,
-                child: Text("pada tahun 2013 - 2018")),
-            Container(
-              padding: EdgeInsets.all(20),
-              width: (MediaQuery.of(context).size.width),
-              height: (MediaQuery.of(context).size.height) * 0.5,
-              child: charts.TimeSeriesChart(
-                _GraphPageState.seriesList,
-                animate: false,
-                dateTimeFactory: const charts.LocalDateTimeFactory(),
+              alignment: Alignment.topCenter,
+              child: Text(
+                "Statistik Serahan ${widget.chosenanimal} Kepada Jabatan Perhilitan pada tahun 2013 - 2018",
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                    color: Colors.black,
+                    fontWeight: FontWeight.w500,
+                    fontSize: 18.0),
+              ),
+            ),
+            Padding(
+              padding: EdgeInsets.all(30),
+              child: Container(
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  border: Border.all(width: 1, color: Colors.brown),
+                  borderRadius: BorderRadius.all(Radius.circular(10)),
+                  boxShadow: [
+                    BoxShadow(
+                        blurRadius: 5,
+                        color: Colors.white,
+                        offset: Offset(1, 1))
+                  ],
+                ),
+                padding: EdgeInsets.all(20),
+                width: (MediaQuery.of(context).size.width),
+                height: (MediaQuery.of(context).size.height) * 0.5,
+                child: charts.TimeSeriesChart(
+                  _GraphPageState.seriesList,
+                  animate: false,
+                  dateTimeFactory: const charts.LocalDateTimeFactory(),
+                ),
               ),
             ),
           ],
@@ -134,7 +155,9 @@ class animalmalaysiagraphXDAK extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Animal Species Graph'),
+        backgroundColor: Colors.orange,
+        elevation: 0,
+        title: Text("Animal Species Graph"),
         centerTitle: true,
       ),
       body: Align(
@@ -162,6 +185,12 @@ class animalmalaysiagraphLOADING extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.orange,
+        elevation: 0,
+        title: Text("Animal Species Graph"),
+        centerTitle: true,
+      ),
       body: Align(
         alignment: Alignment.center,
         child: Container(

@@ -124,9 +124,10 @@ class _DonationPageState extends State<DonationPage> {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
-        title: Text('Donation'),
+        backgroundColor: Colors.orange,
+        elevation: 0,
+        title: Text("Donation"),
         centerTitle: true,
-        backgroundColor: Colors.white,
       ),
       body: Stack(
         children: <Widget>[

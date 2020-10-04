@@ -307,10 +307,12 @@ class _ExistinglistState extends State<Existinglist> {
         leading: BackButton(
           onPressed: () => Navigator.pop(context, ''),
         ),
+        backgroundColor: Colors.orange,
+        elevation: 0,
         title: Text('Choose Existing Card'),
         centerTitle: true,
-        backgroundColor: Colors.green,
       ),
+
       body: Container(
         padding: EdgeInsets.fromLTRB(0, 20, 0, 20),
         child: ListView.builder(

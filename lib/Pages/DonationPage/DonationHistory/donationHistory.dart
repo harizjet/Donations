@@ -84,9 +84,10 @@ class donationSIAP extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Donation History'),
+        backgroundColor: Colors.orange,
+        elevation: 0,
+        title: Text("Donation History"),
         centerTitle: true,
-        backgroundColor: Colors.green,
       ),
       body: Column(
         children: <Widget>[

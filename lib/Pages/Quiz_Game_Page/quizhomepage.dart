@@ -1,29 +1,49 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:ztour_mobile/Pages/Quiz_Game_Page//quizpage.dart';
+import 'dart:async';
 
-class homepage extends StatefulWidget {
+class quizhomepage extends StatefulWidget {
   @override
-  _homepageState createState() => _homepageState();
+  _quizhomepageState createState() => _quizhomepageState();
 }
 
-class _homepageState extends State<homepage> {
+class _quizhomepageState extends State<quizhomepage> {
+  Widget _body = quizsplash();
   String langname;
 
   @override
+  void initState() {
+    super.initState();
+    Timer(Duration(seconds: 2), () {
+      if (mounted) {
+        setState(() {
+          _body = thequiz(context);
+        });
+      }
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
+    return _body;
+  }
+
+  Widget thequiz(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          backgroundColor: Color(0xFFF7C229),
-          title: Center(
-            child: Text(
-              "Quiz",
-              style: TextStyle(fontSize: 25, fontFamily: "Quando"),
-            ),
+      appBar: AppBar(
+        automaticallyImplyLeading: false,
+        backgroundColor: Color(0xFFF7C229),
+        title: Center(
+          child: Text(
+            "Quiz",
+            style: TextStyle(fontSize: 25, fontFamily: "Quando"),
           ),
-          elevation: 0,
         ),
-        body: Column(children: <Widget>[
+        elevation: 0,
+      ),
+      body: Column(
+        children: <Widget>[
           Container(
             height: 230,
             width: 1000,
@@ -120,6 +140,17 @@ class _homepageState extends State<homepage> {
                   ),
                 ),
               ])
-        ]));
+        ],
+      ),
+    );
   }
+}
+
+Widget quizsplash() {
+  return Scaffold(
+    backgroundColor: Color(0xFFF7C229),
+    body: Center(
+        child: Text("Quiz Time!",
+            style: TextStyle(fontSize: 50.0, fontFamily: "Satisfy"))),
+  );
 }

@@ -28,9 +28,10 @@ class _ZooOptionsState extends State<ZooOptions> {
     double boxWidth = MediaQuery.of(context).size.width;
     return Scaffold(
       appBar: AppBar(
-        title: Text('Zoo Options'),
+        backgroundColor: Colors.orange,
+        elevation: 0,
+        title: Text("Zoo Options"),
         centerTitle: true,
-        backgroundColor: Colors.green,
       ),
       body: ListView(
         children: <Widget>[

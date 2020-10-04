@@ -3,7 +3,8 @@ import 'dart:convert';
 import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:ztour_mobile/Pages/Quiz_Game_Page//resultpage.dart';
+import 'resultpage.dart';
+import 'package:meta/meta.dart';
 
 class getjson extends StatelessWidget {
   // accept the langname as a parameter
@@ -52,17 +53,19 @@ class getjson extends StatelessWidget {
   }
 }
 
+// ignore: must_be_immutable
 class quizpage extends StatefulWidget {
   final List mydata;
 
   quizpage({Key key, @required this.mydata}) : super(key: key);
+
   @override
-  _quizpageState createState() => _quizpageState(mydata);
+  _quizpageState createState() => _quizpageState(mydata: mydata);
 }
 
 class _quizpageState extends State<quizpage> {
   final List mydata;
-  _quizpageState(this.mydata);
+  _quizpageState({this.mydata});
 
   Color colortoshow = Color(0xFF231d3c);
   Color right = Colors.green;
@@ -71,8 +74,8 @@ class _quizpageState extends State<quizpage> {
   int i = 1;
   bool disableAnswer = false;
   // extra variable to iterate
-  int j = 1;
-  int timer = 30;
+  int j = 0;
+  int timer = 20;
   String showtimer = "20";
   var random_array;
 
@@ -93,7 +96,7 @@ class _quizpageState extends State<quizpage> {
     var distinctIds = [];
     var rand = new Random();
     for (int i = 0;;) {
-      distinctIds.add(rand.nextInt(10));
+      distinctIds.add(rand.nextInt(10) + 1);
       random_array = distinctIds.toSet().toList();
       if (random_array.length < 10) {
         continue;
@@ -126,6 +129,7 @@ class _quizpageState extends State<quizpage> {
   void initState() {
     starttimer();
     genrandomarray();
+    nextquestion();
     super.initState();
   }
 
@@ -179,7 +183,7 @@ class _quizpageState extends State<quizpage> {
     // in the previous version this was
     // mydata[2]["1"] == mydata[1]["1"][k]
     // which i forgot to change
-    // so nake sure that this is now corrected
+    // so make sure that this is now corrected
     if (mydata[2][i.toString()] == mydata[1][i.toString()][k]) {
       // just a print statement to check the correct working
       // debugPrint(mydata[2][i.toString()] + " is equal to " + mydata[1][i.toString()][k]);
@@ -187,7 +191,7 @@ class _quizpageState extends State<quizpage> {
       // changing the color variable to be green
       colortoshow = right;
     } else {
-      // just a print sattement to check the correct working
+      // just a print statement to check the correct working
       // debugPrint(mydata[2]["1"] + " is equal to " + mydata[1]["1"][k]);
       colortoshow = wrong;
     }
@@ -262,20 +266,16 @@ class _quizpageState extends State<quizpage> {
       child: Scaffold(
         body: Column(
           children: <Widget>[
-            Padding(padding: EdgeInsets.only(top: 10, bottom: 10)),
-            // Expanded(
-
-            // child:
+            Padding(padding: EdgeInsets.only(top: 20, bottom: 20)),
             Container(
               //padding: EdgeInsets.all(10.0),
-              height: 140,
+              height: 180,
               width: 900,
               decoration: BoxDecoration(
                 image: DecorationImage(
                     image: AssetImage("assets/images/4.jpg"), fit: BoxFit.fill),
               ),
             ),
-            //),
             Expanded(
               flex: 3,
               child: Container(

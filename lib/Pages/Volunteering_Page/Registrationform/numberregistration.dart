@@ -44,6 +44,7 @@ class _RegistrationNumberState extends State<RegistrationNumber> {
         fontWeight: FontWeight.bold, fontSize: 20.0, color: Colors.white);
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.orange,
         title: Text('Registration Number'),
       ),
       body: Container(

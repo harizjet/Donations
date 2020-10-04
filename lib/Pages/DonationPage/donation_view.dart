@@ -19,17 +19,16 @@ class ToDoPage extends StatelessWidget {
     double boxHeight = MediaQuery.of(context).size.height * 0.5;
     double boxWidth = MediaQuery.of(context).size.width;
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.orange,
+        elevation: 0,
+        title: Text("Sponsor Type"),
+        centerTitle: true,
+      ),
       backgroundColor: Colors.white,
       body: ListView(
         padding: const EdgeInsets.all(16.0),
         children: <Widget>[
-          Text(
-            "Sponsor Type",
-            style: Theme.of(context).textTheme.display1.copyWith(
-                  fontWeight: FontWeight.bold,
-                  color: Colors.black,
-                ),
-          ),
           const SizedBox(height: 16.0),
           Card(
             child: Column(

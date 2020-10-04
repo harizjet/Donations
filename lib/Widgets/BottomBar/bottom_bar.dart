@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:ztour_mobile/Pages/Animal_Dictionary_Page/home.dart';
-import 'package:ztour_mobile/Pages/Covid19/homepage.dart';
-import 'package:ztour_mobile/Pages/Quiz_Game_Page/main.dart';
-import 'package:ztour_mobile/Pages/Tour_Zoo_Page/discover.dart';
-
+import 'package:ztour_mobile/Pages/Animal_Dictionary_Page/dictionaryhome.dart';
+import 'package:ztour_mobile/Pages/Covid19/covidhomepage.dart';
+import '../../Pages/Quiz_Game_Page/quizhomepage.dart';
+import 'package:ztour_mobile/Pages/Tour_Zoo_Page/discoverhomepage.dart';
+import 'package:bmnav/bmnav.dart' as bmnav;
 import 'package:ztour_mobile/Widgets/Dashboard/dashboard2.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:ztour_mobile/Pages/Login_Signup_Page/user_profile.dart';
 
 class AnimatedBottomBar extends StatefulWidget {
   @override
@@ -26,13 +27,16 @@ class _AnimatedBottomBarState extends State<AnimatedBottomBar> {
     return Scaffold(
       backgroundColor: Colors.white,
       body: getPage(_currentPage),
-      bottomNavigationBar: AnimatedBottomNav(
-          currentIndex: _currentPage,
-          onChange: (index) {
-            setState(() {
-              _currentPage = index;
-            });
-          }),
+      bottomNavigationBar: SizedBox(
+        height: 58,
+        child: AnimatedBottomNav(
+            currentIndex: _currentPage,
+            onChange: (index) {
+              setState(() {
+                _currentPage = index;
+              });
+            }),
+      ),
     );
   }
 
@@ -56,7 +60,12 @@ class _AnimatedBottomBarState extends State<AnimatedBottomBar> {
       case 3:
         return Center(
             child: Container(
-          child: MyGApp(),
+          child: quizhomepage(),
+        ));
+      case 4:
+        return Center(
+            child: Container(
+          child: Profile(),
         ));
     }
   }
@@ -70,8 +79,12 @@ class AnimatedBottomNav extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: kToolbarHeight,
-      decoration: BoxDecoration(color: Colors.white),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        border: Border(
+          top: BorderSide(color: Colors.black),
+        ),
+      ),
       child: Row(
         children: <Widget>[
           Expanded(
@@ -99,7 +112,7 @@ class AnimatedBottomNav extends StatelessWidget {
               onTap: () => onChange(2),
               child: BottomNavItem(
                 icon: Icons.library_books,
-                title: "Dictionary",
+                title: "Dict",
                 isActive: currentIndex == 2,
               ),
             ),
@@ -109,8 +122,18 @@ class AnimatedBottomNav extends StatelessWidget {
               onTap: () => onChange(3),
               child: BottomNavItem(
                 icon: Icons.games,
-                title: "Fun Quiz",
+                title: "Games",
                 isActive: currentIndex == 3,
+              ),
+            ),
+          ),
+          Expanded(
+            child: InkWell(
+              onTap: () => onChange(4),
+              child: BottomNavItem(
+                icon: Icons.person,
+                title: "Profile",
+                isActive: currentIndex == 4,
               ),
             ),
           ),
@@ -158,6 +181,7 @@ class BottomNavItem extends StatelessWidget {
                   Text(
                     title,
                     style: TextStyle(
+                      fontSize: 13,
                       fontWeight: FontWeight.bold,
                       color: activeColor ?? Theme.of(context).primaryColor,
                     ),
@@ -174,9 +198,34 @@ class BottomNavItem extends StatelessWidget {
                 ],
               ),
             )
-          : Icon(
-              icon,
-              color: inactiveColor ?? Colors.grey,
+          : Container(
+              child: Center(
+                child: Stack(
+                  alignment: Alignment.center,
+                  children: <Widget>[
+                    Padding(
+                      padding: EdgeInsets.fromLTRB(0, 0, 0, 8),
+                      child: Align(
+                        alignment: Alignment.bottomCenter,
+                        child: Text(
+                          title,
+                          style: TextStyle(fontSize: 13, color: Colors.black),
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.fromLTRB(0, 5, 0, 0),
+                      child: Align(
+                        alignment: Alignment.topCenter,
+                        child: Icon(
+                          icon,
+                          color: inactiveColor ?? Colors.grey,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
             ),
     );
   }

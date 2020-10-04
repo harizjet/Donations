@@ -10,11 +10,21 @@ class Registrationform {
   String Gender;
   String Occupation;
   String Available_time;
+  String Choose_field;
   String Chosen_zoo;
   DatabaseReference _id;
 
-  Registrationform(this.Name, this.Age, this.NRIC, this.Email, this.Contact,
-      this.Gender, this.Occupation, this.Available_time, this.Chosen_zoo);
+  Registrationform(
+      this.Name,
+      this.Age,
+      this.NRIC,
+      this.Email,
+      this.Contact,
+      this.Gender,
+      this.Occupation,
+      this.Available_time,
+      this.Choose_field,
+      this.Chosen_zoo);
 
   static void newsubmission(
     String name,
@@ -25,10 +35,11 @@ class Registrationform {
     String gender,
     String occupation,
     String available_time,
+    String choose_field,
     String chosen_zoo,
   ) async {
     var submission = await Registrationform(name, age, nrid, email, contact,
-        gender, occupation, available_time, chosen_zoo);
+        gender, occupation, available_time, choose_field, chosen_zoo);
 
     if (chosen_zoo == 'Zoo Negara') {
       negaraRegistration(submission);
@@ -48,6 +59,7 @@ class Registrationform {
       'Contact': this.Contact,
       'Gender': this.Gender,
       'Occupation': this.Occupation,
+      'Field': this.Choose_field,
       'Available time': this.Available_time,
       'Chosen Zoo': this.Chosen_zoo,
     };

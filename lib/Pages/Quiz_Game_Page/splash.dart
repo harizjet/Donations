@@ -2,32 +2,29 @@ import 'dart:async';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:ztour_mobile/Pages/Quiz_Game_Page//homepage.dart';
+import 'package:ztour_mobile/Pages/Quiz_Game_Page/quizhomepage.dart';
 
-class SplashScreen extends StatefulWidget{
+class SplashScreen extends StatefulWidget {
   _SplashScreenState createState() => _SplashScreenState();
 }
 
-class _SplashScreenState extends State<SplashScreen>{
-
+class _SplashScreenState extends State<SplashScreen> {
   @override
-  void initState(){
+  void initState() {
     super.initState();
-    Timer (Duration(seconds: 3), (){
-      Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => homepage(),
+    Timer(Duration(seconds: 3), () {
+      Navigator.of(context).pushReplacement(MaterialPageRoute(
+        builder: (context) => quizhomepage(),
       ));
     });
   }
-  Widget build(BuildContext context){
+
+  Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color(0xFFF7C229),
       body: Center(
-        child:Text(
-          "Quiz Time!",
-          style: TextStyle(fontSize: 50.0, fontFamily: "Satisfy")
-        )
-      ),
-
+          child: Text("Quiz Time!",
+              style: TextStyle(fontSize: 50.0, fontFamily: "Satisfy"))),
     );
   }
 }

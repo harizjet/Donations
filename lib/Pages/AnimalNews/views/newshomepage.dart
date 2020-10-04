@@ -18,9 +18,11 @@ class _AnimalNewsPageState extends State<AnimalNewsPage> {
     News news = News();
     await news.getNews();
     newslist = news.news;
-    setState(() {
-      _loading = false;
-    });
+    if (mounted) {
+      setState(() {
+        _loading = false;
+      });
+    }
   }
 
   @override
@@ -36,7 +38,10 @@ class _AnimalNewsPageState extends State<AnimalNewsPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.orange,
+        elevation: 0,
         title: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text(
               "Animal ",
@@ -50,8 +55,13 @@ class _AnimalNewsPageState extends State<AnimalNewsPage> {
             )
           ],
         ),
-        backgroundColor: Colors.green,
-        elevation: 0.0,
+        actions: <Widget>[
+          Container(
+              padding: EdgeInsets.symmetric(horizontal: 16),
+              child: Icon(
+                Icons.share,
+              ))
+        ],
       ),
       body: SafeArea(
         child: _loading

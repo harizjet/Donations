@@ -13,6 +13,23 @@ class ZooDestinationPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        automaticallyImplyLeading: false,
+        titleSpacing: 0.0,
+        elevation: 0.5,
+        backgroundColor: Colors.orange,
+        title: Center(
+          child: Text(
+            "Zoo Tour",
+            style: TextStyle(
+              color: Colors.black,
+              fontFamily: "Quando",
+              fontSize: 25.0,
+            ),
+            textAlign: TextAlign.center,
+          ),
+        ),
+      ),
       body: Stack(
         children: <Widget>[
           Container(
@@ -27,49 +44,50 @@ class ZooDestinationPage extends StatelessWidget {
           ListView(
             padding: EdgeInsets.symmetric(horizontal: 20.0),
             children: <Widget>[
-              Container(
-                padding: EdgeInsets.only(top: 200, left: 40),
-                child: Card(
-                  elevation: 5.0,
-                  child: Container(
-                    child: Column(
-                      children: <Widget>[
-                        Row(
-                          children: <Widget>[
-                            IconButton(
-                              icon: Icon(Platform.isIOS
-                                  ? Icons.arrow_back_ios
-                                  : Icons.arrow_back),
-                              onPressed: () => Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (_) => AnimatedBottomBar(),
-                                  )),
-                            ),
-                            Text("Zoos & Aquariums\n in Malaysia‎",
-                                style: TextStyle(
-                                    fontSize: 20.0,
-                                    fontWeight: FontWeight.bold)),
-                            IconButton(
-                              icon: Icon(Icons.star_border),
-                              onPressed: () => Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (_) => AnimatedBottomBar())),
-                            )
-                          ],
-                        ),
-                        Container(
-                            padding: EdgeInsets.fromLTRB(20.0, 0, 20.0, 16.0),
-                            child: Text(
-                              "\nExplore our Malaysia",
-                              textAlign: TextAlign.justify,
-                            ))
-                      ],
-                    ),
-                  ),
-                ),
-              ),
+              SizedBox(height: 300),
+              // Container(
+              //   padding: EdgeInsets.only(top: 200, left: 40),
+              //   child: Card(
+              //     elevation: 5.0,
+              //     child: Container(
+              //       child: Column(
+              //         children: <Widget>[
+              //           Row(
+              //             children: <Widget>[
+              //               IconButton(
+              //                 icon: Icon(Platform.isIOS
+              //                     ? Icons.arrow_back_ios
+              //                     : Icons.arrow_back),
+              //                 onPressed: () => Navigator.push(
+              //                     context,
+              //                     MaterialPageRoute(
+              //                       builder: (_) => AnimatedBottomBar(),
+              //                     )),
+              //               ),
+              //               Text("Zoos & Aquariums\n in Malaysia‎",
+              //                   style: TextStyle(
+              //                       fontSize: 20.0,
+              //                       fontWeight: FontWeight.bold)),
+              //               IconButton(
+              //                 icon: Icon(Icons.star_border),
+              //                 onPressed: () => Navigator.push(
+              //                     context,
+              //                     MaterialPageRoute(
+              //                         builder: (_) => AnimatedBottomBar())),
+              //               )
+              //             ],
+              //           ),
+              //           Container(
+              //               padding: EdgeInsets.fromLTRB(20.0, 0, 20.0, 16.0),
+              //               child: Text(
+              //                 "\nExplore our Malaysia",
+              //                 textAlign: TextAlign.justify,
+              //               ))
+              //         ],
+              //       ),
+              //     ),
+              //   ),
+              // ),
               Row(
                 children: <Widget>[
                   Expanded(

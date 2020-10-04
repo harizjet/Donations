@@ -34,6 +34,7 @@ dependencies:
   crop: 0.4.1
   share: ^0.6.4+3
   animator: ^2.0.1  
+  bmnav: ^0.3.4
   dynamic_theme:
   
   
@@ -118,6 +119,19 @@ flutter:
     - assets/Animal_Unique.xlsx
     - assets/Test.jpg
 
+    - assets/images/promo_banner.jpg
+    - assets/images/photo_banner.jpg
+    - assets/images/research_banner.jpg
+    - assets/images/horticulture_banner.jpeg
+    - assets/images/req_banner.jpeg
+    - assets/images/poster.png
+    - assets/images/1.png
+    - assets/images/2.png
+    - assets/images/3.png
+    - assets/images/4.png
+
+    - assets/Logodict/1.PNG
+
     - assets/Adopt.csv
 
     - assets/loading/loading.gif
@@ -167,7 +181,7 @@ flutter:
     - assets/images/5.png
     - assets/images/6.png
     - assets/images/4.jpg
-
+    
 
     #- assets/AnimalsPicture
     

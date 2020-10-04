@@ -15,18 +15,22 @@ class _HomePageCovidState extends State<HomePageCovid> {
   Map worldData;
   fetchWorldWideData() async {
     http.Response response = await http.get('https://corona.lmao.ninja/v2/all');
-    setState(() {
-      worldData = json.decode(response.body);
-    });
+    if (mounted) {
+      setState(() {
+        worldData = json.decode(response.body);
+      });
+    }
   }
 
   List countryData;
   fetchCountryData() async {
     http.Response response =
         await http.get('https://corona.lmao.ninja/v2/countries?sort=cases');
-    setState(() {
-      countryData = json.decode(response.body);
-    });
+    if (mounted) {
+      setState(() {
+        countryData = json.decode(response.body);
+      });
+    }
   }
 
   Future fetchData() async {
@@ -45,10 +49,10 @@ class _HomePageCovidState extends State<HomePageCovid> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        centerTitle: false,
-        title: Text(
-          'COVID-19',
-        ),
+        backgroundColor: Colors.orange,
+        elevation: 0,
+        title: Text("Covid-19"),
+        centerTitle: true,
       ),
       body: RefreshIndicator(
         onRefresh: fetchData,

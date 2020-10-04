@@ -56,6 +56,12 @@
       "languageVersion": "2.1"
     },
     {
+      "name": "bmnav",
+      "rootUri": "file:///D:/General/MobileDevelopment/flutter/.pub-cache/hosted/pub.dartlang.org/bmnav-0.3.4",
+      "packageUri": "lib/",
+      "languageVersion": "2.0"
+    },
+    {
       "name": "boolean_selector",
       "rootUri": "file:///D:/General/MobileDevelopment/flutter/.pub-cache/hosted/pub.dartlang.org/boolean_selector-2.0.0",
       "packageUri": "lib/",
@@ -1256,7 +1262,7 @@
       "languageVersion": "2.7"
     }
   ],
-  "generated": "2020-10-03T08:38:02.384992Z",
+  "generated": "2020-10-03T23:11:01.295009Z",
   "generator": "pub",
   "generatorVersion": "2.9.2"
 }

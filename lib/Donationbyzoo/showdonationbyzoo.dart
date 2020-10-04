@@ -42,7 +42,10 @@ class _DonationNumberState extends State<DonationNumber> {
   Widget builddonation(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Donation Number'),
+        backgroundColor: Colors.orange,
+        elevation: 0,
+        title: Text("Donation Number"),
+        centerTitle: true,
       ),
       body: Container(
         padding: EdgeInsets.all(10),
@@ -50,7 +53,7 @@ class _DonationNumberState extends State<DonationNumber> {
           alignment: Alignment.center,
           child: Column(
             children: <Widget>[
-              SizedBox(height: 15),
+              const SizedBox(height: 50.0),
               Container(
                 decoration: BoxDecoration(border: Border.all()),
                 width: MediaQuery.of(context).size.width * 0.25,

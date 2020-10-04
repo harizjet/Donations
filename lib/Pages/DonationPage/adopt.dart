@@ -6,9 +6,10 @@ class Adopt extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(" Adopt Our Animal "),
-        backgroundColor: Colors.deepOrangeAccent,
-        elevation: 2,
+        backgroundColor: Colors.orange,
+        elevation: 0,
+        title: Text("Adopt Our Animal"),
+        centerTitle: true,
       ),
       body: Lists(),
     );

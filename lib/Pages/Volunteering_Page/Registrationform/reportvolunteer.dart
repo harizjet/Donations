@@ -1,8 +1,3 @@
-/**
- * Author: Damodar Lohani
- * profile: https://github.com/lohanidamodar
-  */
-
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -50,11 +45,11 @@ class _ReportVState extends State<ReportV> {
   @override
   Widget buildReportV(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Colors.yellow[50],
       appBar: AppBar(
-        backgroundColor: Colors.transparent,
+        backgroundColor: Colors.orange,
         elevation: 0,
-        title: Text("Number of Volunteer by Zoo"),
+        title: Text("Volunteers by Zoo"),
         centerTitle: true,
       ),
       body: _buildBody(context),
@@ -66,6 +61,7 @@ class _ReportVState extends State<ReportV> {
       padding: const EdgeInsets.all(16.0),
       child: Column(
         children: <Widget>[
+          const SizedBox(height: 50.0),
           _buildHeader(),
           const SizedBox(height: 50.0),
           Row(
@@ -96,8 +92,12 @@ class _ReportVState extends State<ReportV> {
                           Padding(
                             padding: const EdgeInsets.only(left: 16.0),
                             child: Text(
-                              '\nZOO NEGARA',
-                              style: whiteText,
+                              '\nZoo Negara',
+                              style:
+                                  Theme.of(context).textTheme.display1.copyWith(
+                                        color: Colors.white,
+                                        fontSize: 22.0,
+                                      ),
                             ),
                           )
                         ],
@@ -127,8 +127,12 @@ class _ReportVState extends State<ReportV> {
                           Padding(
                             padding: const EdgeInsets.only(left: 16.0),
                             child: Text(
-                              "TOTAL \nREGISTRATION",
-                              style: whiteText,
+                              "Total \Registration",
+                              style:
+                                  Theme.of(context).textTheme.display1.copyWith(
+                                        color: Colors.white,
+                                        fontSize: 22.0,
+                                      ),
                             ),
                           )
                         ],
@@ -164,8 +168,12 @@ class _ReportVState extends State<ReportV> {
                           Padding(
                             padding: const EdgeInsets.only(left: 16.0),
                             child: Text(
-                              '\nZOO TAIPING ',
-                              style: whiteText,
+                              '\nZoo Taiping',
+                              style:
+                                  Theme.of(context).textTheme.display1.copyWith(
+                                        color: Colors.white,
+                                        fontSize: 22.0,
+                                      ),
                             ),
                           )
                         ],
@@ -195,7 +203,12 @@ class _ReportVState extends State<ReportV> {
                           Padding(
                             padding: const EdgeInsets.only(left: 16.0),
                             child: Text(
-                              '\n\nZOO MELAKA',
+                              '\n\nZoo Melaka',
+                              style:
+                                  Theme.of(context).textTheme.display1.copyWith(
+                                        color: Colors.white,
+                                        fontSize: 22.0,
+                                      ),
                             ),
                           )
                         ],
@@ -232,7 +245,7 @@ class _ReportVState extends State<ReportV> {
               Text(
                 "Overall\nRegistration",
                 style:
-                    TextStyle(color: Colors.black87).copyWith(fontSize: 20.0),
+                    TextStyle(color: Colors.black87).copyWith(fontSize: 25.0),
               ),
               const SizedBox(height: 20.0),
               Text(

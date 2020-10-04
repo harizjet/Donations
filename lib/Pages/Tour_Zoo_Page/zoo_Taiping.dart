@@ -13,15 +13,9 @@ class DetailsPageT extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        titleSpacing: 0.0,
-        elevation: 0.5,
-        backgroundColor: Colors.white,
-        title: Text(
-          "Zoo Taiping",
-          style: TextStyle(
-              color: Colors.black, fontWeight: FontWeight.bold, fontSize: 20.0),
-          textAlign: TextAlign.center,
-        ),
+        backgroundColor: Colors.orange,
+        elevation: 0,
+        title: Text("Zoo Taiping"),
       ),
       body: Stack(
         children: <Widget>[
@@ -215,7 +209,6 @@ class DetailsPageT extends StatelessWidget {
               ],
             ),
           ),
-          
         ],
       ),
     );

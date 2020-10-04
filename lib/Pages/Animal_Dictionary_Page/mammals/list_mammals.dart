@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 //import '../animal_single_view.dart';
-import '../home.dart';
+import '../dictionaryhome.dart';
 import 'package:spreadsheet_decoder/spreadsheet_decoder.dart';
 import 'package:flutter/services.dart';
 import 'dart:async';
@@ -46,25 +46,30 @@ class _ListMammal extends State<ListMammal> {
 
     await animalData(widget.animaltype, widget.animaltype2);
 
-    for (int x = 0; x < animalListMammal.length; x++) {
-      Image downloadImage =
-          new Image.network(_ListMammal.animalListMammal[x]['logoText'].trim());
+    // for (int x = 0; x < animalListMammal.length; x++) {
+    //   Image downloadImage =
+    //       new Image.network(_ListMammal.animalListMammal[x]['logoText'].trim());
 
-      final ImageStream stream =
-          downloadImage.image.resolve(ImageConfiguration.empty);
-      final Completer<void> completer = Completer<void>();
-      stream.addListener(ImageStreamListener(
-          (ImageInfo info, bool syncCall) => completer.complete()));
-      await completer.future;
-      print(x);
-      // print(animalListMammal.length);
-      if (x == animalListMammal.length - 1) {
-        if (mounted) {
-          setState(() {
-            _body = mammalSIAP(context);
-          });
-        }
-      }
+    //   final ImageStream stream =
+    //       downloadImage.image.resolve(ImageConfiguration.empty);
+    //   final Completer<void> completer = Completer<void>();
+    //   stream.addListener(ImageStreamListener(
+    //       (ImageInfo info, bool syncCall) => completer.complete()));
+    //   await completer.future;
+    //   print(x);
+    //   // print(animalListMammal.length);
+    //   if (x == animalListMammal.length - 1) {
+    //     if (mounted) {
+    //       setState(() {
+    //         _body = mammalSIAP(context);
+    //       });
+    //     }
+    //   }
+    // }
+    if (mounted) {
+      setState(() {
+        _body = mammalSIAP(context);
+      });
     }
   }
 
@@ -213,30 +218,21 @@ class _ListMammal extends State<ListMammal> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: <Widget>[
                             IconButton(
-                              onPressed: () => Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (_) =>
-                                          AnimalHomePage())), //DrawerPage(),
+                              onPressed: () =>
+                                  Navigator.pop(context), //DrawerPage(),
                               icon: Icon(
                                 Icons.arrow_back,
                                 color: Colors.white,
                               ),
                             ),
-                            Text(
-                              "Mammals",
-                              style:
-                                  TextStyle(color: Colors.white, fontSize: 24),
-                            ),
-                            IconButton(
-                              onPressed: () {
-                                Navigator.of(context).pop();
-                              },
-                              icon: Icon(
-                                Icons.filter_list,
-                                color: Colors.white,
+                            Center(
+                              child: Text(
+                                "Mammals",
+                                style: TextStyle(
+                                    color: Colors.white, fontSize: 24),
                               ),
                             ),
+                            SizedBox(width: 40),
                           ],
                         ),
                       ),

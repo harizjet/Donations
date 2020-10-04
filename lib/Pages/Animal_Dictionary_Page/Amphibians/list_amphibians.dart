@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 //import 'package:ztour_apps1/Pages/Animal_Dictionary_Page/output.dart';
 //import '../animal_single_view.dart';
-import '../home.dart';
+import '../dictionaryhome.dart';
 import 'package:spreadsheet_decoder/spreadsheet_decoder.dart';
 import 'package:flutter/services.dart';
 import 'dart:async';
@@ -47,25 +47,30 @@ class _ListAmp extends State<ListAmp> {
 
     await animalData(widget.animaltype, widget.animaltype2);
 
-    for (int x = 0; x < animalListAmp.length; x++) {
-      Image downloadImage =
-          new Image.network(_ListAmp.animalListAmp[x]['logoText'].trim());
+    // for (int x = 0; x < animalListAmp.length; x++) {
+    //   Image downloadImage =
+    //       new Image.network(_ListAmp.animalListAmp[x]['logoText'].trim());
 
-      final ImageStream stream =
-          downloadImage.image.resolve(ImageConfiguration.empty);
-      final Completer<void> completer = Completer<void>();
-      stream.addListener(ImageStreamListener(
-          (ImageInfo info, bool syncCall) => completer.complete()));
-      await completer.future;
-      print(x);
-      // print(animalListMammal.length);
-      if (x == animalListAmp.length - 1) {
-        if (mounted) {
-          setState(() {
-            _body = ampSIAP(context);
-          });
-        }
-      }
+    //   final ImageStream stream =
+    //       downloadImage.image.resolve(ImageConfiguration.empty);
+    //   final Completer<void> completer = Completer<void>();
+    //   stream.addListener(ImageStreamListener(
+    //       (ImageInfo info, bool syncCall) => completer.complete()));
+    //   await completer.future;
+    //   print(x);
+    //   // print(animalListMammal.length);
+    //   if (x == animalListAmp.length - 1) {
+    //     if (mounted) {
+    //       setState(() {
+    //         _body = ampSIAP(context);
+    //       });
+    //     }
+    //   }
+    // }
+    if (mounted) {
+      setState(() {
+        _body = ampSIAP(context);
+      });
     }
   }
 
@@ -178,127 +183,117 @@ class _ListAmp extends State<ListAmp> {
   }
 
   Widget ampSIAP(BuildContext context) {
-    return Scaffold(   
+    return Scaffold(
       backgroundColor: Colors.white70,
-     // body: 
-       body: animalListAmp == null
+      // body:
+      body: animalListAmp == null
           ? Center(
               child: CircularProgressIndicator(),
             )
-            : SingleChildScrollView(
-        child: Container(
-          height: MediaQuery.of(context).size.height,
-          width: MediaQuery.of(context).size.width,
-          child: Stack(
-            children: <Widget>[
-              Container(
-                padding: EdgeInsets.only(top: 145),
+          : SingleChildScrollView(
+              child: Container(
                 height: MediaQuery.of(context).size.height,
-                width: double.infinity,
-                child: ListView.builder(
-                    itemCount: animalListAmp.length,
-                    itemBuilder: (BuildContext context, int index) {
-                      return buildList(context, index);
-                    }),
-              ),
-              Container(
-                height: 150,
-                width: double.infinity,
-                decoration: BoxDecoration(
-                    color: Colors.orange,
-                    borderRadius: BorderRadius.only(
-                        bottomLeft: Radius.circular(30),
-                        bottomRight: Radius.circular(30))),
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 30),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: <Widget>[
-                      IconButton(
-                        onPressed: () => Navigator.push(
-                        context, MaterialPageRoute(builder: (_) => AnimalHomePage())), //DrawerPage(),
-                        icon: Icon(
-                          Icons.arrow_back,
-                          color: Colors.white,
-                        ),
-                      ),
-                      Text(
-                        "Amphibians",
-                        style: TextStyle(color: Colors.white, fontSize: 30),
-                      ),
-                      IconButton(
-                        onPressed: () {
-                          Navigator.of(context).pop();
-                        },
-                        icon: Icon(
-                          Icons.filter_list,
-                          color: Colors.white,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-
-              
-              Container(
-                child: Column(
+                width: MediaQuery.of(context).size.width,
+                child: Stack(
                   children: <Widget>[
-                    
-                    SizedBox(
-                      height: 110,
+                    Container(
+                      padding: EdgeInsets.only(top: 145),
+                      height: MediaQuery.of(context).size.height,
+                      width: double.infinity,
+                      child: ListView.builder(
+                          itemCount: animalListAmp.length,
+                          itemBuilder: (BuildContext context, int index) {
+                            return buildList(context, index);
+                          }),
                     ),
-                    Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 20),
-                      child: Material(
-                        elevation: 5.0,
-                        borderRadius: BorderRadius.all(Radius.circular(30)),
-                        child: TextField(
-                          
-                          controller: editingController,
-                          cursorColor: Theme.of(context).primaryColor,
-                          style: dropdownMenuItem,
-                          decoration: InputDecoration(
-                              hintText: "Search Animal",
-                              hintStyle: TextStyle(
-                                  color: Colors.black38, fontSize: 16),
-                              prefixIcon: Material(
-                                elevation: 0.0,
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(30)),
-                                child: IconButton(
-                                icon: Icon(Icons.search),
-                                onPressed: () {
-                                  showSearch(context: context, delegate: Search(animalListAmp));
-                                },
-                              )
-                                                    //Icon(Icons.search),
+                    Container(
+                      height: 150,
+                      width: double.infinity,
+                      decoration: BoxDecoration(
+                          color: Colors.orange,
+                          borderRadius: BorderRadius.only(
+                              bottomLeft: Radius.circular(30),
+                              bottomRight: Radius.circular(30))),
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 30),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: <Widget>[
+                            IconButton(
+                              onPressed: () =>
+                                  Navigator.pop(context), //DrawerPage(),
+                              icon: Icon(
+                                Icons.arrow_back,
+                                color: Colors.white,
                               ),
-                              border: InputBorder.none,
-                              contentPadding: EdgeInsets.symmetric(
-                                  horizontal: 25, vertical: 13)),
+                            ),
+                            Text(
+                              "Amphibians",
+                              style:
+                                  TextStyle(color: Colors.white, fontSize: 30),
+                            ),
+                            SizedBox(width: 40),
+                          ],
                         ),
                       ),
                     ),
+                    Container(
+                      child: Column(
+                        children: <Widget>[
+                          SizedBox(
+                            height: 110,
+                          ),
+                          Padding(
+                            padding: EdgeInsets.symmetric(horizontal: 20),
+                            child: Material(
+                              elevation: 5.0,
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(30)),
+                              child: TextField(
+                                controller: editingController,
+                                cursorColor: Theme.of(context).primaryColor,
+                                style: dropdownMenuItem,
+                                decoration: InputDecoration(
+                                    hintText: "Search Animal",
+                                    hintStyle: TextStyle(
+                                        color: Colors.black38, fontSize: 16),
+                                    prefixIcon: Material(
+                                        elevation: 0.0,
+                                        borderRadius: BorderRadius.all(
+                                            Radius.circular(30)),
+                                        child: IconButton(
+                                          icon: Icon(Icons.search),
+                                          onPressed: () {
+                                            showSearch(
+                                                context: context,
+                                                delegate:
+                                                    Search(animalListAmp));
+                                          },
+                                        )
+                                        //Icon(Icons.search),
+                                        ),
+                                    border: InputBorder.none,
+                                    contentPadding: EdgeInsets.symmetric(
+                                        horizontal: 25, vertical: 13)),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    )
                   ],
                 ),
-              )
-            ],
-          ),
-        ),
-      ),
+              ),
+            ),
     );
   }
-
- 
 
   Widget buildList(BuildContext context, int index) {
     return GestureDetector(
         onTap: () async {
           ListAmp.found = false;
           ListAmp.closestinput = [];
-          var temp =
-              await animalReading(_ListAmp.animalListAmp[index]['name']);
+          var temp = await animalReading(_ListAmp.animalListAmp[index]['name']);
           if (ListAmp.found == true)
             Navigator.push(
               context,
@@ -310,8 +305,8 @@ class _ListAmp extends State<ListAmp> {
             Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => noOutput(
-                    ListAmp.found, ListAmp.closestinput.toString()),
+                builder: (context) =>
+                    noOutput(ListAmp.found, ListAmp.closestinput.toString()),
               ),
             );
         },
@@ -353,7 +348,6 @@ class _ListAmp extends State<ListAmp> {
                         height: 2.5,
                       ),
                     ),
-                 
                   ],
                 ),
               )
@@ -362,8 +356,6 @@ class _ListAmp extends State<ListAmp> {
         ));
   }
 }
-
-
 
 class ampLOADING extends StatelessWidget {
   @override
@@ -438,54 +430,50 @@ class Search extends SearchDelegate {
         itemCount: suggestionList.length,
         itemBuilder: (context, index) {
           return Card(
-           child: Container(
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(25), //border list
-            color: Colors.white,
-          ),
-          width: double.infinity,
-          height: 80,
-          margin: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
-          padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
-          child: Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              Container(
-                width: 50,
-                height: 50,
-                margin: EdgeInsets.only(right: 15),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20),
-                  border: Border.all(width: 2, color: secondary),
-                  image: DecorationImage(
-                      image: NetworkImage(
-                          _ListAmp.animalListAmp[index]['logoText']),
-                      fit: BoxFit.fill),
+              child: Container(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(25), //border list
+              color: Colors.white,
+            ),
+            width: double.infinity,
+            height: 80,
+            margin: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+            padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Container(
+                  width: 50,
+                  height: 50,
+                  margin: EdgeInsets.only(right: 15),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20),
+                    border: Border.all(width: 2, color: secondary),
+                    image: DecorationImage(
+                        image: NetworkImage(
+                            _ListAmp.animalListAmp[index]['logoText']),
+                        fit: BoxFit.fill),
+                  ),
                 ),
-              ),
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    Text(
-                      _ListAmp.animalListAmp[index]['name'],
-                      style: TextStyle(
-                        color: primary,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 18,
-                        height: 2.5,
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Text(
+                        _ListAmp.animalListAmp[index]['name'],
+                        style: TextStyle(
+                          color: primary,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 18,
+                          height: 2.5,
+                        ),
                       ),
-                    ),
-                 
-                  ],
-                ),
-              )
-            ],
-          ),
-        )
-          );
+                    ],
+                  ),
+                )
+              ],
+            ),
+          ));
         });
   }
 }
-
-

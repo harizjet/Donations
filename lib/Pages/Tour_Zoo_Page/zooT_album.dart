@@ -29,14 +29,9 @@ class GalleryPageTwo extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        centerTitle: true,
+        backgroundColor: Colors.orange,
         elevation: 0,
-        title: Text(
-          'Photos',
-          style: TextStyle(color: Colors.black),
-        ),
-        backgroundColor: Colors.transparent,
-        iconTheme: IconThemeData(color: Colors.black),
+        title: Text("Photos"),
       ),
       body: StaggeredGridView.countBuilder(
         padding: const EdgeInsets.all(8.0),

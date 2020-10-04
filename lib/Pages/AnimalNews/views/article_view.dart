@@ -18,6 +18,8 @@ class _ArticleViewState extends State<ArticleView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.orange,
+        elevation: 0,
         title: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
@@ -40,8 +42,6 @@ class _ArticleViewState extends State<ArticleView> {
                 Icons.share,
               ))
         ],
-        backgroundColor: Colors.green,
-        elevation: 0.0,
       ),
       body: Container(
         height: MediaQuery.of(context).size.height,

@@ -61,16 +61,17 @@ class _animalhomepageState extends State<animalhomepage> {
   Widget animalmalaysiaSIAP(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          backgroundColor: Colors.green,
-          title: Text('Animal Graph'),
+          backgroundColor: Colors.orange,
           elevation: 0,
+          title: Text("Animal Graph"),
+          centerTitle: true,
         ),
         body: Stack(
           children: <Widget>[
             ClipPath(
               clipper: WaveClipperTwo(),
               child: Container(
-                decoration: BoxDecoration(color: Colors.green[300]),
+                decoration: BoxDecoration(color: Colors.orange[300]),
                 height: 200,
               ),
             ),
@@ -81,12 +82,20 @@ class _animalhomepageState extends State<animalhomepage> {
                   child: Padding(
                     padding: const EdgeInsets.symmetric(
                         horizontal: 16.0, vertical: 8.0),
+                    child: SizedBox(height: 25),
+                  ),
+                ),
+                SliverToBoxAdapter(
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 16.0, vertical: 8.0),
                     child: Text(
-                      "Select a category",
+                      "Select Animal",
+                      textAlign: TextAlign.center,
                       style: TextStyle(
-                          color: Colors.white,
+                          color: Colors.black,
                           fontWeight: FontWeight.w500,
-                          fontSize: 16.0),
+                          fontSize: 18.0),
                     ),
                   ),
                 ),
@@ -144,6 +153,12 @@ class animalmalaysiaLOADING extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.orange,
+        elevation: 0,
+        title: Text("Animal Graph"),
+        centerTitle: true,
+      ),
       body: Align(
         alignment: Alignment.center,
         child: Container(

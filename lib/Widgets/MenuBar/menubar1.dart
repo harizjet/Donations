@@ -119,14 +119,11 @@ class _NavDrawerState extends State<NavDrawer> {
                     ),
                     _build2Divider(),
                     ListTile(
-                      leading: Icon(Icons.settings),
-                      title: Text("Setting"),
-                      onTap: () => Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (_) => SettingsOnePage(),
-                          )),
-                    ),
+                        leading: Icon(
+                          Icons.exit_to_app,
+                        ),
+                        title: Text("Log Out"),
+                        onTap: () {}),
                     _build2Divider(),
                     ListTile(
                       leading: Icon(

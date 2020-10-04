@@ -92,25 +92,36 @@ class _NewsState extends State<News> {
     return Scaffold(
       backgroundColor: bgColor,
       appBar: AppBar(
-        backgroundColor: Colors.white,
+        leading: new IconButton(
+            icon: new Icon(Icons.arrow_back),
+            onPressed: () {
+              Navigator.pop(context, true);
+            }),
+        backgroundColor: Colors.orange,
         elevation: 0,
-        automaticallyImplyLeading: false,
-        actions: <Widget>[
-          IconButton(
-            color: Colors.black,
-            icon: Icon(Icons.home),
-            onPressed: () => Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (_) => AnimatedBottomBar(),
-                )),
-          ),
-        ],
-        title: Text(
-          "Feed",
-          style: TextStyle(color: Colors.black, fontSize: 30.0),
-        ),
+        title: Text("Feed"),
+        centerTitle: true,
       ),
+      // appBar: AppBar(
+      //   backgroundColor: Colors.white,
+      //   elevation: 0,
+      //   automaticallyImplyLeading: false,
+      //   actions: <Widget>[
+      //     IconButton(
+      //       color: Colors.black,
+      //       icon: Icon(Icons.home),
+      //       onPressed: () => Navigator.push(
+      //           context,
+      //           MaterialPageRoute(
+      //             builder: (_) => AnimatedBottomBar(),
+      //           )),
+      //     ),
+      //   ],
+      //   title: Text(
+      //     "Feed",
+      //     style: TextStyle(color: Colors.black, fontSize: 30.0),
+      //   ),
+      // ),
       body: ListView(
         padding: const EdgeInsets.all(16.0),
         children: <Widget>[
@@ -170,13 +181,13 @@ class _NewsState extends State<News> {
               ],
               onPressed: (index) => {
                     if (index == 2)
-                      Navigator.push(
+                      Navigator.pushReplacement(
                           context,
                           MaterialPageRoute(
                             builder: (_) => NewsTaiping(),
                           )),
                     if (index == 1)
-                      Navigator.push(
+                      Navigator.pushReplacement(
                           context,
                           MaterialPageRoute(
                             builder: (_) => NewsMelaka(),

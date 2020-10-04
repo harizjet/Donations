@@ -199,9 +199,10 @@ class _CardFormState extends State<CardForm> {
     _CardFormState.validornot = true;
     return Scaffold(
       appBar: AppBar(
-        title: Text('Card Form'),
+        backgroundColor: Colors.orange,
+        elevation: 0,
+        title: Text("Card Form"),
         centerTitle: true,
-        backgroundColor: Colors.orangeAccent,
       ),
       body: SafeArea(
         child: AnimatedContainer(
