@@ -95,34 +95,6 @@ class _Dashboard2State extends State<Dashboard2> {
         childAspectRatio: 1.5,
         crossAxisCount: 2,
         children: <Widget>[
-          // Container(
-          //     padding: EdgeInsets.all(5),
-          //     decoration: BoxDecoration(
-          //       borderRadius: BorderRadius.circular(10.0),
-          //     ),
-          //     child: RaisedButton(
-          //       shape: RoundedRectangleBorder(
-          //           borderRadius: BorderRadius.circular(10.0)),
-          //       color: Colors.red,
-          //       child: Column(
-          //         mainAxisAlignment: MainAxisAlignment.center,
-          //         children: <Widget>[
-          //           Icon(
-          //             Icons.attach_money,
-          //           ),
-          //           const SizedBox(height: 5.0),
-          //           Text(
-          //             "Sponsor",
-          //             style: TextStyle(
-          //                 color: Colors.black,
-          //                 fontWeight: FontWeight.w500,
-          //                 fontSize: 18.0),
-          //           ),
-          //         ],
-          //       ),
-          //       onPressed: () => Navigator.push(
-          //           context, MaterialPageRoute(builder: (_) => ToDoPage())),
-          //     )),
           Container(
             padding: EdgeInsets.all(5),
             decoration: BoxDecoration(

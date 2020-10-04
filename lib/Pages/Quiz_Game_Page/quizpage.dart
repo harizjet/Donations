@@ -268,7 +268,7 @@ class _quizpageState extends State<quizpage> {
           children: <Widget>[
             Padding(padding: EdgeInsets.only(top: 20, bottom: 20)),
             Container(
-              //padding: EdgeInsets.all(10.0),
+              padding: EdgeInsets.all(20.0),
               height: 180,
               width: 900,
               decoration: BoxDecoration(
@@ -279,7 +279,7 @@ class _quizpageState extends State<quizpage> {
             Expanded(
               flex: 3,
               child: Container(
-                padding: EdgeInsets.all(4),
+                padding: EdgeInsets.all(20.0),
                 alignment: Alignment.bottomLeft,
                 child: Text(
                   mydata[0][i.toString()],
@@ -295,6 +295,7 @@ class _quizpageState extends State<quizpage> {
               child: AbsorbPointer(
                 absorbing: disableAnswer,
                 child: Container(
+                  padding: EdgeInsets.all(20.0),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[

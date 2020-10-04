@@ -37,8 +37,7 @@ class ZooDestinationPage extends StatelessWidget {
             decoration: BoxDecoration(
                 //color: Colors.blue,
                 image: DecorationImage(
-                    image: NetworkImage(
-                        'https://assets.bharian.com.my/images/articles/Ahmad_Shazrul_Izwanflamingo_1586762745.jpg'),
+                    image: AssetImage('assets/discover/cover.jpg'),
                     fit: BoxFit.cover)),
           ),
           ListView(
@@ -91,7 +90,7 @@ class ZooDestinationPage extends StatelessWidget {
               Row(
                 children: <Widget>[
                   Expanded(
-                    child: Text("Places to visit",
+                    child: Text("Select Zoo",
                         style: TextStyle(
                             fontSize: 20.0, fontWeight: FontWeight.bold)),
                   ),
@@ -110,8 +109,24 @@ class ZooDestinationPage extends StatelessWidget {
                     MaterialButton(
                       child: SizedBox(
                         width: 50.0,
-                        child: _buildPlaceToVisit(
-                            image: zoo[0], title: "Zoo Negara"),
+                        child: Column(
+                          children: <Widget>[
+                            Container(
+                              width: 50,
+                              height: 70,
+                              decoration: BoxDecoration(
+                                  //color: Colors.blue,
+                                  image: DecorationImage(
+                                      image: AssetImage(
+                                          'assets/discover/zoo-logo.jpg'),
+                                      fit: BoxFit.cover)),
+                            ),
+                            SizedBox(
+                              height: 10.0,
+                            ),
+                            Text('Zoo Negara')
+                          ],
+                        ),
                       ),
                       onPressed: () => Navigator.push(context,
                           MaterialPageRoute(builder: (_) => DetailsPage())),
@@ -119,8 +134,24 @@ class ZooDestinationPage extends StatelessWidget {
                     MaterialButton(
                       child: SizedBox(
                         width: 50.0,
-                        child: _buildPlaceToVisit(
-                            image: zooT[0], title: "Zoo Taiping"),
+                        child: Column(
+                          children: <Widget>[
+                            Container(
+                              width: 50,
+                              height: 70,
+                              decoration: BoxDecoration(
+                                  //color: Colors.blue,
+                                  image: DecorationImage(
+                                      image: AssetImage(
+                                          'assets/discover/taiping.jpg'),
+                                      fit: BoxFit.cover)),
+                            ),
+                            SizedBox(
+                              height: 10.0,
+                            ),
+                            Text('Zoo Taiping')
+                          ],
+                        ),
                       ),
                       onPressed: () => Navigator.push(context,
                           MaterialPageRoute(builder: (_) => DetailsPageT())),
@@ -128,8 +159,24 @@ class ZooDestinationPage extends StatelessWidget {
                     MaterialButton(
                       child: SizedBox(
                         width: 50.0,
-                        child: _buildPlaceToVisit(
-                            image: zooM[0], title: "Zoo Melaka"),
+                        child: Column(
+                          children: <Widget>[
+                            Container(
+                              width: 50,
+                              height: 70,
+                              decoration: BoxDecoration(
+                                  //color: Colors.blue,
+                                  image: DecorationImage(
+                                      image: AssetImage(
+                                          'assets/discover/melaka.jpg'),
+                                      fit: BoxFit.cover)),
+                            ),
+                            SizedBox(
+                              height: 10.0,
+                            ),
+                            Text('Zoo Melaka')
+                          ],
+                        ),
                       ),
                       onPressed: () => Navigator.push(context,
                           MaterialPageRoute(builder: (_) => DetailsPageM())),
@@ -137,8 +184,24 @@ class ZooDestinationPage extends StatelessWidget {
                     MaterialButton(
                         child: SizedBox(
                           width: 50.0,
-                          child: _buildPlaceToVisit(
-                              image: zoo[1], title: "Zoo Johor"),
+                          child: Column(
+                            children: <Widget>[
+                              Container(
+                                width: 50,
+                                height: 70,
+                                decoration: BoxDecoration(
+                                    //color: Colors.blue,
+                                    image: DecorationImage(
+                                        image: AssetImage(
+                                            'assets/discover/johor.jpg'),
+                                        fit: BoxFit.cover)),
+                              ),
+                              SizedBox(
+                                height: 10.0,
+                              ),
+                              Text('Zoo Johor')
+                            ],
+                          ),
                         ),
                         onPressed: () {}),
                   ],
@@ -165,23 +228,49 @@ class ZooDestinationPage extends StatelessWidget {
                             mainAxisSpacing: 10.0),
                         children: <Widget>[
                           ClipRRect(
-                              borderRadius: BorderRadius.circular(5.0),
-                              child: PNetworkImage(
-                                  'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQruR2fFwzpyHARPb6GfP1LKhz-g5mICmKafg&usqp=CAU',
-                                  fit: BoxFit.cover)),
+                            borderRadius: BorderRadius.circular(5.0),
+                            child: Container(
+                              decoration: BoxDecoration(
+                                  //color: Colors.blue,
+                                  image: DecorationImage(
+                                      image: AssetImage(
+                                          'assets/discover/images.jpg'),
+                                      fit: BoxFit.cover)),
+                            ),
+                          ),
                           ClipRRect(
-                              borderRadius: BorderRadius.circular(5.0),
-                              child: PNetworkImage(zoo[2], fit: BoxFit.cover)),
+                            borderRadius: BorderRadius.circular(5.0),
+                            child: Container(
+                              decoration: BoxDecoration(
+                                  //color: Colors.blue,
+                                  image: DecorationImage(
+                                      image: AssetImage(
+                                          'assets/discover/zirrafe.jpg'),
+                                      fit: BoxFit.cover)),
+                            ),
+                          ),
                           ClipRRect(
-                              borderRadius: BorderRadius.circular(5.0),
-                              child: PNetworkImage(
-                                  'https://www.asiaone.com/sites/default/files/original_images/Apr2016/tiger-main.jpg',
-                                  fit: BoxFit.cover)),
+                            borderRadius: BorderRadius.circular(5.0),
+                            child: Container(
+                              decoration: BoxDecoration(
+                                  //color: Colors.blue,
+                                  image: DecorationImage(
+                                      image: AssetImage(
+                                          'assets/discover/tiger-main.jpg'),
+                                      fit: BoxFit.cover)),
+                            ),
+                          ),
                           ClipRRect(
-                              borderRadius: BorderRadius.circular(5.0),
-                              child: PNetworkImage(
-                                  'https://storage.findbulous.info/image/travel/upload/19979/re-image3_l.jpg',
-                                  fit: BoxFit.cover)),
+                            borderRadius: BorderRadius.circular(5.0),
+                            child: Container(
+                              decoration: BoxDecoration(
+                                  //color: Colors.blue,
+                                  image: DecorationImage(
+                                      image: AssetImage(
+                                          'assets/discover/gajah.jpg'),
+                                      fit: BoxFit.cover)),
+                            ),
+                          ),
                         ],
                       ),
                     ),

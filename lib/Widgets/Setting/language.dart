@@ -1,13 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:ztour_mobile/Widgets/Setting/language1.dart';
-import 'package:ztour_mobile/Widgets/Setting/localization_constant.dart';
-import 'package:ztour_mobile/Widgets/Setting/main.dart';
+import 'package:ztour_mobile/Setting/main.dart';
+import '../Setting/language1.dart';
+import 'localization_constant.dart';
 
 class LanguagePage extends StatefulWidget {
   LanguagePage({Key key}) : super(key: key);
 
-  //String get languageCode => null;
+  String get languageCode => null;
 
   @override
   _LanguagePageState createState() => _LanguagePageState();
@@ -16,23 +16,27 @@ class LanguagePage extends StatefulWidget {
 class _LanguagePageState extends State<LanguagePage> {
   void _changeLanguage(Language language) async {
     Locale _temp = await setLocale(language.languageCode);
-    MySetApp.setLocale(context, _temp);
+    MyApp.setLocale(context, _temp);
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey.shade200,
+      backgroundColor: Colors.yellow[50],
       appBar: AppBar(
-        backgroundColor: Colors.green,
-        title: Text("Languages"),
+        elevation: 0,
+        iconTheme: IconThemeData(color: Colors.black),
+        backgroundColor: Colors.orange,
+        title: Text(
+          getTranslated(context, "language_page"),
+          style: TextStyle(color: Colors.black),
+        ),
       ),
       body: Container(
           child: Center(
         child: DropdownButton<Language>(
           iconSize: 30,
-          /*hint: Text(
-                getTranslated(context, 'change_language')),*/
+          hint: Text(getTranslated(context, "change_language")),
           onChanged: (Language language) {
             _changeLanguage(language);
           },
@@ -45,7 +49,7 @@ class _LanguagePageState extends State<LanguagePage> {
                     children: <Widget>[
                       Text(
                         e.flag,
-                        style: TextStyle(fontSize: 10),
+                        style: TextStyle(fontSize: 25),
                       ),
                       Text(e.name)
                     ],

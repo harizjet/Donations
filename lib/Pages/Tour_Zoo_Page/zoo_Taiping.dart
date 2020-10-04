@@ -24,98 +24,6 @@ class DetailsPageT extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                Card(
-                  child: Container(
-                    padding: EdgeInsets.all(10),
-                    decoration: BoxDecoration(
-                      border: Border.all(color: Colors.black45),
-                    ),
-                    width: boxWidth,
-                    height: boxHeight,
-                    child: Column(
-                      children: <Widget>[
-                        Container(
-                          width: boxWidth,
-                          height: boxHeight * (1 / 3),
-                          padding: EdgeInsets.all(10),
-                          child: Carousel(
-                            images: [
-                              Image.asset('assets/Zoo/Taiping/1.jpg'),
-                              Image.asset('assets/Zoo/Taiping/2.jpeg'),
-                              Image.asset('assets/Zoo/Taiping/3.jpg')
-                            ],
-                          ),
-                        ),
-                        Expanded(
-                          child: Container(
-                            padding: EdgeInsets.all(10),
-                            child: Column(
-                              children: <Widget>[
-                                Card(
-                                  child: Container(
-                                    alignment: Alignment.topLeft,
-                                    padding: EdgeInsets.all(10),
-                                    child: Column(
-                                      children: <Widget>[
-                                        Container(
-                                          alignment: Alignment.topLeft,
-                                          child: Text(
-                                            "Information",
-                                            style: TextStyle(
-                                              color: Colors.black87,
-                                              fontWeight: FontWeight.w500,
-                                              fontSize: 12,
-                                            ),
-                                            textAlign: TextAlign.left,
-                                          ),
-                                        ),
-                                        Divider(
-                                          color: Colors.black38,
-                                        ),
-                                        Container(
-                                            child: Column(
-                                          children: <Widget>[
-                                            ListTile(
-                                              leading: Icon(Icons.person),
-                                              title: Text("Name"),
-                                              subtitle: Text(
-                                                  "Zoo Taiping & Night Safari"),
-                                            ),
-                                            ListTile(
-                                              contentPadding:
-                                                  EdgeInsets.symmetric(
-                                                      horizontal: 10,
-                                                      vertical: 4),
-                                              leading: Icon(Icons.my_location),
-                                              title: Text("Location"),
-                                              subtitle: Text(
-                                                  "Zoo Taiping, Jalan Taman Tasik Taiping,34000 Taiping, Perak Darul Ridzuan, Malaysia."),
-                                            ),
-                                            ListTile(
-                                              leading: Icon(Icons.email),
-                                              title: Text("Email"),
-                                              subtitle: Text(
-                                                  "zootaiping@zootaiping.gov.my"),
-                                            ),
-                                            ListTile(
-                                              leading: Icon(Icons.phone),
-                                              title: Text("Phone"),
-                                              subtitle: Text("605 - 8086577"),
-                                            ),
-                                          ],
-                                        ))
-                                      ],
-                                    ),
-                                  ),
-                                )
-                              ],
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
                 Container(
                   padding: const EdgeInsets.all(32.0),
                   color: Colors.white,
@@ -129,11 +37,14 @@ class DetailsPageT extends StatelessWidget {
                         child: RaisedButton(
                             shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(30.0)),
-                            color: Colors.orange,
+                            color: Colors.red[300],
                             textColor: Colors.white,
                             child: Text(
-                              "ENTER GOOGLE EARTH",
-                              style: TextStyle(fontWeight: FontWeight.normal),
+                              "Google Earth",
+                              style: TextStyle(
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.w500,
+                                  fontSize: 18.0),
                             ),
                             padding: const EdgeInsets.symmetric(
                               vertical: 16.0,
@@ -151,8 +62,11 @@ class DetailsPageT extends StatelessWidget {
                             color: Colors.pinkAccent,
                             textColor: Colors.white,
                             child: Text(
-                              "EXPERIENCE VR MODE",
-                              style: TextStyle(fontWeight: FontWeight.normal),
+                              "Experience VR Mode",
+                              style: TextStyle(
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.w500,
+                                  fontSize: 18.0),
                             ),
                             padding: const EdgeInsets.symmetric(
                               vertical: 16.0,
@@ -167,11 +81,14 @@ class DetailsPageT extends StatelessWidget {
                         child: RaisedButton(
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(30.0)),
-                          color: Colors.purple,
+                          color: Colors.red[600],
                           textColor: Colors.white,
                           child: Text(
-                            "SEE ALBUM",
-                            style: TextStyle(fontWeight: FontWeight.normal),
+                            "Zoo Album",
+                            style: TextStyle(
+                                color: Colors.black,
+                                fontWeight: FontWeight.w500,
+                                fontSize: 18.0),
                           ),
                           padding: const EdgeInsets.symmetric(
                             vertical: 16.0,
@@ -190,11 +107,14 @@ class DetailsPageT extends StatelessWidget {
                         child: RaisedButton(
                             shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(30.0)),
-                            color: Colors.green,
+                            color: Colors.red[900],
                             textColor: Colors.white,
                             child: Text(
-                              "OFFICIAL WEBSITE",
-                              style: TextStyle(fontWeight: FontWeight.normal),
+                              "Official Website",
+                              style: TextStyle(
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.w500,
+                                  fontSize: 18.0),
                             ),
                             padding: const EdgeInsets.symmetric(
                               vertical: 16.0,
@@ -203,7 +123,104 @@ class DetailsPageT extends StatelessWidget {
                             onPressed: () => launch(
                                 'https://zootaiping.gov.my/bm/frame-visit.html')),
                       ),
+                      const SizedBox(height: 30.0),
                     ],
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsets.all(14),
+                  child: Card(
+                    child: Container(
+                      padding: EdgeInsets.all(10),
+                      decoration: BoxDecoration(
+                        border: Border.all(color: Colors.black45),
+                      ),
+                      width: boxWidth,
+                      height: boxHeight,
+                      child: Column(
+                        children: <Widget>[
+                          Container(
+                            width: boxWidth,
+                            height: boxHeight * (1 / 3),
+                            padding: EdgeInsets.all(10),
+                            child: Carousel(
+                              images: [
+                                Image.asset('assets/Zoo/Taiping/1.jpg'),
+                                Image.asset('assets/Zoo/Taiping/2.jpeg'),
+                                Image.asset('assets/Zoo/Taiping/3.jpg')
+                              ],
+                            ),
+                          ),
+                          Expanded(
+                            child: Container(
+                              padding: EdgeInsets.all(10),
+                              child: Column(
+                                children: <Widget>[
+                                  Card(
+                                    child: Container(
+                                      alignment: Alignment.topLeft,
+                                      padding: EdgeInsets.all(10),
+                                      child: Column(
+                                        children: <Widget>[
+                                          Container(
+                                            alignment: Alignment.topLeft,
+                                            child: Text(
+                                              "Information",
+                                              style: TextStyle(
+                                                color: Colors.black87,
+                                                fontWeight: FontWeight.w500,
+                                                fontSize: 12,
+                                              ),
+                                              textAlign: TextAlign.left,
+                                            ),
+                                          ),
+                                          Divider(
+                                            color: Colors.black38,
+                                          ),
+                                          Container(
+                                              child: Column(
+                                            children: <Widget>[
+                                              ListTile(
+                                                leading: Icon(Icons.person),
+                                                title: Text("Name"),
+                                                subtitle: Text(
+                                                    "Zoo Taiping & Night Safari"),
+                                              ),
+                                              ListTile(
+                                                contentPadding:
+                                                    EdgeInsets.symmetric(
+                                                        horizontal: 10,
+                                                        vertical: 4),
+                                                leading:
+                                                    Icon(Icons.my_location),
+                                                title: Text("Location"),
+                                                subtitle: Text(
+                                                    "Zoo Taiping, Jalan Taman Tasik Taiping,34000 Taiping, Perak Darul Ridzuan, Malaysia."),
+                                              ),
+                                              ListTile(
+                                                leading: Icon(Icons.email),
+                                                title: Text("Email"),
+                                                subtitle: Text(
+                                                    "zootaiping@zootaiping.gov.my"),
+                                              ),
+                                              ListTile(
+                                                leading: Icon(Icons.phone),
+                                                title: Text("Phone"),
+                                                subtitle: Text("605 - 8086577"),
+                                              ),
+                                            ],
+                                          ))
+                                        ],
+                                      ),
+                                    ),
+                                  )
+                                ],
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
                   ),
                 ),
               ],

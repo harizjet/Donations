@@ -447,8 +447,7 @@ class Search extends SearchDelegate {
                     borderRadius: BorderRadius.circular(20),
                     border: Border.all(width: 2, color: secondary),
                     image: DecorationImage(
-                        image: NetworkImage(
-                            _ListBird.animalListBird[index]['logoText']),
+                        image: NetworkImage(suggestionList[index]['logoText']),
                         fit: BoxFit.fill),
                   ),
                 ),
@@ -457,7 +456,7 @@ class Search extends SearchDelegate {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
                       Text(
-                        _ListBird.animalListBird[index]['name'],
+                        suggestionList[index]['name'],
                         style: TextStyle(
                           color: primary,
                           fontWeight: FontWeight.bold,

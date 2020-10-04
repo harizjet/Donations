@@ -22,7 +22,7 @@ class ToDoPage extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.orange,
         elevation: 0,
-        title: Text("Sponsor Type"),
+        title: Text("Animal Care"),
         centerTitle: true,
       ),
       backgroundColor: Colors.white,
@@ -48,27 +48,13 @@ class ToDoPage extends StatelessWidget {
               ],
             ),
           ),
-          Row(
-            children: <Widget>[
-              Expanded(
-                child: MaterialButton(
-                  child: _buildWikiCategory(FontAwesomeIcons.dollarSign,
-                      "Money Donation", Colors.deepOrange.withOpacity(0.7)),
-                  onPressed: () => Navigator.push(context,
-                      MaterialPageRoute(builder: (_) => DonationPage())),
-                ),
-              ),
-              const SizedBox(width: 16.0),
-              Expanded(
-                child: MaterialButton(
-                    child: _buildWikiCategory(FontAwesomeIcons.delicious,
-                        "Food Donation", Colors.blue.withOpacity(0.6)),
-                    onPressed: () => {print(DateTime.now().toLocal())}
-                    // Navigator.push(context,
-                    //  MaterialPageRoute(builder: (_) => DonationHistory())),
-                    ),
-              ),
-            ],
+          Center(
+            child: MaterialButton(
+              child: _buildWikiCategory(FontAwesomeIcons.dollarSign,
+                  "Money Donation", Colors.deepOrange.withOpacity(0.7), true),
+              onPressed: () => Navigator.push(
+                  context, MaterialPageRoute(builder: (_) => DonationPage())),
+            ),
           ),
           const SizedBox(height: 16.0),
           Row(
@@ -184,24 +170,71 @@ class ToDoPage extends StatelessWidget {
     );
   }
 
-  Stack _buildWikiCategory(IconData icon, String label, Color color) {
+  Stack _buildWikiCategory(IconData icon, String label, Color color,
+      [bool center = false]) {
     return Stack(
       children: <Widget>[
-        Container(
-          padding: const EdgeInsets.all(26.0),
-          alignment: Alignment.centerRight,
-          child: Opacity(
-              opacity: 0.3,
-              child: Icon(
-                icon,
-                size: 40,
-                color: Colors.white,
-              )),
-          decoration: BoxDecoration(
-            color: color,
-            borderRadius: BorderRadius.circular(20.0),
+        if (center == true)
+          Container(
+            padding: const EdgeInsets.all(26.0),
+            alignment: Alignment.centerRight,
+            child: Row(
+              children: <Widget>[
+                Opacity(
+                  opacity: 0.3,
+                  child: Icon(
+                    icon,
+                    size: 40,
+                    color: Colors.white,
+                  ),
+                ),
+                Opacity(
+                  opacity: 0.3,
+                  child: Icon(
+                    icon,
+                    size: 40,
+                    color: Colors.white,
+                  ),
+                ),
+                Opacity(
+                  opacity: 0.3,
+                  child: Icon(
+                    icon,
+                    size: 40,
+                    color: Colors.white,
+                  ),
+                ),
+                Opacity(
+                  opacity: 0.3,
+                  child: Icon(
+                    icon,
+                    size: 40,
+                    color: Colors.white,
+                  ),
+                ),
+              ],
+            ),
+            decoration: BoxDecoration(
+              color: color,
+              borderRadius: BorderRadius.circular(20.0),
+            ),
           ),
-        ),
+        if (center == false)
+          Container(
+            padding: const EdgeInsets.all(26.0),
+            alignment: Alignment.centerRight,
+            child: Opacity(
+                opacity: 0.3,
+                child: Icon(
+                  icon,
+                  size: 40,
+                  color: Colors.white,
+                )),
+            decoration: BoxDecoration(
+              color: color,
+              borderRadius: BorderRadius.circular(20.0),
+            ),
+          ),
         Padding(
           padding: const EdgeInsets.all(16.0),
           child: Column(

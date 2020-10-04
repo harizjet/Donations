@@ -186,6 +186,20 @@ flutter:
     - assets/images/6.png
     - assets/images/4.jpg
     
+    - lib/Setting/lang/en.json
+    - lib/Setting/lang/ms.json
+
+    - assets/discover/cover.jpg
+    - assets/discover/gajah.jpg
+    - assets/discover/images.jpg
+    - assets/discover/johor.jpg
+    - assets/discover/melaka.jpg
+    - assets/discover/taiping.jpg
+    - assets/discover/tiger-main.jpg
+    - assets/discover/zirrafe.jpg
+    - assets/discover/zoo-logo.jpg
+
+
 
     #- assets/AnimalsPicture
     
