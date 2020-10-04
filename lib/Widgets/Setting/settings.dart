@@ -7,11 +7,14 @@ import 'package:ztour_mobile/Widgets/Setting/language.dart';
 import 'package:ztour_mobile/Pages/Login_Signup_Page/user_profile.dart';
 
 class SettingsOnePage extends StatefulWidget {
-  static final String path = "lib/Setting/settings.dart";
+  static final String path = "lib/Widgets/Setting/settings.dart";
 
   @override
   _SettingsOnePageState createState() => _SettingsOnePageState();
 }
+
+final FirebaseAuth _auth = FirebaseAuth.instance;
+FirebaseUser user;
 
 class _SettingsOnePageState extends State<SettingsOnePage> {
   bool _dark;
@@ -27,13 +30,17 @@ class _SettingsOnePageState extends State<SettingsOnePage> {
     return _dark ? Brightness.dark : Brightness.light;
   }
 
-  final FirebaseAuth _auth = FirebaseAuth.instance;
-  FirebaseUser user;
+  static String email = "";
+  static String uid = '';
 
   initUser() async {
     user = await _auth.currentUser();
-    setState(() {});
+    setState(() {
+      _SettingsOnePageState.email = user.email;
+      _SettingsOnePageState.uid = user.uid;
+    });
   }
+
 
   @override
   Widget build(BuildContext context) {
@@ -77,7 +84,7 @@ class _SettingsOnePageState extends State<SettingsOnePage> {
                     elevation: 8.0,
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10.0)),
-                    color: Colors.purple,
+                    color: Colors.orange,
                     child: ListTile(
                       onTap: () {
                         //open edit profile
@@ -103,21 +110,7 @@ class _SettingsOnePageState extends State<SettingsOnePage> {
                         borderRadius: BorderRadius.circular(10.0)),
                     child: Column(
                       children: <Widget>[
-                        ListTile(
-                          leading: Icon(
-                            Icons.people_outline,
-                            color: Colors.purple,
-                          ),
-                          title: Text("Account"),
-                          trailing: Icon(Icons.keyboard_arrow_right),
-                          onTap: () => Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (_) => Profile(),
-                              )),
-                          //open account
-                        ),
-                        _buildDivider(),
+                
                         ListTile(
                           leading: Icon(
                             FontAwesomeIcons.language,
