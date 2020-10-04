@@ -95,19 +95,7 @@ class _Dashboard2State extends State<Dashboard2> {
         childAspectRatio: 1.5,
         crossAxisCount: 3,
         children: <Widget>[
-          Container(
-              padding: EdgeInsets.all(5),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10.0),
-              ),
-              child: RaisedButton(
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10.0)),
-                color: Colors.red,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    Icon(
+         Icon(
                       Icons.attach_money,
                     ),
                     const SizedBox(height: 5.0),
@@ -138,13 +126,13 @@ class _Dashboard2State extends State<Dashboard2> {
                     Icon(
                       Icons.help,
                     ),
-                    const SizedBox(height: 1.0),
+                    const SizedBox(height: 5.0),
                     Text(
                       "Volunteer",
                       style: TextStyle(
                           color: Colors.black,
                           fontWeight: FontWeight.w500,
-                          fontSize: 18.0),
+                          fontSize: 16.0),
                     ),
                   ],
                 ),
@@ -172,16 +160,13 @@ class _Dashboard2State extends State<Dashboard2> {
                       style: TextStyle(
                           color: Colors.black,
                           fontWeight: FontWeight.w500,
-                          fontSize: 18.0),
+                          fontSize: 16.0),
                     ),
                   ],
                 ),
                 onPressed: () => Navigator.push(context,
                     MaterialPageRoute(builder: (_) => ReportDonation())),
               )),
-        ],
-      ),
-    );
   }
 
   SliverPadding _buildActivities(BuildContext context) {
