@@ -52,10 +52,10 @@ class ToDoPage extends StatelessWidget {
             children: <Widget>[
               Expanded(
                 child: MaterialButton(
-                  child: _buildWikiCategory(FontAwesomeIcons.dollarSign, "Fund",
-                      Colors.deepOrange.withOpacity(0.7)),
+                  child: _buildWikiCategory(FontAwesomeIcons.dollarSign,
+                      "Money Donation", Colors.deepOrange.withOpacity(0.7)),
                   onPressed: () => Navigator.push(context,
-                      MaterialPageRoute(builder: (_) => ReportDonation())),
+                      MaterialPageRoute(builder: (_) => DonationPage())),
                 ),
               ),
               const SizedBox(width: 16.0),
@@ -96,42 +96,42 @@ class ToDoPage extends StatelessWidget {
           const SizedBox(height: 20.0),
         ],
       ),
-      bottomNavigationBar: BottomAppBar(
-        elevation: 5.0,
-        child: Row(
-          children: <Widget>[
-            const SizedBox(width: 16.0),
-            IconButton(
-              icon: Icon(Icons.home),
-              onPressed: () => Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (_) => AnimatedBottomBar(),
-                  )),
-              color: Colors.deepOrange,
-            ),
-            Spacer(),
-            IconButton(
-              icon: Icon(Icons.message),
-              onPressed: () {},
-            ),
-            const SizedBox(width: 16.0),
-          ],
-        ),
-      ),
-      floatingActionButton: MaterialButton(
-        onPressed: () => Navigator.push(
-            context, MaterialPageRoute(builder: (_) => DonationPage())),
-        color: Colors.green,
-        child: Icon(Icons.add),
-        textColor: Colors.white,
-        minWidth: 0,
-        elevation: 4.0,
-        padding: const EdgeInsets.all(8.0),
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(10.0),
-        ),
-      ),
+      // bottomNavigationBar: BottomAppBar(
+      //   elevation: 5.0,
+      //   child: Row(
+      //     children: <Widget>[
+      //       const SizedBox(width: 16.0),
+      //       IconButton(
+      //         icon: Icon(Icons.home),
+      //         onPressed: () => Navigator.push(
+      //             context,
+      //             MaterialPageRoute(
+      //               builder: (_) => AnimatedBottomBar(),
+      //             )),
+      //         color: Colors.deepOrange,
+      //       ),
+      //       Spacer(),
+      //       IconButton(
+      //         icon: Icon(Icons.message),
+      //         onPressed: () {},
+      //       ),
+      //       const SizedBox(width: 16.0),
+      //     ],
+      //   ),
+      // ),
+      // floatingActionButton: MaterialButton(
+      //   onPressed: () => Navigator.push(
+      //       context, MaterialPageRoute(builder: (_) => DonationPage())),
+      //   color: Colors.green,
+      //   child: Icon(Icons.add),
+      //   textColor: Colors.white,
+      //   minWidth: 0,
+      //   elevation: 4.0,
+      //   padding: const EdgeInsets.all(8.0),
+      //   shape: RoundedRectangleBorder(
+      //     borderRadius: BorderRadius.circular(10.0),
+      //   ),
+      // ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   }

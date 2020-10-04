@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:ztour_mobile/Resources/assets.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-
+import 'login_page.dart';
 import 'package:ztour_mobile/Graph/graph.dart';
-
+import 'AlertDialoglogout.dart';
+import 'package:progress_dialog/progress_dialog.dart';
 import 'package:ztour_mobile/Pages/Volunteering_Page/Registrationform/reportvolunteer.dart';
 
 import 'package:ztour_mobile/Widgets/Setting/settings.dart';
@@ -75,8 +76,27 @@ class _ProfileState extends State<Profile> {
 }
 
 class UserInfo extends StatelessWidget {
+  bool logout = false;
+
+  Future logoutConfirmation(BuildContext context) async {
+    VoidCallback continueCallBack = () {
+      Navigator.of(context).pop();
+      this.logout = true;
+    };
+    BlurryDialog2nd alert = BlurryDialog2nd(
+        "Confirmation", "Are you sure you want to log out?", continueCallBack);
+
+    await showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return alert;
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
+    ProgressDialog dialog = new ProgressDialog(context);
     return Container(
       padding: EdgeInsets.all(10),
       child: Column(
@@ -183,13 +203,30 @@ class UserInfo extends StatelessWidget {
                           ),
                           SizedBox(height: 10),
                           ListTile(
-                            leading: Icon(Icons.settings),
-                            title: Text("Setting"),
-                            onTap: () => Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (_) => SettingsOnePage(),
-                                )),
+                            leading: Icon(Icons.exit_to_app),
+                            title: Text("Log Out"),
+                            onTap: () async {
+                              await logoutConfirmation(context);
+
+                              if (this.logout == true) {
+                                dialog.style(
+                                  message: 'Please wait...',
+                                );
+                                await dialog.show();
+
+                                await _auth.signOut();
+
+                                await dialog.hide();
+                                Navigator.pushReplacement(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (_) => AuthPage(),
+                                  ),
+                                );
+
+                                this.logout = false;
+                              }
+                            },
                           ),
                         ],
                       ),

@@ -93,36 +93,36 @@ class _Dashboard2State extends State<Dashboard2> {
         crossAxisSpacing: 2.0,
         mainAxisSpacing: 16.0,
         childAspectRatio: 1.5,
-        crossAxisCount: 3,
+        crossAxisCount: 2,
         children: <Widget>[
-          Container(
-              padding: EdgeInsets.all(5),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10.0),
-              ),
-              child: RaisedButton(
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10.0)),
-                color: Colors.red,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    Icon(
-                      Icons.attach_money,
-                    ),
-                    const SizedBox(height: 5.0),
-                    Text(
-                      "Sponsor",
-                      style: TextStyle(
-                          color: Colors.black,
-                          fontWeight: FontWeight.w500,
-                          fontSize: 18.0),
-                    ),
-                  ],
-                ),
-                onPressed: () => Navigator.push(
-                    context, MaterialPageRoute(builder: (_) => ToDoPage())),
-              )),
+          // Container(
+          //     padding: EdgeInsets.all(5),
+          //     decoration: BoxDecoration(
+          //       borderRadius: BorderRadius.circular(10.0),
+          //     ),
+          //     child: RaisedButton(
+          //       shape: RoundedRectangleBorder(
+          //           borderRadius: BorderRadius.circular(10.0)),
+          //       color: Colors.red,
+          //       child: Column(
+          //         mainAxisAlignment: MainAxisAlignment.center,
+          //         children: <Widget>[
+          //           Icon(
+          //             Icons.attach_money,
+          //           ),
+          //           const SizedBox(height: 5.0),
+          //           Text(
+          //             "Sponsor",
+          //             style: TextStyle(
+          //                 color: Colors.black,
+          //                 fontWeight: FontWeight.w500,
+          //                 fontSize: 18.0),
+          //           ),
+          //         ],
+          //       ),
+          //       onPressed: () => Navigator.push(
+          //           context, MaterialPageRoute(builder: (_) => ToDoPage())),
+          //     )),
           Container(
             padding: EdgeInsets.all(5),
             decoration: BoxDecoration(
@@ -136,7 +136,7 @@ class _Dashboard2State extends State<Dashboard2> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
                     Icon(
-                      Icons.help,
+                      Icons.people,
                     ),
                     const SizedBox(height: 1.0),
                     Text(
@@ -163,9 +163,7 @@ class _Dashboard2State extends State<Dashboard2> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
-                    Icon(
-                      Icons.people,
-                    ),
+                    Icon(Icons.monetization_on),
                     const SizedBox(height: 5.0),
                     Text(
                       "Donation",
@@ -190,7 +188,7 @@ class _Dashboard2State extends State<Dashboard2> {
       sliver: SliverToBoxAdapter(
         child: _buildTitledContainer(
           "Activities",
-          height: 500,
+          height: 570,
           child: Expanded(
             child: GridView.count(
               physics: NeverScrollableScrollPhysics(),
@@ -201,13 +199,13 @@ class _Dashboard2State extends State<Dashboard2> {
                       children: <Widget>[
                         SizedBox(height: 20),
                         CircleAvatar(
-                          radius: 30,
+                          radius: 40,
                           backgroundColor: Theme.of(context).buttonColor,
                           child: activity.icon != null
                               ? RaisedButton(
                                   child: Icon(
                                     activity.icon,
-                                    size: 18.0,
+                                    size: 36.0,
                                   ),
                                   onPressed: () => Navigator.push(
                                       context,
@@ -314,7 +312,7 @@ final List<Activity> activities = [
     action: VolunteerHomePage(),
   ),
   Activity(
-    title: "Donation",
+    title: "Animal Care",
     icon: FontAwesomeIcons.dollarSign,
     action: ToDoPage(),
   ),

@@ -119,6 +119,10 @@ flutter:
     - assets/Animal_Unique.xlsx
     - assets/Test.jpg
 
+    - assets/Logodict/2.png
+
+    - assets/Logodict/3.png
+
     - assets/images/promo_banner.jpg
     - assets/images/photo_banner.jpg
     - assets/images/research_banner.jpg

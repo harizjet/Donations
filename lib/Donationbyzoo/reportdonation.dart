@@ -2,7 +2,11 @@
  * Author: Damodar Lohani
  * profile: https://github.com/lohanidamodar
   */
-
+import 'package:charts_flutter/flutter.dart' as charts;
+import 'package:flutter/material.dart';
+import '../Graph/getdonationdatabaseforalluser.dart';
+import '../Graph/graph.dart';
+import 'package:intl/intl.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:ztour_mobile/Donationbyzoo/showdonationbyzoo.dart';
@@ -16,6 +20,8 @@ class ReportDonation extends StatefulWidget {
 
 class _ReportDonationState extends State<ReportDonation> {
   Widget _body = donationLOADING();
+  static List<TimeSeriesDonation> listdonationsdata = [];
+  static List<charts.Series> seriesList;
 
   Map<String, String> donationnumber = {};
 
@@ -30,11 +36,73 @@ class _ReportDonationState extends State<ReportDonation> {
           );
       },
     );
+    try {
+      await getAllDonationforallUsers().then(
+        (donations) {
+          donations.sort(
+            (a, b) {
+              var adate = a.time;
+              var bdate = b.time;
+              return -adate.compareTo(bdate);
+            },
+          );
+          if (mounted)
+            setState(
+              () {
+                _ReportDonationState.listdonationsdata = donations;
+              },
+            );
+        },
+      );
+    } catch (err) {
+      _ReportDonationState.listdonationsdata.length = 0;
+    }
+    cumulative();
+    seriesList = createchartdata();
+
     setState(
       () {
         _body = buildReport(context);
       },
     );
+  }
+
+  void cumulative() async {
+    for (int x = _ReportDonationState.listdonationsdata.length - 2;
+        x >= 0;
+        x--) {
+      print(_ReportDonationState.listdonationsdata[x].time);
+      _ReportDonationState.listdonationsdata[x].donation =
+          (_ReportDonationState.listdonationsdata[x].donation +
+              _ReportDonationState.listdonationsdata[x + 1].donation);
+    }
+    for (int x = _ReportDonationState.listdonationsdata.length - 2;
+        x >= 0;
+        x--) {
+      if (DateFormat('yyyy-MM-dd')
+              .format(_ReportDonationState.listdonationsdata[x].time) ==
+          DateFormat('yyyy-MM-dd')
+              .format(_ReportDonationState.listdonationsdata[x + 1].time)) {
+        _ReportDonationState.listdonationsdata.removeAt(x + 1);
+      }
+    }
+    for (int x = 0; x < _ReportDonationState.listdonationsdata.length; x++) {
+      _ReportDonationState.listdonationsdata[x].time = DateTime.parse(
+          DateFormat('yyyy-MM-dd')
+              .format(_ReportDonationState.listdonationsdata[x].time));
+    }
+  }
+
+  static List<charts.Series<TimeSeriesDonation, DateTime>> createchartdata() {
+    return [
+      new charts.Series<TimeSeriesDonation, DateTime>(
+        id: 'Total Donation',
+        colorFn: (_, __) => charts.MaterialPalette.blue.shadeDefault,
+        domainFn: (TimeSeriesDonation donations, _) => donations.time,
+        measureFn: (TimeSeriesDonation donations, _) => donations.donation,
+        data: listdonationsdata,
+      )
+    ];
   }
 
   @override
@@ -56,7 +124,7 @@ class _ReportDonationState extends State<ReportDonation> {
       appBar: AppBar(
         backgroundColor: Colors.orange,
         elevation: 0,
-        title: Text("Fund Donation"),
+        title: Text("Donation Dashboard"),
         centerTitle: true,
       ),
       body: _buildBody(context),
@@ -68,6 +136,39 @@ class _ReportDonationState extends State<ReportDonation> {
       padding: const EdgeInsets.all(16.0),
       child: Column(
         children: <Widget>[
+          Align(
+            alignment: Alignment.topCenter,
+            child: Text(
+              "Total Donations Graph",
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                  color: Colors.black,
+                  fontWeight: FontWeight.w500,
+                  fontSize: 18.0),
+            ),
+          ),
+          Padding(
+            padding: EdgeInsets.all(30),
+            child: Container(
+              decoration: BoxDecoration(
+                color: Colors.white,
+                border: Border.all(width: 1, color: Colors.brown),
+                borderRadius: BorderRadius.all(Radius.circular(10)),
+                boxShadow: [
+                  BoxShadow(
+                      blurRadius: 5, color: Colors.white, offset: Offset(1, 1))
+                ],
+              ),
+              padding: EdgeInsets.all(20),
+              width: (MediaQuery.of(context).size.width),
+              height: (MediaQuery.of(context).size.height) * 0.5,
+              child: charts.TimeSeriesChart(
+                _ReportDonationState.seriesList,
+                animate: false,
+                dateTimeFactory: const charts.LocalDateTimeFactory(),
+              ),
+            ),
+          ),
           const SizedBox(height: 50.0),
           _buildHeader(),
           const SizedBox(height: 50.0),
