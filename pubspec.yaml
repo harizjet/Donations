@@ -182,6 +182,8 @@ flutter:
     - assets/images/6.png
     - assets/images/4.jpg
     
+    - lib/Setting/lang/en.json
+    - lib/Setting/lang/ms.json
 
     #- assets/AnimalsPicture
     
