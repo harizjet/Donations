@@ -41,7 +41,6 @@ class _SettingsOnePageState extends State<SettingsOnePage> {
     });
   }
 
-
   @override
   Widget build(BuildContext context) {
     return Theme(
@@ -50,12 +49,12 @@ class _SettingsOnePageState extends State<SettingsOnePage> {
         brightness: _getBrightness(),
       ),
       child: Scaffold(
-        backgroundColor: _dark ? null : Colors.white,
+        backgroundColor: _dark ? null : Colors.yellow[50],
         appBar: AppBar(
           elevation: 0,
           brightness: _getBrightness(),
           iconTheme: IconThemeData(color: _dark ? Colors.white : Colors.black),
-          backgroundColor: Colors.transparent,
+          backgroundColor: Colors.orange,
           //backgroundColor: Colors.blueGrey,
           title: Text(
             'Settings',
@@ -90,7 +89,7 @@ class _SettingsOnePageState extends State<SettingsOnePage> {
                         //open edit profile
                       },
                       title: Text(
-                        user.email,
+                        email,
                         style: TextStyle(
                           color: Colors.white,
                           fontWeight: FontWeight.w500,
@@ -110,11 +109,10 @@ class _SettingsOnePageState extends State<SettingsOnePage> {
                         borderRadius: BorderRadius.circular(10.0)),
                     child: Column(
                       children: <Widget>[
-                
                         ListTile(
                           leading: Icon(
                             FontAwesomeIcons.language,
-                            color: Colors.purple,
+                            color: Colors.orange,
                           ),
                           title: Text("Language"),
                           subtitle: Text("English US"),
@@ -130,7 +128,7 @@ class _SettingsOnePageState extends State<SettingsOnePage> {
                         ListTile(
                           leading: Icon(
                             Icons.notifications,
-                            color: Colors.purple,
+                            color: Colors.orange,
                           ),
                           title: Text("Notifications"),
                           trailing: Icon(Icons.keyboard_arrow_right),
@@ -142,7 +140,7 @@ class _SettingsOnePageState extends State<SettingsOnePage> {
                         ListTile(
                           leading: Icon(
                             Icons.lock_outline,
-                            color: Colors.purple,
+                            color: Colors.orange,
                           ),
                           title: Text("Privacy and Security"),
                           trailing: Icon(Icons.keyboard_arrow_right),
@@ -154,7 +152,7 @@ class _SettingsOnePageState extends State<SettingsOnePage> {
                         ListTile(
                           leading: Icon(
                             Icons.help_outline,
-                            color: Colors.purple,
+                            color: Colors.orange,
                           ),
                           title: Text("Help & Support"),
                           trailing: Icon(Icons.keyboard_arrow_right),
@@ -175,7 +173,7 @@ class _SettingsOnePageState extends State<SettingsOnePage> {
                         ListTile(
                           leading: Icon(
                             Icons.exit_to_app,
-                            color: Colors.purple,
+                            color: Colors.orange,
                           ),
                           title: Text("Logout",
                               style: TextStyle(
@@ -188,72 +186,9 @@ class _SettingsOnePageState extends State<SettingsOnePage> {
                     ),
                   ),
                   const SizedBox(height: 100.0),
-                  /*Text(
-                    "Notification Settings",
-                    style: TextStyle(
-                      fontSize: 20.0,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.indigo,
-                    ),
-                  ),
-                  SwitchListTile(
-                    activeColor: Colors.purple,
-                    contentPadding: const EdgeInsets.all(0),
-                    value: true,
-                    title: Text("Received notification"),
-                    onChanged: (val) {},
-                  ),
-                  SwitchListTile(
-                    activeColor: Colors.purple,
-                    contentPadding: const EdgeInsets.all(0),
-                    value: false,
-                    title: Text("Received newsletter"),
-                    onChanged: null,
-                  ),
-                  SwitchListTile(
-                    activeColor: Colors.purple,
-                    contentPadding: const EdgeInsets.all(0),
-                    value: true,
-                    title: Text("Received Offer Notification"),
-                    onChanged: (val) {},
-                  ),
-                  SwitchListTile(
-                    activeColor: Colors.purple,
-                    contentPadding: const EdgeInsets.all(0),
-                    value: true,
-                    title: Text("Received App Updates"),
-                    onChanged: null,
-                  ),*/
-                  const SizedBox(height: 100.0),
                 ],
               ),
             ),
-            /*Positioned(
-              bottom: -20,
-              left: -20,
-              child: Container(
-                width: 80,
-                height: 80,
-                alignment: Alignment.center,
-                decoration: BoxDecoration(
-                  color: Colors.purple,
-                  shape: BoxShape.circle,
-                ),
-              ),
-            ),
-            Positioned(
-              bottom: 00,
-              left: 00,
-              child: IconButton(
-                icon: Icon(
-                  FontAwesomeIcons.powerOff,
-                  color: Colors.white,
-                ),
-                onPressed: () {
-                  //log out
-                },
-              ),
-            )*/
           ],
         ),
       ),
