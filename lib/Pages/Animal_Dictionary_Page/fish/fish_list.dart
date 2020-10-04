@@ -328,7 +328,7 @@ class _ListFish extends State<ListFish> {
                   border: Border.all(width: 2, color: secondary),
                   image: DecorationImage(
                       image: NetworkImage(
-                          _ListFish.animalListFish[index]['logoText']),
+                         suggestionList[index]['logoText']),
                       fit: BoxFit.fill),
                 ),
               ),
@@ -337,7 +337,7 @@ class _ListFish extends State<ListFish> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     Text(
-                      _ListFish.animalListFish[index]['name'],
+                      suggestionList[index]['name'],
                       style: TextStyle(
                         color: primary,
                         fontWeight: FontWeight.bold,
