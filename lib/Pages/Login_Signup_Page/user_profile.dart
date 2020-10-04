@@ -6,7 +6,8 @@ import 'package:ztour_mobile/Graph/graph.dart';
 
 import 'package:ztour_mobile/Pages/Volunteering_Page/Registrationform/reportvolunteer.dart';
 
-import 'package:ztour_mobile/Widgets/Setting/settings.dart';
+import 'package:ztour_mobile/Setting/main.dart';
+
 
 class Profile extends StatefulWidget {
   @override
@@ -188,7 +189,7 @@ class UserInfo extends StatelessWidget {
                             onTap: () => Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                  builder: (_) => SettingsOnePage(),
+                                  builder: (_) =>  MyApp(),
                                 )),
                           ),
                         ],
