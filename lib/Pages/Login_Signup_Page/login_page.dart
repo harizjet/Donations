@@ -337,7 +337,7 @@ class _SignIn extends State<SignIn> {
                 decoration: InputDecoration(
                   border: OutlineInputBorder(),
                   contentPadding: const EdgeInsets.all(16.0),
-                  hintText: "enter your email or phone",
+                  hintText: "enter your email ",
                 ),
                 controller: _emailController,
                 validator: (String value) {
