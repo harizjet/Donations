@@ -1489,6 +1489,8 @@ drawable ic_error_amex
 drawable ic_indicator
 drawable ic_jcb
 drawable ic_jcb_template_32
+drawable ic_launcher_background
+drawable ic_launcher_foreground
 drawable ic_mastercard
 drawable ic_mastercard_template_32
 drawable ic_mtrl_chip_checked_black
@@ -2311,6 +2313,7 @@ layout wallet_test_layout
 menu add_payment_method
 menu payment_auth_web_view_menu
 mipmap ic_launcher
+mipmap launcher_icon
 plurals fui_error_weak_password
 plurals tw__time_hours
 plurals tw__time_mins

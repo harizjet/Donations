@@ -94,8 +94,8 @@ dev_dependencies:
   json_serializable: ^3.2.3
   
 flutter_icons:
-  # android: "launcher_icon"
-  # image_path: 'assets/Bank/FPX.jpg'
+  android: "launcher_icon"
+  image_path: 'assets/LogoZtour/icon1.png'
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

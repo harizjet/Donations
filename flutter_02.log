@@ -1,0 +1,93 @@
+Flutter crash report.
+Please report a bug at https://github.com/flutter/flutter/issues.
+
+## command
+
+flutter run -v
+
+## exception
+
+FileSystemException: FileSystemException: Cannot open file, path = 'D:\Project\ProjectHackathon\ztour\.flutter-plugins-dependencies' (OS Error: The requested operation cannot be performed on a file with a user-mapped section open.
+, errno = 1224)
+
+```
+#0      _File.throwIfError (dart:io/file_impl.dart:635:7)
+#1      _File.openSync (dart:io/file_impl.dart:479:5)
+#2      _File.writeAsBytesSync (dart:io/file_impl.dart:604:31)
+#3      _File.writeAsStringSync (dart:io/file_impl.dart:628:5)
+#4      ForwardingFile.writeAsStringSync (package:file/src/forwarding/forwarding_file.dart:154:16)
+#5      _writeFlutterPluginsList (package:flutter_tools/src/plugins.dart:458:15)
+#6      refreshPluginsList (package:flutter_tools/src/plugins.dart:1124:24)
+<asynchronous suspension>
+#7      FlutterProject.ensureReadyForPlatformSpecificTooling (package:flutter_tools/src/project.dart:241:11)
+#8      FlutterCommand.verifyThenRunCommand (package:flutter_tools/src/runner/flutter_command.dart:843:21)
+<asynchronous suspension>
+#9      FlutterCommand.run.<anonymous closure> (package:flutter_tools/src/runner/flutter_command.dart:741:33)
+<asynchronous suspension>
+#10     FlutterCommand.run.<anonymous closure> (package:flutter_tools/src/runner/flutter_command.dart)
+#11     AppContext.run.<anonymous closure> (package:flutter_tools/src/base/context.dart:150:29)
+#12     _rootRun (dart:async/zone.dart:1190:13)
+#13     _CustomZone.run (dart:async/zone.dart:1093:19)
+#14     _runZoned (dart:async/zone.dart:1630:10)
+#15     runZoned (dart:async/zone.dart:1550:10)
+#16     AppContext.run (package:flutter_tools/src/base/context.dart:149:18)
+#17     FlutterCommand.run (package:flutter_tools/src/runner/flutter_command.dart:730:20)
+#18     CommandRunner.runCommand (package:args/command_runner.dart:197:27)
+#19     FlutterCommandRunner.runCommand.<anonymous closure> (package:flutter_tools/src/runner/flutter_command_runner.dart:332:21)
+#20     _rootRunUnary (dart:async/zone.dart:1198:47)
+#21     _CustomZone.runUnary (dart:async/zone.dart:1100:19)
+#22     _FutureListener.handleValue (dart:async/future_impl.dart:143:18)
+#23     Future._propagateToListeners.handleValueCallback (dart:async/future_impl.dart:696:45)
+#24     Future._propagateToListeners (dart:async/future_impl.dart:725:32)
+#25     Future._completeWithValue (dart:async/future_impl.dart:529:5)
+#26     _AsyncAwaitCompleter.complete (dart:async-patch/async_patch.dart:40:15)
+#27     _completeOnAsyncReturn (dart:async-patch/async_patch.dart:311:13)
+#28     FlutterVersion.checkFlutterVersionFreshness (package:flutter_tools/src/version.dart)
+#29     _rootRunUnary (dart:async/zone.dart:1198:47)
+#30     _CustomZone.runUnary (dart:async/zone.dart:1100:19)
+#31     _FutureListener.handleValue (dart:async/future_impl.dart:143:18)
+#32     Future._propagateToListeners.handleValueCallback (dart:async/future_impl.dart:696:45)
+#33     Future._propagateToListeners (dart:async/future_impl.dart:725:32)
+#34     Future._completeWithValue (dart:async/future_impl.dart:529:5)
+#35     Future._asyncCompleteWithValue.<anonymous closure> (dart:async/future_impl.dart:567:7)
+#36     _rootRun (dart:async/zone.dart:1190:13)
+#37     _CustomZone.run (dart:async/zone.dart:1093:19)
+#38     _CustomZone.runGuarded (dart:async/zone.dart:997:7)
+#39     _CustomZone.bindCallbackGuarded.<anonymous closure> (dart:async/zone.dart:1037:23)
+#40     _microtaskLoop (dart:async/schedule_microtask.dart:41:21)
+#41     _startMicrotaskLoop (dart:async/schedule_microtask.dart:50:5)
+#42     _runPendingImmediateCallback (dart:isolate-patch/isolate_patch.dart:118:13)
+#43     _RawReceivePortImpl._handleMessage (dart:isolate-patch/isolate_patch.dart:169:5)
+```
+
+## flutter doctor
+
+```
+[✓] Flutter (Channel stable, 1.20.3, on Microsoft Windows [Version 10.0.18363.1082], locale en-US)
+    • Flutter version 1.20.3 at D:\General\MobileDevelopment\flutter
+    • Framework revision 216dee60c0 (5 weeks ago), 2020-09-01 12:24:47 -0700
+    • Engine revision d1bc06f032
+    • Dart version 2.9.2
+
+[✓] Android toolchain - develop for Android devices (Android SDK version 30.0.2)
+    • Android SDK at D:\General\MobileDevelopment\AppData\Local\Android\Sdk
+    • Platform android-30, build-tools 30.0.2
+    • Java binary at: D:\General\MobileDevelopment\AndroidStudio\AndroidStudio\jre\bin\java
+    • Java version OpenJDK Runtime Environment (build 1.8.0_242-release-1644-b01)
+    • All Android licenses accepted.
+
+[✓] Android Studio (version 4.0)
+    • Android Studio at D:\General\MobileDevelopment\AndroidStudio\AndroidStudio
+    • Flutter plugin version 49.0.2
+    • Dart plugin version 193.7547
+    • Java version OpenJDK Runtime Environment (build 1.8.0_242-release-1644-b01)
+
+[✓] VS Code, 64-bit edition (version 1.49.2)
+    • VS Code at C:\Program Files\Microsoft VS Code
+    • Flutter extension version 3.15.0
+
+[✓] Connected device (1 available)
+    • sdk gphone x86 arm (mobile) • emulator-5554 • android-x86 • Android 11 (API 30) (emulator)
+
+• No issues found!
+```
