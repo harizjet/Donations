@@ -7,6 +7,7 @@ import 'package:progress_dialog/progress_dialog.dart';
 import 'package:ztour_mobile/Pages/Volunteering_Page/Registrationform/reportvolunteer.dart';
 import 'package:ztour_mobile/Setting/settingmain.dart';
 import 'AlertDialoglogout.dart';
+import '../../Pages/DonationPage/donationdata.dart';
 
 class Profile extends StatefulWidget {
   @override
@@ -183,11 +184,11 @@ class UserInfo extends StatelessWidget {
                           SizedBox(height: 10),
                           ListTile(
                             leading: Icon(Icons.graphic_eq),
-                            title: Text("Graph Donation"),
+                            title: Text("Donation Data"),
                             onTap: () => Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (_) => GraphPage(),
+                                builder: (_) => DonationData(),
                               ),
                             ),
                           ),
