@@ -8,8 +8,24 @@ import 'package:ztour_mobile/Pages/Tour_Zoo_Page/zoo_Taiping.dart';
 import 'package:ztour_mobile/Resources/assets.dart';
 import 'package:ztour_mobile/Resources/network_image.dart';
 import 'package:ztour_mobile/Widgets/BottomBar/bottom_bar.dart';
+import 'AlertDialogTourZoo.dart';
 
 class ZooDestinationPage extends StatelessWidget {
+  Future comingSoon(BuildContext context) async {
+    VoidCallback continueCallBack = () {
+      Navigator.of(context).pop();
+    };
+    BlurryDialog alert = BlurryDialog(
+        "Sorry", "Coming soon in the near future!", continueCallBack);
+
+    await showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return alert;
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -182,28 +198,31 @@ class ZooDestinationPage extends StatelessWidget {
                           MaterialPageRoute(builder: (_) => DetailsPageM())),
                     ),
                     MaterialButton(
-                        child: SizedBox(
-                          width: 50.0,
-                          child: Column(
-                            children: <Widget>[
-                              Container(
-                                width: 50,
-                                height: 70,
-                                decoration: BoxDecoration(
-                                    //color: Colors.blue,
-                                    image: DecorationImage(
-                                        image: AssetImage(
-                                            'assets/discover/johor.jpg'),
-                                        fit: BoxFit.cover)),
-                              ),
-                              SizedBox(
-                                height: 10.0,
-                              ),
-                              Text('Zoo Johor')
-                            ],
-                          ),
+                      child: SizedBox(
+                        width: 50.0,
+                        child: Column(
+                          children: <Widget>[
+                            Container(
+                              width: 50,
+                              height: 70,
+                              decoration: BoxDecoration(
+                                  //color: Colors.blue,
+                                  image: DecorationImage(
+                                      image: AssetImage(
+                                          'assets/discover/johor.jpg'),
+                                      fit: BoxFit.cover)),
+                            ),
+                            SizedBox(
+                              height: 10.0,
+                            ),
+                            Text('Zoo Johor')
+                          ],
                         ),
-                        onPressed: () {}),
+                      ),
+                      onPressed: () {
+                        comingSoon(context);
+                      },
+                    ),
                   ],
                 ),
               ),

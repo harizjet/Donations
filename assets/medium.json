@@ -13,10 +13,10 @@
     },
     {
         "1": {
-            "a": "pp",
-            "b": "ppp",
-            "c": "3p",
-            "d": "p3"
+            "a": "Kapas Island",
+            "b": "Borneo & Sumatra",
+            "c": "Sibu Island",
+            "d": "Bodgaya Island"
         },
         "2": {
             "a": "Threatened",
@@ -74,7 +74,7 @@
         }
     },
     {
-        "1": "ppp",
+        "1": "Borneo & Sumatra",
         "2": "Critically endangered",
         "3": "Trees",
         "4": "Gills",

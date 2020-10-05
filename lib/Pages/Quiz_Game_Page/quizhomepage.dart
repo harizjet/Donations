@@ -77,6 +77,7 @@ class _quizhomepageState extends State<quizhomepage> {
               Widget>[
             RaisedButton(
               onPressed: () {
+                langname = "EASY";
                 Navigator.push(context,
                     MaterialPageRoute(builder: (context) => getjson(langname)));
               },
@@ -96,6 +97,7 @@ class _quizhomepageState extends State<quizhomepage> {
             ),
             RaisedButton(
               onPressed: () {
+                langname = "MEDIUM";
                 Navigator.push(context,
                     MaterialPageRoute(builder: (context) => getjson(langname)));
               },
@@ -120,6 +122,7 @@ class _quizhomepageState extends State<quizhomepage> {
               children: <Widget>[
                 RaisedButton(
                   onPressed: () {
+                    langname = "HARD";
                     Navigator.push(
                         context,
                         MaterialPageRoute(

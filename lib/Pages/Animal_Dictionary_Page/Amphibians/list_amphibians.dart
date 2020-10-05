@@ -171,11 +171,39 @@ class _ListAmp extends State<ListAmp> {
     //   });
     // }
     setState(() {
-      _ListAmp.duplicates = animalListAmp;
+      duplicates = List.from(animalListAmp);
+      searchanimalListAmp = List.from(animalListAmp);
     });
 
     print(animalListAmp.length);
   }
+
+  onSearchTextChanged(String text) async {
+    searchanimalListAmp.clear();
+
+    if (text.isEmpty) {
+      setState(() {
+        animalListAmp = List.from(duplicates);
+        _body = ampSIAP(context);
+      });
+    }
+
+    //note that animal is a map
+    duplicates.forEach((animal) {
+      // print(animal['name']);
+
+      if (animal['name'].toUpperCase().contains(text.toUpperCase()))
+        searchanimalListAmp.add(animal);
+    });
+
+    setState(() {
+      animalListAmp = List.from(searchanimalListAmp);
+      _body = ampSIAP(context);
+    });
+    // print(animalListAmp);
+  }
+
+  static List<Map> searchanimalListAmp = [];
 
   @override
   Widget build(BuildContext context) {
@@ -253,6 +281,7 @@ class _ListAmp extends State<ListAmp> {
                                 controller: editingController,
                                 cursorColor: Theme.of(context).primaryColor,
                                 style: dropdownMenuItem,
+                                onChanged: onSearchTextChanged,
                                 decoration: InputDecoration(
                                     hintText: "Search Animal",
                                     hintStyle: TextStyle(
@@ -263,12 +292,7 @@ class _ListAmp extends State<ListAmp> {
                                             Radius.circular(30)),
                                         child: IconButton(
                                           icon: Icon(Icons.search),
-                                          onPressed: () {
-                                            showSearch(
-                                                context: context,
-                                                delegate:
-                                                    Search(animalListAmp));
-                                          },
+                                          onPressed: () {},
                                         )
                                         //Icon(Icons.search),
                                         ),

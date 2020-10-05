@@ -170,11 +170,37 @@ class _ListBird extends State<ListBird> {
     //   });
     // }
     setState(() {
-      _ListBird.duplicates = animalListBird;
+      _ListBird.duplicates = List.from(animalListBird);
     });
 
     print(animalListBird.length);
   }
+
+  onSearchTextChanged(String text) async {
+    searchanimalListbird.clear();
+
+    if (text.isEmpty) {
+      setState(() {
+        animalListBird = List.from(duplicates);
+        _body = birdSIAP(context);
+      });
+    }
+
+    //note that animal is a map
+    duplicates.forEach((animal) {
+      // print(animal['name']);
+      if (animal['name'].toUpperCase().contains(text.toUpperCase()))
+        searchanimalListbird.add(animal);
+    });
+
+    setState(() {
+      animalListBird = List.from(searchanimalListbird);
+      _body = birdSIAP(context);
+    });
+    // print(animalListMammal);
+  }
+
+  static List<Map> searchanimalListbird = [];
 
   @override
   Widget build(BuildContext context) {
@@ -249,6 +275,7 @@ class _ListBird extends State<ListBird> {
                                   BorderRadius.all(Radius.circular(30)),
                               child: TextField(
                                 controller: editingController,
+                                onChanged: onSearchTextChanged,
                                 cursorColor: Theme.of(context).primaryColor,
                                 style: dropdownMenuItem,
                                 decoration: InputDecoration(
@@ -261,12 +288,7 @@ class _ListBird extends State<ListBird> {
                                             Radius.circular(30)),
                                         child: IconButton(
                                           icon: Icon(Icons.search),
-                                          onPressed: () {
-                                            showSearch(
-                                                context: context,
-                                                delegate:
-                                                    Search(animalListBird));
-                                          },
+                                          onPressed: () {},
                                         )),
                                     border: InputBorder.none,
                                     contentPadding: EdgeInsets.symmetric(

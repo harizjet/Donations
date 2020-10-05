@@ -10,18 +10,42 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'AlertDialoglogout.dart';
 import 'package:progress_dialog/progress_dialog.dart';
 import '../Pages/Login_Signup_Page/login_page.dart';
+import 'package:ztour_mobile/Pages/Login_Signup_Page/login_page.dart';
 
 class SettingsOnePage extends StatefulWidget {
   static final String path = "lib/settings.dart";
+
+  static void setLocale(BuildContext context, Locale locale) {
+    _SettingsOnePageState state =
+        context.findAncestorStateOfType<_SettingsOnePageState>();
+    state.setLocale(locale);
+  }
 
   @override
   _SettingsOnePageState createState() => _SettingsOnePageState();
 }
 
 class _SettingsOnePageState extends State<SettingsOnePage> {
+  Locale _locale;
   bool _dark;
 
   final FirebaseAuth _auth = FirebaseAuth.instance;
+
+  void setLocale(Locale locale) {
+    setState(() {
+      _locale = locale;
+    });
+  }
+
+  @override
+  void didChangeDependencies() {
+    getLocale().then((locale) {
+      setState(() {
+        this._locale = locale;
+      });
+    });
+    super.didChangeDependencies();
+  }
 
   @override
   void initState() {
@@ -73,6 +97,13 @@ class _SettingsOnePageState extends State<SettingsOnePage> {
       child: Scaffold(
         backgroundColor: _dark ? null : Colors.yellow[50],
         appBar: AppBar(
+          leading: IconButton(
+            icon: Icon(FontAwesomeIcons.arrowLeft),
+            onPressed: () {
+              Navigator.pushReplacement(
+                  context, MaterialPageRoute(builder: (context) => Profile()));
+            },
+          ),
           elevation: 0,
           brightness: _getBrightness(),
           iconTheme: IconThemeData(color: _dark ? Colors.white : Colors.black),

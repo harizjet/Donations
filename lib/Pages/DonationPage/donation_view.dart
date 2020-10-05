@@ -7,6 +7,7 @@ import 'package:ztour_mobile/Pages/DonationPage/donation.dart';
 import 'package:ztour_mobile/Pages/DonationPage/DonationHistory/donationHistory.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:ztour_mobile/Widgets/BottomBar/bottom_bar.dart';
+import 'donationdata.dart';
 
 TextEditingController _textFieldController = TextEditingController();
 
@@ -70,12 +71,12 @@ class ToDoPage extends StatelessWidget {
               const SizedBox(width: 16.0),
               Expanded(
                 child: MaterialButton(
-                    child: _buildWikiCategory(
-                        FontAwesomeIcons.file, "Others", Colors.greenAccent),
-                    onPressed: () => {}
-                    //Navigator.push(context,
-                    //   MaterialPageRoute(builder: (_) => DonationHistory())),
-                    ),
+                    child: _buildWikiCategory(FontAwesomeIcons.file,
+                        "Donation Data", Colors.greenAccent),
+                    onPressed: () => {
+                          Navigator.push(context,
+                              MaterialPageRoute(builder: (_) => DonationData()))
+                        }),
               ),
             ],
           ),

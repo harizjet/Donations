@@ -176,6 +176,32 @@ class _ListFish extends State<ListFish> {
     print(animalListFish.length);
   }
 
+  onSearchTextChanged(String text) async {
+    searchanimalListFish.clear();
+
+    if (text.isEmpty) {
+      setState(() {
+        animalListFish = List.from(duplicates);
+        _body = fishSIAP(context);
+      });
+    }
+
+    //note that animal is a map
+    duplicates.forEach((animal) {
+      // print(animal['name']);
+      if (animal['name'].toUpperCase().contains(text.toUpperCase()))
+        searchanimalListFish.add(animal);
+    });
+
+    setState(() {
+      animalListFish = List.from(searchanimalListFish);
+      _body = fishSIAP(context);
+    });
+    // print(animalListMammal);
+  }
+
+  static List<Map> searchanimalListFish = [];
+
   @override
   Widget build(BuildContext context) {
     return _body;
@@ -251,6 +277,7 @@ class _ListFish extends State<ListFish> {
                                 controller: editingController,
                                 cursorColor: Theme.of(context).primaryColor,
                                 style: dropdownMenuItem,
+                                onChanged: onSearchTextChanged,
                                 decoration: InputDecoration(
                                     hintText: "Search Animal",
                                     hintStyle: TextStyle(
@@ -261,12 +288,7 @@ class _ListFish extends State<ListFish> {
                                             Radius.circular(30)),
                                         child: IconButton(
                                           icon: Icon(Icons.search),
-                                          onPressed: () {
-                                            showSearch(
-                                                context: context,
-                                                delegate:
-                                                    Search(animalListFish));
-                                          },
+                                          onPressed: () {},
                                         )),
                                     border: InputBorder.none,
                                     contentPadding: EdgeInsets.symmetric(

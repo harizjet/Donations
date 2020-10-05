@@ -171,6 +171,32 @@ class _ListReptile extends State<ListReptile> {
     print(animalListReptiles.length);
   }
 
+  onSearchTextChanged(String text) async {
+    searchanimalListReptiles.clear();
+
+    if (text.isEmpty) {
+      setState(() {
+        animalListReptiles = List.from(duplicates);
+        _body = reptilesSIAP(context);
+      });
+    }
+
+    //note that animal is a map
+    duplicates.forEach((animal) {
+      // print(animal['name']);
+      if (animal['name'].toUpperCase().contains(text.toUpperCase()))
+        searchanimalListReptiles.add(animal);
+    });
+
+    setState(() {
+      animalListReptiles = List.from(searchanimalListReptiles);
+      _body = reptilesSIAP(context);
+    });
+    // print(animalListMammal);
+  }
+
+  static List<Map> searchanimalListReptiles = [];
+
   @override
   Widget build(BuildContext context) {
     return _body;
@@ -246,6 +272,7 @@ class _ListReptile extends State<ListReptile> {
                                 controller: editingController,
                                 cursorColor: Theme.of(context).primaryColor,
                                 style: dropdownMenuItem,
+                                onChanged: onSearchTextChanged,
                                 decoration: InputDecoration(
                                     hintText: "Search Animal",
                                     hintStyle: TextStyle(
@@ -256,12 +283,7 @@ class _ListReptile extends State<ListReptile> {
                                           BorderRadius.all(Radius.circular(30)),
                                       child: IconButton(
                                         icon: Icon(Icons.search),
-                                        onPressed: () {
-                                          showSearch(
-                                              context: context,
-                                              delegate:
-                                                  Search(animalListReptiles));
-                                        },
+                                        onPressed: () {},
                                       ),
                                     ),
                                     border: InputBorder.none,

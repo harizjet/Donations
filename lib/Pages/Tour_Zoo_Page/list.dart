@@ -54,42 +54,64 @@ class Lists extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-      padding: EdgeInsets.all(6),
-      itemCount: zoos.length,
-      itemBuilder: (BuildContext context, int index) {
-        ZooItem item = zoos[index];
-        return Card(
-          elevation: 3,
-          child: Row(
-            children: <Widget>[
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.start,
+    return Column(
+      children: <Widget>[
+        SizedBox(height: 20),
+        Align(
+          alignment: Alignment.topCenter,
+          child: Text(
+            "Coming Soon",
+            textAlign: TextAlign.center,
+            style: TextStyle(
+                color: Colors.black,
+                fontWeight: FontWeight.w500,
+                fontSize: 18.0),
+          ),
+        ),
+        Container(
+          padding: EdgeInsets.only(top: 20),
+          height: MediaQuery.of(context).size.height * 0.8,
+          width: double.infinity,
+          child: ListView.builder(
+            padding: EdgeInsets.all(6),
+            itemCount: zoos.length,
+            itemBuilder: (BuildContext context, int index) {
+              ZooItem item = zoos[index];
+              return Card(
+                elevation: 3,
+                child: Row(
                   children: <Widget>[
-                    Text(
-                      item.zoo,
-                      style: TextStyle(
-                          color: Colors.deepOrange,
-                          fontWeight: FontWeight.w700,
-                          fontSize: 17),
-                    ),
-                    Text(
-                      item.location,
-                      style: TextStyle(fontSize: 14, color: Colors.black87),
-                    ),
-                    SizedBox(
-                      height: 10,
-                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          Text(
+                            item.zoo,
+                            style: TextStyle(
+                                color: Colors.deepOrange,
+                                fontWeight: FontWeight.w700,
+                                fontSize: 17),
+                          ),
+                          Text(
+                            item.location,
+                            style:
+                                TextStyle(fontSize: 14, color: Colors.black87),
+                          ),
+                          SizedBox(
+                            height: 10,
+                          ),
+                        ],
+                      ),
+                    )
                   ],
                 ),
-              )
-            ],
+              );
+            },
           ),
-        );
-      },
+        ),
+      ],
     );
   }
 }

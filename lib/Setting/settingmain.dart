@@ -1,14 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
-import '../Setting/localization/demo_localization.dart';
-import '../Setting/localization/localization_constant.dart';
+import 'localization/demo_localization.dart';
+import 'localization/localization_constant.dart';
 
-import '../Setting/settings.dart';
-
-void main() {
-  runApp(MyApp());
-}
+import 'settings.dart';
 
 class MyApp extends StatefulWidget {
   static void setLocale(BuildContext context, Locale locale) {

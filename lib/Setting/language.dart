@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:ztour_mobile/Setting/main.dart';
+import 'package:ztour_mobile/Setting/settingmain.dart';
 import '../Setting/language1.dart';
 import '../Setting/localization/localization_constant.dart';
 

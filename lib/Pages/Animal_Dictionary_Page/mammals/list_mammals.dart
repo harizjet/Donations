@@ -173,8 +173,34 @@ class _ListMammal extends State<ListMammal> {
       _ListMammal.duplicates = animalListMammal;
     });
 
-    print(animalListMammal.length);
+    print(searchanimalListMammal.length);
   }
+
+  onSearchTextChanged(String text) async {
+    searchanimalListMammal.clear();
+
+    if (text.isEmpty) {
+      setState(() {
+        animalListMammal = List.from(duplicates);
+        _body = mammalSIAP(context);
+      });
+    }
+
+    //note that animal is a map
+    duplicates.forEach((animal) {
+      // print(animal['name']);
+      if (animal['name'].toUpperCase().contains(text.toUpperCase()))
+        searchanimalListMammal.add(animal);
+    });
+
+    setState(() {
+      animalListMammal = List.from(searchanimalListMammal);
+      _body = mammalSIAP(context);
+    });
+    // print(animalListMammal);
+  }
+
+  static List<Map> searchanimalListMammal = [];
 
   @override
   Widget build(BuildContext context) {
@@ -253,6 +279,7 @@ class _ListMammal extends State<ListMammal> {
                                 controller: editingController,
                                 cursorColor: Theme.of(context).primaryColor,
                                 style: dropdownMenuItem,
+                                onChanged: onSearchTextChanged,
                                 decoration: InputDecoration(
                                     hintText: "Search Animal",
                                     hintStyle: TextStyle(
@@ -263,12 +290,7 @@ class _ListMammal extends State<ListMammal> {
                                             Radius.circular(30)),
                                         child: IconButton(
                                           icon: Icon(Icons.search),
-                                          onPressed: () {
-                                            showSearch(
-                                                context: context,
-                                                delegate:
-                                                    Search(animalListMammal));
-                                          },
+                                          onPressed: () {},
                                         )),
                                     border: InputBorder.none,
                                     contentPadding: EdgeInsets.symmetric(
