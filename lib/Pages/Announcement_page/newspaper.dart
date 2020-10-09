@@ -9,6 +9,8 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:ztour_mobile/Widgets/BottomBar/bottom_bar.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+import 'article_viewannouncement.dart';
+
 class NewsTaiping extends StatefulWidget {
   @override
   _NewsTaipingState createState() => _NewsTaipingState();
@@ -119,12 +121,12 @@ class _NewsTaipingState extends State<NewsTaiping> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
-                      Icon(FontAwesomeIcons.solidNewspaper),
+                      Icon(FontAwesomeIcons.newspaper),
                       const SizedBox(height: 16.0),
                       Text(
                         "Zoo\nNegara",
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold, fontSize: 16.0),
+                        // style: TextStyle(
+                        //     fontWeight: FontWeight.bold, fontSize: 16.0),
                       ),
                     ],
                   ),
@@ -248,21 +250,36 @@ class _NewsTaipingState extends State<NewsTaiping> {
                 Column(
                   children: <Widget>[
                     MaterialButton(
-                        child: Container(
-                          height: 200.0,
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.only(
-                                topLeft: Radius.circular(10.0),
-                                topRight: Radius.circular(10.0),
-                              ),
-                              image: DecorationImage(
-                                image: NetworkImage(
-                                    'https://media2.malaymail.com/uploads/articles/2020/2020-08/3tcubs1008.jpg'),
-                                fit: BoxFit.cover,
-                              )),
-                        ),
-                        onPressed: () => launch(
-                            'https://www.malaymail.com/news/life/2020/08/10/taiping-zoo-and-night-safaris-newborn-cubs-named-puntum-teja-and-bayu-video/1892521')),
+                      child: Container(
+                        height: 200.0,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.only(
+                              topLeft: Radius.circular(10.0),
+                              topRight: Radius.circular(10.0),
+                            ),
+                            image: DecorationImage(
+                              image: NetworkImage(
+                                  'https://media2.malaymail.com/uploads/articles/2020/2020-08/3tcubs1008.jpg'),
+                              fit: BoxFit.cover,
+                            )),
+                      ),
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => ArticleView(
+                              'Zoo Taiping',
+                              postUrl:
+                                  'https://www.malaymail.com/news/life/2020/08/10/taiping-zoo-and-night-safaris-newborn-cubs-named-puntum-teja-and-bayu-video/1892521',
+                            ),
+                          ),
+                        );
+                      },
+                    ),
+                    // }
+
+                    // => launch(
+                    //     'https://www.malaymail.com/news/life/2020/08/10/taiping-zoo-and-night-safaris-newborn-cubs-named-puntum-teja-and-bayu-video/1892521')),
                     Padding(
                       padding: const EdgeInsets.all(16.0),
                       child: Text(
@@ -275,7 +292,7 @@ class _NewsTaipingState extends State<NewsTaiping> {
                       child: Row(
                         children: <Widget>[
                           Text(
-                            "Monday,10 Aug 2020 |",
+                            "Monday,10 Aug 2020 ",
                             style: TextStyle(
                               color: Colors.grey,
                               fontSize: 14.0,
@@ -302,46 +319,73 @@ class _NewsTaipingState extends State<NewsTaiping> {
           Divider(),
           const SizedBox(height: 10.0),
           MaterialButton(
-              child: ListTile(
-                title: Text(
-                  "You’ll Fall In Love With All The Adorable New Baby Animals At Taiping Zoo",
-                  style: titleTextStyle,
-                ),
-                subtitle: Text("BY KIRAT KAUR JULY 23, 2020"),
-                trailing: Container(
-                  width: 80.0,
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10.0),
-                      image: DecorationImage(
-                        image: NetworkImage(
-                            'https://www.therakyatpost.com/wp-content/uploads/2020/07/taiping-zoo-baby-animals-feature-image.jpg'),
-                        fit: BoxFit.cover,
-                      )),
-                ),
+            child: ListTile(
+              title: Text(
+                "You’ll Fall In Love With All The Adorable New Baby Animals At Taiping Zoo",
+                style: titleTextStyle,
               ),
-              onPressed: () => launch(
-                  'https://www.therakyatpost.com/2020/07/23/youll-fall-in-love-with-all-the-adorable-new-baby-animals-at-taiping-zoo/')),
+              subtitle: Text("BY KIRAT KAUR JULY 23, 2020"),
+              trailing: Container(
+                width: 80.0,
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10.0),
+                    image: DecorationImage(
+                      image: NetworkImage(
+                          'https://www.therakyatpost.com/wp-content/uploads/2020/07/taiping-zoo-baby-animals-feature-image.jpg'),
+                      fit: BoxFit.cover,
+                    )),
+              ),
+            ),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => ArticleView(
+                    'Zoo Taiping',
+                    postUrl:
+                        'https://www.therakyatpost.com/2020/07/23/youll-fall-in-love-with-all-the-adorable-new-baby-animals-at-taiping-zoo/',
+                  ),
+                ),
+              );
+            },
+          ),
+          // => launch(
+          //     'https://www.therakyatpost.com/2020/07/23/youll-fall-in-love-with-all-the-adorable-new-baby-animals-at-taiping-zoo/')),
           const SizedBox(height: 10.0),
           MaterialButton(
-              child: ListTile(
-                title: Text(
-                  "New norm, strict SOP not stopping crowd from visiting Taiping Zoo",
-                  style: titleTextStyle,
-                ),
-                subtitle: Text("15 JUN 2020 / 18:50 H."),
-                trailing: Container(
-                  width: 80.0,
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10.0),
-                      image: DecorationImage(
-                        image: NetworkImage(
-                            'https://www.thesundaily.my/binrepository/768x432/0c0/0d0/none/11808/YVEM/zoo-taiping-v01-arch551469-mg246375-806533-20191129194355_1210751_20200615185023.jpg'),
-                        fit: BoxFit.cover,
-                      )),
-                ),
+            child: ListTile(
+              title: Text(
+                "New norm, strict SOP not stopping crowd from visiting Taiping Zoo",
+                style: titleTextStyle,
               ),
-              onPressed: () => launch(
-                  'https://www.thesundaily.my/local/new-norm-strict-sop-not-stopping-crowd-from-visiting-taiping-zoo-KC2576927')),
+              subtitle: Text("15 JUN 2020 / 18:50 H."),
+              trailing: Container(
+                width: 80.0,
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10.0),
+                    image: DecorationImage(
+                      image: NetworkImage(
+                          'https://www.thesundaily.my/binrepository/768x432/0c0/0d0/none/11808/YVEM/zoo-taiping-v01-arch551469-mg246375-806533-20191129194355_1210751_20200615185023.jpg'),
+                      fit: BoxFit.cover,
+                    )),
+              ),
+            ),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => ArticleView(
+                    'Zoo Taiping',
+                    postUrl:
+                        'https://www.thesundaily.my/local/new-norm-strict-sop-not-stopping-crowd-from-visiting-taiping-zoo-KC2576927',
+                  ),
+                ),
+              );
+            },
+          ),
+
+          // => launch(
+          //     'https://www.thesundaily.my/local/new-norm-strict-sop-not-stopping-crowd-from-visiting-taiping-zoo-KC2576927')),
         ],
       ),
     );

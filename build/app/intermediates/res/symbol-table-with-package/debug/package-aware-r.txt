@@ -1454,6 +1454,7 @@ drawable design_ic_visibility
 drawable design_ic_visibility_off
 drawable design_password_eye
 drawable design_snackbar_background
+drawable floating_action_mode_shape
 drawable fui_ic_anonymous_white_24dp
 drawable fui_ic_check_circle_black_128dp
 drawable fui_ic_facebook_white_22dp
@@ -1685,13 +1686,17 @@ id action_close
 id action_container
 id action_context_bar
 id action_divider
+id action_go_back
+id action_go_forward
 id action_image
 id action_menu_divider
 id action_menu_presenter
 id action_mode_bar
 id action_mode_bar_stub
 id action_mode_close_button
+id action_reload
 id action_save
+id action_share
 id action_text
 id actions
 id activity_chooser_view_content
@@ -1916,6 +1921,7 @@ id masked_icon_view
 id match_parent
 id material
 id media_actions
+id menu_search
 id message
 id messenger_send_button
 id middle
@@ -1959,6 +1965,7 @@ id phone_number
 id pin
 id production
 id progress
+id progressBar
 id progress_bar
 id progress_circular
 id progress_horizontal
@@ -2128,6 +2135,7 @@ id video_progress_view
 id video_view
 id view_offset_helper
 id visible
+id webView
 id welcome_back_email_link_body
 id welcome_back_idp_button
 id welcome_back_idp_prompt
@@ -2200,6 +2208,7 @@ layout activity_payment_methods
 layout activity_select_shipping_method
 layout activity_shipping_flow
 layout activity_stripe
+layout activity_web_view
 layout add_address_widget
 layout add_payment_method_card_layout
 layout add_payment_method_card_row
@@ -2218,6 +2227,7 @@ layout challenge_zone_single_select_view
 layout challenge_zone_text_view
 layout challenge_zone_view
 layout challenge_zone_web_view
+layout chrome_custom_tabs_layout
 layout com_facebook_activity_layout
 layout com_facebook_device_auth_dialog_fragment
 layout com_facebook_login_fragment
@@ -2239,6 +2249,8 @@ layout design_navigation_item_subheader
 layout design_navigation_menu
 layout design_navigation_menu_item
 layout design_text_input_password_icon
+layout floating_action_mode
+layout floating_action_mode_item
 layout fpx_bank
 layout fui_activity_invisible
 layout fui_activity_register_email
@@ -2311,6 +2323,7 @@ layout tw__tweet_quote
 layout tw__video_control
 layout wallet_test_layout
 menu add_payment_method
+menu menu_main
 menu payment_auth_web_view_menu
 mipmap ic_launcher
 mipmap launcher_icon
@@ -2352,6 +2365,11 @@ string acc_label_expiry_date
 string acc_label_expiry_date_node
 string acc_label_zip
 string acc_label_zip_short
+string action_close
+string action_go_back
+string action_go_forward
+string action_reload
+string action_share
 string add_card
 string address_city_required
 string address_county_required
@@ -2452,6 +2470,7 @@ string common_google_play_services_wear_update_text
 string common_open_on_phone
 string common_signin_button_text
 string common_signin_button_text_long
+string copy_toast_msg
 string cvc_amex_hint
 string cvc_multiline_helper
 string cvc_multiline_helper_amex
@@ -2468,6 +2487,9 @@ string fab_transformation_scrim_behavior
 string fab_transformation_sheet_behavior
 string facebook_application_id
 string facebook_login_protocol_scheme
+string fallback_menu_item_copy_link
+string fallback_menu_item_open_in_browser
+string fallback_menu_item_share_link
 string firebase_database_url
 string firebase_web_host
 string fui_accessibility_logo
@@ -2578,6 +2600,7 @@ string invalid_shipping_information
 string invalid_zip
 string jcb
 string mastercard
+string menu_search
 string messenger_send_button_text
 string mtrl_chip_close_icon_content_description
 string no_payment_methods
@@ -2874,6 +2897,7 @@ style FirebaseUI_TopProgressBar
 style FirebaseUI_Transparent
 style FirebaseUI_VerifyPhoneButton
 style FirebaseUI_WrapperStyle
+style InAppWebViewTheme
 style LaunchTheme
 style MediaTheme
 style MessengerButton
@@ -3087,6 +3111,7 @@ style ThemeOverlay_MaterialComponents_TextInputEditText_FilledBox
 style ThemeOverlay_MaterialComponents_TextInputEditText_FilledBox_Dense
 style ThemeOverlay_MaterialComponents_TextInputEditText_OutlinedBox
 style ThemeOverlay_MaterialComponents_TextInputEditText_OutlinedBox_Dense
+style ThemeTransparent
 style ThreeDS2FullScreenDialog
 style ThreeDS2HeaderTextViewStyle
 style ThreeDS2TextViewStyle
@@ -3376,3 +3401,5 @@ styleable tw__TweetView tw__action_color tw__action_highlight_color tw__containe
 xml filepaths
 xml flutter_image_picker_file_paths
 xml flutter_share_file_paths
+xml image_share_filepaths
+xml provider_paths

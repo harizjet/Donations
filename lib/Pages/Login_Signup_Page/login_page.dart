@@ -382,9 +382,15 @@ class _SignIn extends State<SignIn> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (_) => SplashScreenlogin(),
+                          builder: (_) => AnimatedBottomBar(),
                         ),
                       );
+                      // Navigator.push(
+                      //   context,
+                      //   MaterialPageRoute(
+                      //     builder: (_) => SplashScreenlogin(),
+                      //   ),
+                      // );
                     } else {
                       validationConfirmation(context, tempmessage);
                     }

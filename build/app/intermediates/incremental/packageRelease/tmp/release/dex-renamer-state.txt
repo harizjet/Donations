@@ -1,4 +1,4 @@
-#Tue Oct 06 08:03:47 SGT 2020
+#Fri Oct 09 21:16:44 SGT 2020
 base.0=D\:\\Project\\ProjectHackathon\\ztour\\build\\app\\intermediates\\transforms\\r8\\release\\0\\classes.dex
 path.1=classes2.dex
 renamed.1=classes2.dex

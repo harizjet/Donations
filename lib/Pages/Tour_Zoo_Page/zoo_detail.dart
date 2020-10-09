@@ -19,6 +19,8 @@ import '../../Pages/Volunteering_Page/home_volunteer.dart';
 
 import 'package:ztour_mobile/Pages/Volunteering_Page/home_volunteer.dart';
 
+import 'WebsiteView.dart';
+
 class DetailsPage extends StatelessWidget {
   final String image = "assets/Zoo/Negara/1.jpg";
   @override
@@ -71,23 +73,37 @@ class DetailsPage extends StatelessWidget {
                       SizedBox(
                         width: double.infinity,
                         child: RaisedButton(
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(30.0)),
-                            color: Colors.pinkAccent,
-                            textColor: Colors.white,
-                            child: Text(
-                              "Experience VR Mode",
-                              style: TextStyle(
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.w500,
-                                  fontSize: 18.0),
-                            ),
-                            padding: const EdgeInsets.symmetric(
-                              vertical: 16.0,
-                              horizontal: 32.0,
-                            ),
-                            onPressed: () => launch(
-                                'https://poly.google.com/u/0/view/a6anly0V7HA')),
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(30.0)),
+                          color: Colors.pinkAccent,
+                          textColor: Colors.white,
+                          child: Text(
+                            "Experience VR Mode",
+                            style: TextStyle(
+                                color: Colors.black,
+                                fontWeight: FontWeight.w500,
+                                fontSize: 18.0),
+                          ),
+                          padding: const EdgeInsets.symmetric(
+                            vertical: 16.0,
+                            horizontal: 32.0,
+                          ),
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => WebsiteView(
+                                  'VR',
+                                  'Zoo Negara',
+                                  postUrl:
+                                      'https://poly.google.com/u/0/view/a6anly0V7HA',
+                                ),
+                              ),
+                            );
+                          },
+                        ),
+                        // => launch(
+                        //     'https://poly.google.com/u/0/view/a6anly0V7HA')),
                       ),
                       const SizedBox(height: 30.0),
                       SizedBox(
@@ -134,9 +150,23 @@ class DetailsPage extends StatelessWidget {
                             vertical: 16.0,
                             horizontal: 32.0,
                           ),
-                          onPressed: () => launch(
-                              'https://www.zoonegaramalaysia.my/index.htm'),
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => WebsiteView(
+                                  'Website',
+                                  'Zoo Negara',
+                                  postUrl:
+                                      'https://www.zoonegaramalaysia.my/index.htm',
+                                ),
+                              ),
+                            );
+                          },
                         ),
+                        // => launch(
+                        //     'https://www.zoonegaramalaysia.my/index.htm'),
+                        // ),
                       ),
                       const SizedBox(height: 30.0),
                     ],

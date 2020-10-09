@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:ztour_mobile/Pages/Tour_Zoo_Page/zooM_album.dart';
 
+import 'WebsiteView.dart';
+
 class DetailsPageM extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -56,23 +58,37 @@ class DetailsPageM extends StatelessWidget {
                       SizedBox(
                         width: double.infinity,
                         child: RaisedButton(
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(30.0)),
-                            color: Colors.pinkAccent,
-                            textColor: Colors.white,
-                            child: Text(
-                              "Experience VR Mode",
-                              style: TextStyle(
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.w500,
-                                  fontSize: 18.0),
-                            ),
-                            padding: const EdgeInsets.symmetric(
-                              vertical: 16.0,
-                              horizontal: 32.0,
-                            ),
-                            onPressed: () => launch(
-                                'https://poly.google.com/view/0sR3viP7Fca')),
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(30.0)),
+                          color: Colors.pinkAccent,
+                          textColor: Colors.white,
+                          child: Text(
+                            "Experience VR Mode",
+                            style: TextStyle(
+                                color: Colors.black,
+                                fontWeight: FontWeight.w500,
+                                fontSize: 18.0),
+                          ),
+                          padding: const EdgeInsets.symmetric(
+                            vertical: 16.0,
+                            horizontal: 32.0,
+                          ),
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => WebsiteView(
+                                  'VR',
+                                  'Zoo Melaka',
+                                  postUrl:
+                                      'https://poly.google.com/view/0sR3viP7Fca',
+                                ),
+                              ),
+                            );
+                          },
+                        ),
+                        // => launch(
+                        //     'https://poly.google.com/view/0sR3viP7Fca')),
                       ),
                       const SizedBox(height: 30.0),
                       SizedBox(
@@ -104,24 +120,40 @@ class DetailsPageM extends StatelessWidget {
                       SizedBox(
                         width: double.infinity,
                         child: RaisedButton(
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(30.0)),
-                            color: Colors.red[900],
-                            textColor: Colors.white,
-                            child: Text(
-                              "Official Website",
-                              style: TextStyle(
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.w500,
-                                  fontSize: 18.0),
-                            ),
-                            padding: const EdgeInsets.symmetric(
-                              vertical: 16.0,
-                              horizontal: 32.0,
-                            ),
-                            onPressed: () => launch(
-                                'http://www.zoomelaka.gov.my/index.html')),
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(30.0)),
+                          color: Colors.red[900],
+                          textColor: Colors.white,
+                          child: Text(
+                            "Official Website",
+                            style: TextStyle(
+                                color: Colors.black,
+                                fontWeight: FontWeight.w500,
+                                fontSize: 18.0),
+                          ),
+                          padding: const EdgeInsets.symmetric(
+                            vertical: 16.0,
+                            horizontal: 32.0,
+                          ),
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => WebsiteView(
+                                  'Website',
+                                  'Zoo Melaka',
+                                  postUrl:
+                                      'http://www.zoomelaka.gov.my/index.html',
+                                ),
+                              ),
+                            );
+                          },
+                        ),
                       ),
+
+                      // => launch(
+                      //     'http://www.zoomelaka.gov.my/index.html')),
+                      // ),
                       const SizedBox(height: 30.0),
                     ],
                   ),

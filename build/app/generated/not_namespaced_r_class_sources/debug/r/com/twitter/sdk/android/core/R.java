@@ -30,26 +30,26 @@ public final class R {
     public static final class drawable {
         private drawable() {}
 
-        public static final int tw__ic_logo_default = 0x7f070129;
-        public static final int tw__login_btn = 0x7f07013d;
-        public static final int tw__login_btn_default = 0x7f07013e;
-        public static final int tw__login_btn_disabled = 0x7f07013f;
-        public static final int tw__login_btn_pressed = 0x7f070140;
+        public static final int tw__ic_logo_default = 0x7f07012a;
+        public static final int tw__login_btn = 0x7f07013e;
+        public static final int tw__login_btn_default = 0x7f07013f;
+        public static final int tw__login_btn_disabled = 0x7f070140;
+        public static final int tw__login_btn_pressed = 0x7f070141;
     }
     public static final class id {
         private id() {}
 
-        public static final int tw__spinner = 0x7f0801d2;
-        public static final int tw__web_view = 0x7f0801e1;
+        public static final int tw__spinner = 0x7f0801d8;
+        public static final int tw__web_view = 0x7f0801e7;
     }
     public static final class layout {
         private layout() {}
 
-        public static final int tw__activity_oauth = 0x7f0b0085;
+        public static final int tw__activity_oauth = 0x7f0b0089;
     }
     public static final class string {
         private string() {}
 
-        public static final int tw__login_btn_txt = 0x7f0f011d;
+        public static final int tw__login_btn_txt = 0x7f0f0127;
     }
 }

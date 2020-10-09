@@ -9,6 +9,8 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:ztour_mobile/Widgets/BottomBar/bottom_bar.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+import 'article_viewannouncement.dart';
+
 class News extends StatefulWidget {
   @override
   _NewsState createState() => _NewsState();
@@ -120,12 +122,12 @@ class _NewsState extends State<News> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
-                      Icon(FontAwesomeIcons.solidNewspaper),
+                      Icon(FontAwesomeIcons.newspaper),
                       const SizedBox(height: 16.0),
                       Text(
                         "Zoo\nNegara",
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold, fontSize: 16.0),
+                        // style: TextStyle(
+                        //     fontWeight: FontWeight.bold, fontSize: 16.0),
                       ),
                     ],
                   ),
@@ -261,8 +263,21 @@ class _NewsState extends State<News> {
                                 fit: BoxFit.cover,
                               )),
                         ),
-                        onPressed: () => launch(
-                            'https://www.hmetro.com.my/mutakhir/2020/09/616219/zoo-melaka-dan-zoo-negara-jalin-kerjasama')),
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => ArticleView(
+                                'Zoo Negara',
+                                postUrl:
+                                    'https://www.hmetro.com.my/mutakhir/2020/09/616219/zoo-melaka-dan-zoo-negara-jalin-kerjasama',
+                              ),
+                            ),
+                          );
+                        }),
+
+                    // => launch(
+                    //     'https://www.hmetro.com.my/mutakhir/2020/09/616219/zoo-melaka-dan-zoo-negara-jalin-kerjasama')),
                     Padding(
                       padding: const EdgeInsets.all(16.0),
                       child: Text(
@@ -275,7 +290,7 @@ class _NewsState extends State<News> {
                       child: Row(
                         children: <Widget>[
                           Text(
-                            "Selasa, 1 September 2020",
+                            "Selasa, 1 September 2020 ",
                             style: TextStyle(
                               color: Colors.grey,
                               fontSize: 14.0,
@@ -283,7 +298,7 @@ class _NewsState extends State<News> {
                           ),
                           Spacer(),
                           Text(
-                            "CSR event",
+                            "Raja Noraina Raja Rahim",
                             style: TextStyle(
                               color: Colors.grey,
                               fontSize: 14.0,
@@ -334,8 +349,20 @@ class _NewsState extends State<News> {
                       )),
                 ),
               ),
-              onPressed: () => launch(
-                  'https://www.thestar.com.my/news/nation/2020/03/30/mco-zoo-negara-needs-urgent-donations')),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => ArticleView(
+                      'Zoo Negara',
+                      postUrl:
+                          'https://www.thestar.com.my/news/nation/2020/03/30/mco-zoo-negara-needs-urgent-donations',
+                    ),
+                  ),
+                );
+              }),
+          // => launch(
+          //     'https://www.thestar.com.my/news/nation/2020/03/30/mco-zoo-negara-needs-urgent-donations')),
           const SizedBox(height: 10.0),
           MaterialButton(
               child: ListTile(
@@ -355,8 +382,20 @@ class _NewsState extends State<News> {
                       )),
                 ),
               ),
-              onPressed: () => launch(
-                  'https://www.thestar.com.my/news/nation/2020/03/30/mco-zoo-negara-needs-urgent-donations')),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => ArticleView(
+                      'Zoo Negara',
+                      postUrl:
+                          'https://www.thestar.com.my/metro/metro-news/2020/08/24/students-adopt-kiki-the-rhinoceros-hornbill',
+                    ),
+                  ),
+                );
+              }),
+          // => launch(
+          //     'https://www.thestar.com.my/metro/metro-news/2020/08/24/students-adopt-kiki-the-rhinoceros-hornbill')),
         ],
       ),
     );

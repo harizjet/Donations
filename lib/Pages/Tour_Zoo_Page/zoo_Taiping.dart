@@ -5,6 +5,8 @@ import 'package:url_launcher/url_launcher.dart';
 
 import 'package:ztour_mobile/Pages/Tour_Zoo_Page/zooT_album.dart';
 
+import 'WebsiteView.dart';
+
 class DetailsPageT extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -57,23 +59,37 @@ class DetailsPageT extends StatelessWidget {
                       SizedBox(
                         width: double.infinity,
                         child: RaisedButton(
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(30.0)),
-                            color: Colors.pinkAccent,
-                            textColor: Colors.white,
-                            child: Text(
-                              "Experience VR Mode",
-                              style: TextStyle(
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.w500,
-                                  fontSize: 18.0),
-                            ),
-                            padding: const EdgeInsets.symmetric(
-                              vertical: 16.0,
-                              horizontal: 32.0,
-                            ),
-                            onPressed: () => launch(
-                                'https://poly.google.com/view/68RncnHiFiV')),
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(30.0)),
+                          color: Colors.pinkAccent,
+                          textColor: Colors.white,
+                          child: Text(
+                            "Experience VR Mode",
+                            style: TextStyle(
+                                color: Colors.black,
+                                fontWeight: FontWeight.w500,
+                                fontSize: 18.0),
+                          ),
+                          padding: const EdgeInsets.symmetric(
+                            vertical: 16.0,
+                            horizontal: 32.0,
+                          ),
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => WebsiteView(
+                                  'VR',
+                                  'Zoo Taiping',
+                                  postUrl:
+                                      'https://poly.google.com/view/68RncnHiFiV',
+                                ),
+                              ),
+                            );
+                          },
+                        ),
+                        //  => launch(
+                        //     'https://poly.google.com/view/68RncnHiFiV')),
                       ),
                       const SizedBox(height: 30.0),
                       SizedBox(
@@ -105,23 +121,38 @@ class DetailsPageT extends StatelessWidget {
                       SizedBox(
                         width: double.infinity,
                         child: RaisedButton(
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(30.0)),
-                            color: Colors.red[900],
-                            textColor: Colors.white,
-                            child: Text(
-                              "Official Website",
-                              style: TextStyle(
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.w500,
-                                  fontSize: 18.0),
-                            ),
-                            padding: const EdgeInsets.symmetric(
-                              vertical: 16.0,
-                              horizontal: 32.0,
-                            ),
-                            onPressed: () => launch(
-                                'https://zootaiping.gov.my/bm/frame-visit.html')),
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(30.0)),
+                          color: Colors.red[900],
+                          textColor: Colors.white,
+                          child: Text(
+                            "Official Website",
+                            style: TextStyle(
+                                color: Colors.black,
+                                fontWeight: FontWeight.w500,
+                                fontSize: 18.0),
+                          ),
+                          padding: const EdgeInsets.symmetric(
+                            vertical: 16.0,
+                            horizontal: 32.0,
+                          ),
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => WebsiteView(
+                                  'Website',
+                                  'Zoo Taiping',
+                                  postUrl:
+                                      'https://zootaiping.gov.my/bm/frame-visit.html',
+                                ),
+                              ),
+                            );
+                          },
+                        ),
+
+                        // => launch(
+                        //     'https://zootaiping.gov.my/bm/frame-visit.html')),
                       ),
                       const SizedBox(height: 30.0),
                     ],

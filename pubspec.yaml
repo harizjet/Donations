@@ -37,7 +37,7 @@ dependencies:
   bmnav: ^0.3.4
   dynamic_theme:
   
-  
+  flutter_inappwebview: ^4.0.0+4
 
 
   cloud_firestore: 

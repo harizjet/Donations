@@ -464,6 +464,12 @@
       "languageVersion": "2.6"
     },
     {
+      "name": "flutter_inappwebview",
+      "rootUri": "file:///D:/General/MobileDevelopment/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_inappwebview-4.0.0+4",
+      "packageUri": "lib/",
+      "languageVersion": "2.7"
+    },
+    {
       "name": "flutter_keyboard_visibility",
       "rootUri": "file:///D:/General/MobileDevelopment/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_keyboard_visibility-3.2.2",
       "packageUri": "lib/",
@@ -1262,7 +1268,7 @@
       "languageVersion": "2.7"
     }
   ],
-  "generated": "2020-10-05T20:13:00.110555Z",
+  "generated": "2020-10-09T14:12:38.782731Z",
   "generator": "pub",
   "generatorVersion": "2.9.2"
 }
