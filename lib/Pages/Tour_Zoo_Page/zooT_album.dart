@@ -38,11 +38,11 @@ class GalleryPageTwo extends StatelessWidget {
         crossAxisCount: 3,
         itemCount: 16,
         itemBuilder: (context, index) => GestureDetector(
-          onTap: () => _showImageDialog(context, zoo[index]),
+          onTap: () => _showImageDialog(context, zooT[index]),
           child: Container(
             decoration: BoxDecoration(
                 image: DecorationImage(
-                  image: NetworkImage(zoo[index % zoo.length]),
+                  image: NetworkImage(zooT[index % zooT.length]),
                   fit: BoxFit.cover,
                 ),
                 borderRadius: BorderRadius.circular(10.0)),

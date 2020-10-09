@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "D:\\Project\\ProjectHackathon\\ztour\\build\\stripe_payment\\intermediates\\res\\merged\\release\\menu\\add_payment_method.xml",
+        "source": "D:\\General\\MobileDevelopment\\AndroidStudio\\.gradle\\caches\\transforms-2\\files-2.1\\9c8e4098f624b9e09b35d1ef7368dde8\\jetified-stripe-android-10.4.6\\res\\menu\\add_payment_method.xml"
+    },
+    {
+        "merged": "D:\\Project\\ProjectHackathon\\ztour\\build\\stripe_payment\\intermediates\\res\\merged\\release\\menu\\payment_auth_web_view_menu.xml",
+        "source": "D:\\General\\MobileDevelopment\\AndroidStudio\\.gradle\\caches\\transforms-2\\files-2.1\\9c8e4098f624b9e09b35d1ef7368dde8\\jetified-stripe-android-10.4.6\\res\\menu\\payment_auth_web_view_menu.xml"
+    }
+]

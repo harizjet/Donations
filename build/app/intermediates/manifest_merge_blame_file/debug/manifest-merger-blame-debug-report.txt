@@ -47,7 +47,7 @@
 29        android:debuggable="true"
 30        android:icon="@mipmap/launcher_icon"
 30-->D:\Project\ProjectHackathon\ztour\android\app\src\main\AndroidManifest.xml:14:9-45
-31        android:label="Ztour"
+31        android:label="ZTour"
 31-->D:\Project\ProjectHackathon\ztour\android\app\src\main\AndroidManifest.xml:13:9-30
 32        android:supportsRtl="true"
 32-->[com.facebook.android:facebook-android-sdk:5.5.1] D:\General\MobileDevelopment\AndroidStudio\.gradle\caches\transforms-2\files-2.1\0476275743f1468028f4a2f60c7bc291\facebook-android-sdk-5.5.1\AndroidManifest.xml:28:18-44

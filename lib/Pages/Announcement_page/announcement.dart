@@ -33,18 +33,6 @@ class _NewsState extends State<News> {
           });
       },
     );
-    setState(
-      () {
-        build(context);
-      },
-    );
-  }
-
-  Widget _body = donationLOADING();
-
-  Map<String, String> donationnumber = {};
-
-  void updatedonationnumber() async {
     await getAllDonationbyzoo().then(
       (numbers) {
         if (mounted)
@@ -62,11 +50,24 @@ class _NewsState extends State<News> {
     );
   }
 
+  Widget _body = donationLOADING();
+
+  Map<String, String> donationnumber = {};
+
+  // void updatedonationnumber() async {
+
+  //   setState(
+  //     () {
+  //       _body = buildNews(context);
+  //     },
+  //   );
+  // }
+
   @override
   void initState() {
     super.initState();
     updateregistrationnumber();
-    updatedonationnumber();
+    // updatedonationnumber();
   }
 
   @override
@@ -102,26 +103,6 @@ class _NewsState extends State<News> {
         title: Text("Feed"),
         centerTitle: true,
       ),
-      // appBar: AppBar(
-      //   backgroundColor: Colors.white,
-      //   elevation: 0,
-      //   automaticallyImplyLeading: false,
-      //   actions: <Widget>[
-      //     IconButton(
-      //       color: Colors.black,
-      //       icon: Icon(Icons.home),
-      //       onPressed: () => Navigator.push(
-      //           context,
-      //           MaterialPageRoute(
-      //             builder: (_) => AnimatedBottomBar(),
-      //           )),
-      //     ),
-      //   ],
-      //   title: Text(
-      //     "Feed",
-      //     style: TextStyle(color: Colors.black, fontSize: 30.0),
-      //   ),
-      // ),
       body: ListView(
         padding: const EdgeInsets.all(16.0),
         children: <Widget>[

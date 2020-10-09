@@ -654,7 +654,7 @@ class _DonationMethodState extends State<DonationMethod> {
                     time.year,
                     time.month,
                     time.day,
-                    time.hour + 8,
+                    time.hour,
                     time.minute,
                     time.second,
                     time.millisecond,
@@ -663,10 +663,10 @@ class _DonationMethodState extends State<DonationMethod> {
 
                 NewDonation.newdonation(
                   '${widget.zooName}',
-                  '${DateFormat('yyyy-MM-dd hh:mm').format(new DateTime.fromMillisecondsSinceEpoch(time.millisecondsSinceEpoch + 28800000))}',
+                  '${DateFormat('yyyy-MM-dd hh:mm').format(new DateTime.fromMillisecondsSinceEpoch(time.millisecondsSinceEpoch, isUtc: false))}',
                   'RM ${(int.parse(widget.amountValueTransaction) / 100).toStringAsFixed(2)}',
                   ExistingCardsPage.confirmation,
-                  '${DateFormat('yyyy-MM-dd hh:mm').format(new DateTime.fromMillisecondsSinceEpoch(time.millisecondsSinceEpoch + 28800000))}',
+                  '${DateFormat('yyyy-MM-dd hh:mm').format(new DateTime.fromMillisecondsSinceEpoch(time.millisecondsSinceEpoch, isUtc: false))}',
                 );
               }
             },

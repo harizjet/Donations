@@ -34,7 +34,8 @@ class _CountryPageState extends State<CountryPage> {
           IconButton(
             icon: Icon(Icons.search),
             onPressed: () {
-              showSearch(context: context, delegate: Search(countryData));
+              if (countryData != null)
+                showSearch(context: context, delegate: Search(countryData));
             },
           )
         ],

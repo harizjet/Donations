@@ -209,7 +209,7 @@ class _quizpageState extends State<quizpage> {
   Widget choicebutton(String k) {
     return Padding(
         padding: EdgeInsets.symmetric(
-          vertical: 10.0,
+          vertical: 8.0,
           horizontal: 20.0,
         ),
         child: MaterialButton(
@@ -277,9 +277,9 @@ class _quizpageState extends State<quizpage> {
               ),
             ),
             Expanded(
-              flex: 3,
+              flex: 2,
               child: Container(
-                padding: EdgeInsets.all(20.0),
+                padding: EdgeInsets.fromLTRB(20, 5, 20, 20),
                 alignment: Alignment.bottomLeft,
                 child: Text(
                   mydata[0][i.toString()],
@@ -291,11 +291,11 @@ class _quizpageState extends State<quizpage> {
               ),
             ),
             Expanded(
-              flex: 6,
+              flex: 4,
               child: AbsorbPointer(
                 absorbing: disableAnswer,
                 child: Container(
-                  padding: EdgeInsets.all(20.0),
+                  padding: EdgeInsets.fromLTRB(20, 0, 20, 0),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[

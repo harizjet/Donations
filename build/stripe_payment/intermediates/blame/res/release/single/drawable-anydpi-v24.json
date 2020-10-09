@@ -1,0 +1,18 @@
+[
+    {
+        "merged": "D:\\Project\\ProjectHackathon\\ztour\\build\\stripe_payment\\intermediates\\res\\merged\\release\\drawable-anydpi-v24\\ic_bank_generic.xml",
+        "source": "D:\\General\\MobileDevelopment\\AndroidStudio\\.gradle\\caches\\transforms-2\\files-2.1\\9c8e4098f624b9e09b35d1ef7368dde8\\jetified-stripe-android-10.4.6\\res\\drawable-anydpi-v24\\ic_bank_generic.xml"
+    },
+    {
+        "merged": "D:\\Project\\ProjectHackathon\\ztour\\build\\stripe_payment\\intermediates\\res\\merged\\release\\drawable-anydpi-v24\\ic_indicator.xml",
+        "source": "D:\\General\\MobileDevelopment\\AndroidStudio\\.gradle\\caches\\transforms-2\\files-2.1\\57965a0b2dc5ecbdc52ec60aada84e7f\\jetified-stripe-3ds2-android-1.2.2\\res\\drawable-anydpi-v24\\ic_indicator.xml"
+    },
+    {
+        "merged": "D:\\Project\\ProjectHackathon\\ztour\\build\\stripe_payment\\intermediates\\res\\merged\\release\\drawable-anydpi-v24\\ic_arrow.xml",
+        "source": "D:\\General\\MobileDevelopment\\AndroidStudio\\.gradle\\caches\\transforms-2\\files-2.1\\57965a0b2dc5ecbdc52ec60aada84e7f\\jetified-stripe-3ds2-android-1.2.2\\res\\drawable-anydpi-v24\\ic_arrow.xml"
+    },
+    {
+        "merged": "D:\\Project\\ProjectHackathon\\ztour\\build\\stripe_payment\\intermediates\\res\\merged\\release\\drawable-anydpi-v24\\ic_unionpay_template_32.xml",
+        "source": "D:\\General\\MobileDevelopment\\AndroidStudio\\.gradle\\caches\\transforms-2\\files-2.1\\9c8e4098f624b9e09b35d1ef7368dde8\\jetified-stripe-android-10.4.6\\res\\drawable-anydpi-v24\\ic_unionpay_template_32.xml"
+    }
+]
