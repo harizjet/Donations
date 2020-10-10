@@ -53,7 +53,7 @@ class DetailsPageT extends StatelessWidget {
                               horizontal: 32.0,
                             ),
                             onPressed: () => launch(
-                                'https://earth.google.com/earth/rpc/cc/drive?state=%7B%22ids%22%3A%5B%221g1nXS7VpKGJT3f14eFNp71jZJixCJUg1%22%5D%2C%22action%22%3A%22open%22%2C%22userId%22%3A%22103372052462390541200%22%7D&usp=sharing')),
+                                'https://earth.google.com/earth/rpc/cc/drive?state=%7B%22ids%22:%5B%221g1nXS7VpKGJT3f14eFNp71jZJixCJUg1%22%5D,%22action%22:%22open%22,%22userId%22:%22103372052462390541200%22%7D')),
                       ),
                       const SizedBox(height: 30.0),
                       SizedBox(

@@ -140,11 +140,15 @@
     <string msgid="5201977337835724196" name="common_open_on_phone">"スマートフォンで開く"</string>
     <string msgid="3441753203274453993" name="common_signin_button_text">"ログイン"</string>
     <string msgid="669893613918351210" name="common_signin_button_text_long">"Googleにログイン"</string>
+    <string msgid="8230469354668895088" name="copy_toast_msg">"リンクをクリップボードにコピーしました"</string>
     <string name="czv_whitelist_no_label">いいえ</string>
     <string name="czv_whitelist_yes_label">はい</string>
     <string name="ending_in">%1$s - %2$s</string>
     <string name="expiry_date_hint">MM/YY</string>
     <string name="expiry_label_short">有効期限</string>
+    <string msgid="2615365786337886368" name="fallback_menu_item_copy_link">"リンクをコピー"</string>
+    <string msgid="8984733760067120953" name="fallback_menu_item_open_in_browser">"ブラウザで開く"</string>
+    <string msgid="271185644269364308" name="fallback_menu_item_share_link">"リンクの共有"</string>
     <string name="fui_accessibility_logo">アプリのロゴ</string>
     <string name="fui_auto_verified">電話番号は自動的に確認されました</string>
     <string name="fui_button_text_save">保存</string>

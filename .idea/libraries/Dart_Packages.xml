@@ -541,6 +541,13 @@
             </list>
           </value>
         </entry>
+        <entry key="flutter_inappwebview">
+          <value>
+            <list>
+              <option value="D:/General/MobileDevelopment/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_inappwebview-4.0.0+4/lib" />
+            </list>
+          </value>
+        </entry>
         <entry key="flutter_keyboard_visibility">
           <value>
             <list>
@@ -1544,6 +1551,7 @@
       <root url="file://D:/General/MobileDevelopment/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_custom_clippers-1.1.2/lib" />
       <root url="file://D:/General/MobileDevelopment/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_device_locale-0.4.0/lib" />
       <root url="file://D:/General/MobileDevelopment/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_form_builder-3.13.6/lib" />
+      <root url="file://D:/General/MobileDevelopment/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_inappwebview-4.0.0+4/lib" />
       <root url="file://D:/General/MobileDevelopment/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_keyboard_visibility-3.2.2/lib" />
       <root url="file://D:/General/MobileDevelopment/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_launcher_icons-0.8.0/lib" />
       <root url="file://D:/General/MobileDevelopment/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_page_indicator-0.0.3/lib" />

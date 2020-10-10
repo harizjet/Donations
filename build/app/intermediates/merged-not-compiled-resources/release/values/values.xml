@@ -896,6 +896,11 @@
     <string name="acc_label_expiry_date_node">%s, Expiration date</string>
     <string name="acc_label_zip">ZIP Code</string>
     <string name="acc_label_zip_short">ZIP</string>
+    <string name="action_close">Close</string>
+    <string name="action_go_back">Go Back</string>
+    <string name="action_go_forward">Go Forward</string>
+    <string name="action_reload">Reload</string>
+    <string name="action_share">Share</string>
     <string name="add_card">Add a new debit or credit card to make purchases in this app.</string>
     <string name="address_city_required">Please enter your city</string>
     <string name="address_county_required">Please enter your county</string>
@@ -996,6 +1001,7 @@
     <string name="common_open_on_phone">Open on phone</string>
     <string name="common_signin_button_text">Sign in</string>
     <string name="common_signin_button_text_long">Sign in with Google</string>
+    <string name="copy_toast_msg">Link copied to clipboard</string>
     <string name="cvc_amex_hint">CVV</string>
     <string name="cvc_multiline_helper">123</string>
     <string name="cvc_multiline_helper_amex">1234</string>
@@ -1012,6 +1018,9 @@
     <string name="fab_transformation_sheet_behavior" translatable="false">com.google.android.material.transformation.FabTransformationSheetBehavior</string>
     <string name="facebook_application_id" translatable="false">CHANGE-ME</string>
     <string name="facebook_login_protocol_scheme" translatable="false">fbYOUR_APP_ID</string>
+    <string name="fallback_menu_item_copy_link">Copy link</string>
+    <string name="fallback_menu_item_open_in_browser">Open in browser</string>
+    <string name="fallback_menu_item_share_link">Share link</string>
     <string name="firebase_database_url" translatable="false">https://ztour-mobile-201c1.firebaseio.com</string>
     <string name="firebase_web_host" translatable="false">CHANGE-ME</string>
     <string name="fui_accessibility_logo" translation_description="Content description for app logo">App logo</string>
@@ -1132,6 +1141,7 @@
     <string name="invalid_zip">Your postal code is incomplete.</string>
     <string name="jcb">JCB</string>
     <string name="mastercard">MasterCard</string>
+    <string name="menu_search">Search</string>
     <string name="messenger_send_button_text">Send</string>
     <string name="mtrl_chip_close_icon_content_description">Remove %1$s</string>
     <string name="no_payment_methods">No payment methods.</string>
@@ -2878,6 +2888,9 @@
         <item name="android:layout_marginLeft">@dimen/fui_wrapper_padding_horiz</item>
         <item name="android:layout_marginRight">@dimen/fui_wrapper_padding_horiz</item>
     </style>
+    <style name="InAppWebViewTheme" parent="Theme.AppCompat">
+
+    </style>
     <style name="LaunchTheme" parent="@android:style/Theme.Black.NoTitleBar">
         <!-- Show a splash screen on the activity. Automatically removed when
              Flutter draws its first frame -->
@@ -3561,6 +3574,14 @@
     <item name="editTextStyle">@style/Widget.MaterialComponents.TextInputEditText.OutlinedBox.Dense
     </item>
   </style>
+    <style name="ThemeTransparent" parent="android:Theme">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:backgroundDimEnabled">false</item>
+    </style>
     <style name="ThreeDS2FullScreenDialog">
         <item name="android:windowFrame">@null</item>
         <item name="android:windowIsFloating">true</item>

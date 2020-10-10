@@ -51,57 +51,57 @@ public final class R {
     public static final class id {
         private id() {}
 
-        public static final int android_pay = 0x7f080045;
-        public static final int android_pay_dark = 0x7f080046;
-        public static final int android_pay_light = 0x7f080047;
-        public static final int android_pay_light_with_border = 0x7f080048;
-        public static final int book_now = 0x7f080053;
-        public static final int buyButton = 0x7f080067;
-        public static final int buy_now = 0x7f080068;
-        public static final int buy_with = 0x7f080069;
-        public static final int buy_with_google = 0x7f08006a;
-        public static final int classic = 0x7f08007e;
-        public static final int dark = 0x7f0800a4;
-        public static final int donate_with = 0x7f0800b3;
-        public static final int donate_with_google = 0x7f0800b4;
-        public static final int googleMaterial2 = 0x7f0800e0;
-        public static final int google_wallet_classic = 0x7f0800e1;
-        public static final int google_wallet_grayscale = 0x7f0800e2;
-        public static final int google_wallet_monochrome = 0x7f0800e3;
-        public static final int grayscale = 0x7f0800e4;
-        public static final int holo_dark = 0x7f0800ed;
-        public static final int holo_light = 0x7f0800ee;
-        public static final int light = 0x7f08010a;
-        public static final int logo_only = 0x7f080110;
-        public static final int match_parent = 0x7f080117;
-        public static final int material = 0x7f080118;
-        public static final int monochrome = 0x7f08011e;
-        public static final int none = 0x7f080127;
-        public static final int production = 0x7f080143;
-        public static final int sandbox = 0x7f080151;
-        public static final int selectionDetails = 0x7f08016a;
-        public static final int slide = 0x7f080175;
-        public static final int strict_sandbox = 0x7f080187;
-        public static final int test = 0x7f080195;
-        public static final int wrap_content = 0x7f0801f6;
+        public static final int android_pay = 0x7f080049;
+        public static final int android_pay_dark = 0x7f08004a;
+        public static final int android_pay_light = 0x7f08004b;
+        public static final int android_pay_light_with_border = 0x7f08004c;
+        public static final int book_now = 0x7f080057;
+        public static final int buyButton = 0x7f08006b;
+        public static final int buy_now = 0x7f08006c;
+        public static final int buy_with = 0x7f08006d;
+        public static final int buy_with_google = 0x7f08006e;
+        public static final int classic = 0x7f080082;
+        public static final int dark = 0x7f0800a8;
+        public static final int donate_with = 0x7f0800b7;
+        public static final int donate_with_google = 0x7f0800b8;
+        public static final int googleMaterial2 = 0x7f0800e4;
+        public static final int google_wallet_classic = 0x7f0800e5;
+        public static final int google_wallet_grayscale = 0x7f0800e6;
+        public static final int google_wallet_monochrome = 0x7f0800e7;
+        public static final int grayscale = 0x7f0800e8;
+        public static final int holo_dark = 0x7f0800f1;
+        public static final int holo_light = 0x7f0800f2;
+        public static final int light = 0x7f08010e;
+        public static final int logo_only = 0x7f080114;
+        public static final int match_parent = 0x7f08011b;
+        public static final int material = 0x7f08011c;
+        public static final int monochrome = 0x7f080123;
+        public static final int none = 0x7f08012c;
+        public static final int production = 0x7f080148;
+        public static final int sandbox = 0x7f080157;
+        public static final int selectionDetails = 0x7f080170;
+        public static final int slide = 0x7f08017b;
+        public static final int strict_sandbox = 0x7f08018d;
+        public static final int test = 0x7f08019b;
+        public static final int wrap_content = 0x7f0801fd;
     }
     public static final class layout {
         private layout() {}
 
-        public static final int wallet_test_layout = 0x7f0b008e;
+        public static final int wallet_test_layout = 0x7f0b0092;
     }
     public static final class string {
         private string() {}
 
-        public static final int wallet_buy_button_place_holder = 0x7f0f0131;
+        public static final int wallet_buy_button_place_holder = 0x7f0f013b;
     }
     public static final class style {
         private style() {}
 
-        public static final int WalletFragmentDefaultButtonTextAppearance = 0x7f1001d1;
-        public static final int WalletFragmentDefaultDetailsHeaderTextAppearance = 0x7f1001d2;
-        public static final int WalletFragmentDefaultDetailsTextAppearance = 0x7f1001d3;
-        public static final int WalletFragmentDefaultStyle = 0x7f1001d4;
+        public static final int WalletFragmentDefaultButtonTextAppearance = 0x7f1001d3;
+        public static final int WalletFragmentDefaultDetailsHeaderTextAppearance = 0x7f1001d4;
+        public static final int WalletFragmentDefaultDetailsTextAppearance = 0x7f1001d5;
+        public static final int WalletFragmentDefaultStyle = 0x7f1001d6;
     }
     public static final class styleable {
         private styleable() {}
